@@ -1,31 +1,43 @@
 ﻿using UnityEngine;
 
 public class MapEntity : MonoBehaviour
-{   
+{
+    public string element;  // Manually set element in inspector
+    public bool selected = false;
+    public bool slotted = false;
+
     [SerializeField] private Camera cam = null;
+    [SerializeField] private Vector3 startPos;
     [SerializeField] private bool mouseOver = false;
-    [SerializeField] private bool selected = false;
-    [SerializeField] private float distFromCam = 1; // How far in front of the camera the object is
+    [SerializeField] private float distanceFromCam; // How far in front of the camera the object is
 
     private void Start()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, cam.transform.position.z + distFromCam);
+        distanceFromCam = transform.position.z - cam.transform.position.z;
+        startPos = new Vector3(transform.position.x, transform.position.y, distanceFromCam);
     }
 
     private void Update()
     {
-        if (mouseOver && Input.GetMouseButtonDown(0))
+        // Right-click to return map monster to its initial spot
+        if (Input.GetMouseButtonDown(1) && mouseOver)
         {
-            selected = !selected;
+            selected = false;
+            transform.position = startPos;
         }
 
         if (selected)
         {
-            transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distFromCam));
-        }
+            transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromCam));
+        }     
     }
 
-    // Requires the object to have a collider
+    // Left-click to select/de-select map monster
+    private void OnMouseDown()
+    {
+        selected = !selected;
+    }
+
     private void OnMouseEnter() { mouseOver = true; }
     private void OnMouseExit() { mouseOver = false; }
 }
