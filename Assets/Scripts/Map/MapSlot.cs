@@ -4,6 +4,7 @@ public class MapSlot : MonoBehaviour
 {
     public string areaElement;      // Manually set area element in inspector
     public string monsterElement;
+    public MapEntity entity;
 
     private Rigidbody2D rb2d;
     [SerializeField] private bool slotted = false;
@@ -38,6 +39,7 @@ public class MapSlot : MonoBehaviour
                     slotted = true;
                     enemy.slotted = true;
                     monsterElement = enemy.element;
+                    entity = enemy;
                     enemy.transform.position = transform.position;
                 }
             }
