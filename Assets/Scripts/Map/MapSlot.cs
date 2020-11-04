@@ -4,9 +4,9 @@ public class MapSlot : MonoBehaviour
 {
     public string areaElement;      // Manually set area element in inspector
     public string monsterElement;
-    private bool slotted = false;
 
     private Rigidbody2D rb2d;
+    [SerializeField] private bool slotted = false;
 
     private void Start()
     {
