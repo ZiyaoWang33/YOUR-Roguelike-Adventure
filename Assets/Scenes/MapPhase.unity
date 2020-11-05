@@ -155,6 +155,7 @@ MonoBehaviour:
   element: fire
   selected: 0
   slotted: 0
+  locked: 0
   cam: {fileID: 370714032}
   startPos: {x: 0, y: 0, z: 0}
   mouseOver: 0
@@ -367,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaElement: 
   monsterElement: 
+  entity: {fileID: 0}
   slotted: 0
 --- !u!61 &768345050
 BoxCollider2D:
@@ -514,6 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaElement: 
   monsterElement: 
+  entity: {fileID: 0}
   slotted: 0
 --- !u!61 &1158866482
 BoxCollider2D:
@@ -687,6 +690,7 @@ MonoBehaviour:
   element: water
   selected: 0
   slotted: 0
+  locked: 0
   cam: {fileID: 370714032}
   startPos: {x: 0, y: 0, z: 0}
   mouseOver: 0
@@ -790,6 +794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaElement: 
   monsterElement: 
+  entity: {fileID: 0}
   slotted: 0
 --- !u!61 &1390096905
 BoxCollider2D:
@@ -963,6 +968,7 @@ MonoBehaviour:
   element: wind
   selected: 0
   slotted: 0
+  locked: 0
   cam: {fileID: 370714032}
   startPos: {x: 0, y: 0, z: 0}
   mouseOver: 0
