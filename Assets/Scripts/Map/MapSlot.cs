@@ -19,8 +19,6 @@ public class MapSlot : MonoBehaviour
     {
         if (other.TryGetComponent(out MapEntity enemy))
         {
-            // Note: Still need to handle locking map slots that have been slotted after the player leaves
-            // the map building phase
             if (slotted)
             {
                 // Player can de-slot map monster by re-selecting

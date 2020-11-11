@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room : MonoBehaviour
+public class RoomCenter : MonoBehaviour
 {
-    [HideInInspector] public bool closedWhenEntered;
+    public bool openWhenEnemiesCleared;
 
-    // Start is called before the first frame update
+    public List<GameObject> enemies = new List<GameObject>();
+
+    public Room theRoom;
+
     void Start()
     {
-        
+        if (openWhenEnemiesCleared)
+        {
+            theRoom.closedWhenEntered = true;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         
