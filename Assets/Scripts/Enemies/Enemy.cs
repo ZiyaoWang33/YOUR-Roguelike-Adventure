@@ -37,6 +37,10 @@ public abstract class Enemy : MonoBehaviour
         {
             direction = (player.transform.position - transform.position).normalized;
         }
+        else
+        {
+            direction = Vector3.right * UnityEngine.Random.Range(-1, 1);
+        }
  
         sprite.flipX = direction.x > 0;
         transform.position += direction * stats.speed * Time.deltaTime;
@@ -58,14 +62,6 @@ public abstract class Enemy : MonoBehaviour
             {
                 Attack();
             }
-        }
-    }
-
-    protected virtual void OnCollisionEnter2D()
-    {
-        if (player == null)
-        {
-            direction.x = -direction.x;
         }
     }
 

@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomCenter : MonoBehaviour
 {
     public bool openWhenEnemiesCleared;
-
     public List<GameObject> enemies = new List<GameObject>();
-
     public Room theRoom;
+
+    private const string playerTag = "Player";
 
     void Start()
     {
@@ -18,14 +17,9 @@ public class RoomCenter : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == playerTag)
         {
             CameraController.instance.ChangeTarget(transform);
         }

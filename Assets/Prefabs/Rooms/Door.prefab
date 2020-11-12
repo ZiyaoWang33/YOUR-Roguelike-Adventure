@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2038613665797375604}
   - component: {fileID: 5740584123142506220}
+  - component: {fileID: 6702996901639109412}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -58,6 +59,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6702996901639109412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6993774986740438221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e2aec39a7511a439a53c8553fcfdc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7966485685179178725
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +81,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8482078105937244796}
   - component: {fileID: 8516528747558109200}
-  - component: {fileID: 4270155846961509144}
   m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
@@ -126,9 +138,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 119105347
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5041813583268518508, guid: 815f98a145a4ae14d897a7f431477ea9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -141,15 +153,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4270155846961509144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7966485685179178725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e2aec39a7511a439a53c8553fcfdc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

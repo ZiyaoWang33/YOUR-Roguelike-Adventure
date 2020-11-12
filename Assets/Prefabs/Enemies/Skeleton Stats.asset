@@ -15,7 +15,7 @@ MonoBehaviour:
   _speed: 0.5
   _attackSpeed: 1
   _damage: 1
-  _detectionRange: {x: 5, y: 5}
+  _detectionRange: {x: 20, y: 20}
   _targetLayer:
     serializedVersion: 2
     m_Bits: 512
