@@ -4,6 +4,12 @@ public class Door : MonoBehaviour
 {
     private void Start()
     {
+        if (!gameObject.activeSelf)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
         gameObject.SetActive(false);
     }
 

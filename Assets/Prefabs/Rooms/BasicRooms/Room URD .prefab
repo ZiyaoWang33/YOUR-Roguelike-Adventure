@@ -7,6 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3776801628191892706, guid: 6b22c545ddb0dc14f8ecb340f0d5e759,
+        type: 3}
+      propertyPath: doors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776801628191892706, guid: 6b22c545ddb0dc14f8ecb340f0d5e759,
+        type: 3}
+      propertyPath: doors.Array.data[2]
+      value: 
+      objectReference: {fileID: 1005481168019775115}
+    - target: {fileID: 6498840180936300096, guid: 6b22c545ddb0dc14f8ecb340f0d5e759,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8313645099574528136, guid: 6b22c545ddb0dc14f8ecb340f0d5e759,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -1181,3 +1196,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b22c545ddb0dc14f8ecb340f0d5e759, type: 3}
+--- !u!114 &1005481168019775115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6014053305460087494, guid: 6b22c545ddb0dc14f8ecb340f0d5e759,
+    type: 3}
+  m_PrefabInstance: {fileID: 6810034541531464781}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e2aec39a7511a439a53c8553fcfdc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

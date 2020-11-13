@@ -9,7 +9,6 @@ public class RoomActivator : MonoBehaviour
 
     private bool active = false;
     private int deathCount = 0;
-    private bool completed = false;
 
     private const string playerTag = "Player";
 
@@ -36,7 +35,6 @@ public class RoomActivator : MonoBehaviour
             foreach(Door door in doors)
             {
                 door.Open();
-                completed = true;
             }
         }
     }
@@ -45,9 +43,10 @@ public class RoomActivator : MonoBehaviour
     {
         if (other.tag == playerTag)
         {
+            CameraController.instance.ChangeTarget(transform);
             active = true;
 
-            if (!completed)
+            if (deathCount < enemies.Length)
             {
                 foreach (Door door in doors)
                 {

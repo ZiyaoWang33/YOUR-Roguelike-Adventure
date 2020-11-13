@@ -39,7 +39,7 @@ public abstract class Enemy : MonoBehaviour
         }
         else
         {
-            direction = Vector3.right * UnityEngine.Random.Range(-1, 1);
+            direction = Vector3.zero;
         }
  
         sprite.flipX = direction.x > 0;

@@ -4,8 +4,7 @@ using UnityEngine;
 public class RoomCenter : MonoBehaviour
 {
     public bool openWhenEnemiesCleared;
-    public List<GameObject> enemies = new List<GameObject>();
-    public Room theRoom;
+    [HideInInspector] public Room theRoom;
 
     private const string playerTag = "Player";
 
