@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class RoomActivator : MonoBehaviour
 {
     [HideInInspector] public bool closedWhenEntered = false;
+    public Enemy[] enemies = null;
+    public event Action OnRoomEntered;
 
     [SerializeField] private Door[] doors = null;
-    [SerializeField] private Enemy[] enemies = null;
 
     private bool active = false;
     private int deathCount = 0;
@@ -44,6 +46,7 @@ public class RoomActivator : MonoBehaviour
         if (other.tag == playerTag)
         {
             CameraController.instance.ChangeTarget(transform);
+            OnRoomEntered?.Invoke();
             active = true;
 
             if (deathCount < enemies.Length)

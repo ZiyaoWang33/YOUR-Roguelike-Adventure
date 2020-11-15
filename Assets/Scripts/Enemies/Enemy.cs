@@ -15,6 +15,11 @@ public abstract class Enemy : MonoBehaviour
     protected Health player = null;
     protected float attackTimer = 0;
 
+    protected virtual void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
     protected virtual void Update()
     {
         attackTimer -= Time.deltaTime;
@@ -50,6 +55,11 @@ public abstract class Enemy : MonoBehaviour
     {
         player.TakeDamage(stats.damage * difficultyMultiplier);
         attackTimer = stats.attackSpeed;
+    }
+
+    public virtual void AnimateSpawn()
+    {
+        
     }
     
 
