@@ -8,6 +8,7 @@ public class SceneController : Singleton<SceneController>
     [SerializeField] private string currentLevel = string.Empty;
     [SerializeField] private GameStateManager gameState = null;
 
+    private string previousLevel = string.Empty;
     private List<AsyncOperation> loadOperations = new List<AsyncOperation>();
 
     private void Start()
@@ -17,6 +18,7 @@ public class SceneController : Singleton<SceneController>
 
     public void LoadLevel(string lvl)
     {
+        previousLevel = currentLevel;
         currentLevel = lvl;
         StartCoroutine(LevelProgress(lvl));
     }
@@ -70,12 +72,12 @@ public class SceneController : Singleton<SceneController>
 
     public void UnloadLevel()
     {
-        AsyncOperation ao = SceneManager.UnloadSceneAsync(currentLevel);
+        AsyncOperation ao = SceneManager.UnloadSceneAsync(previousLevel);
         ao.completed += OnUnloadComplete;
 
         if (ao == null)
         {
-            Debug.LogError("Unable to load " + currentLevel);
+            Debug.LogError("Unable to load " + previousLevel);
             return;
         }
     }

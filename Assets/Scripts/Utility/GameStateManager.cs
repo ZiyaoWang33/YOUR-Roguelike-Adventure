@@ -33,7 +33,7 @@ public class GameStateManager : MonoBehaviour
                 break;
         }
 
-        OnGameStateChange.Invoke(previousState, _currentState);
+        OnGameStateChange?.Invoke(previousState, _currentState);
     }
 
     public void TogglePause()

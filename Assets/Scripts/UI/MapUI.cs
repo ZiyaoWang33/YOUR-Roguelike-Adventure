@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System;
 
-public class MapUI : MonoBehaviour
+public class MapUI : SceneTransition
 {
     [HideInInspector] public event Action OnMapExit;
 
     // For use in an OnClick event on a UI button/component
-    private void Exit()
+    public void Exit()
     {
         OnMapExit?.Invoke();
+
+        SceneController.Instance.LoadLevel("Forest");
     }
 }
