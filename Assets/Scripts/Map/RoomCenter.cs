@@ -1,18 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class RoomCenter : MonoBehaviour
 {
-    public bool openWhenEnemiesCleared;
+    public RoomActivator activator = null;
+    public bool openWhenEnemiesCleared = false;
     [HideInInspector] public Room theRoom;
 
     private const string playerTag = "Player";
 
-    void Start()
+    private void Awake()
     {
         if (openWhenEnemiesCleared)
         {
-            theRoom.closedWhenEntered = true;
+            activator.closedWhenEntered = true;
         }
     }
 

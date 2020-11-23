@@ -160,6 +160,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 692115171920087797, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4174926175206003241, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
         type: 3}
       propertyPath: m_TileAssetArray.Array.data[1].m_Data
@@ -225,11 +230,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Room Center End '
       objectReference: {fileID: 0}
+    - target: {fileID: 6517853438760204272, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
+        type: 3}
+      propertyPath: enemyContainer
+      value: 
+      objectReference: {fileID: 3368380012670349949}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7, type: 3}
 --- !u!4 &7898863758989978327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4174926176109266019, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6083861177735376564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3368380012670349949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8849806671372426441, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
     type: 3}
   m_PrefabInstance: {fileID: 6083861177735376564}
   m_PrefabAsset: {fileID: 0}

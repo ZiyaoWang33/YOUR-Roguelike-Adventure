@@ -42,6 +42,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8089694994179533256, guid: 6b22c545ddb0dc14f8ecb340f0d5e759,
+        type: 3}
+      propertyPath: doors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089694994179533256, guid: 6b22c545ddb0dc14f8ecb340f0d5e759,
+        type: 3}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 5676792250109533269}
     - target: {fileID: 8313645099574528136, guid: 6b22c545ddb0dc14f8ecb340f0d5e759,
         type: 3}
       propertyPath: m_Tiles.Array.size

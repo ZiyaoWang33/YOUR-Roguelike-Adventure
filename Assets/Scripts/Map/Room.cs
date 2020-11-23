@@ -2,19 +2,9 @@
 
 public class Room : MonoBehaviour
 {
-    [HideInInspector] public bool closedWhenEntered = true;
-
-    [SerializeField] private RoomActivator activator = null;
+    public Door[] doors = null;
 
     private const string playerTag = "Player";
-
-    private void Awake()
-    {
-        if (closedWhenEntered)
-        {
-            activator.closedWhenEntered = true;
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

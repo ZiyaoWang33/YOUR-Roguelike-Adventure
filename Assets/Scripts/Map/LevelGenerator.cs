@@ -57,26 +57,25 @@ public class LevelGenerator : MonoBehaviour
         foreach (GameObject outline in generatedOutlines)
         {
             Vector3 centerPosition = new Vector3(outline.transform.position.x, outline.transform.position.y, outline.transform.position.z + 1);
+            RoomCenter currentCenter = null;
 
             if (outline.transform.position == Vector3.zero)
             {
-                Instantiate(centerStart, centerPosition, transform.rotation).theRoom = outline.GetComponent<Room>();
+                currentCenter = Instantiate(centerStart, centerPosition, transform.rotation);
             }
             else if (outline.transform.position == endRoom.transform.position)
             {
-                Instantiate(centerEnd, centerPosition, transform.rotation).theRoom = outline.GetComponent<Room>();
+                currentCenter = Instantiate(centerEnd, centerPosition, transform.rotation);
             }
             else
             {
                 int centerSelect = Random.Range(0, potentialCenters.Length);
-                Instantiate(potentialCenters[centerSelect], centerPosition, transform.rotation).theRoom = outline.GetComponent<Room>();
+                currentCenter = Instantiate(potentialCenters[centerSelect], centerPosition, transform.rotation);
             }
-        }
-    }
 
-    void Update()
-    {
-        
+            currentCenter.theRoom = outline.GetComponent<Room>();
+            currentCenter.activator.doors = currentCenter.theRoom.doors;
+        }
     }
 
     public void MoveGenerationPoint()

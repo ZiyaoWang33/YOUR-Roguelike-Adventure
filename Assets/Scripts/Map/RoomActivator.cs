@@ -1,18 +1,61 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomActivator : MonoBehaviour
 {
+    [HideInInspector] public Door[] doors = null;
+    [HideInInspector] public List<Enemy> enemies = new List<Enemy>();
     [HideInInspector] public bool closedWhenEntered = false;
-    public Enemy[] enemies = null;
     public event Action OnRoomEntered;
 
-    [SerializeField] private Door[] doors = null;
+    [SerializeField] private GameObject enemyContainer = null;
 
     private bool active = false;
     private int deathCount = 0;
 
     private const string playerTag = "Player";
+
+    private void Awake()
+    {
+        List<GameObject> enemySets = new List<GameObject>();
+        AddChildren(enemyContainer, enemySets);
+        GameObject setToUse = enemySets[UnityEngine.Random.Range(0, enemySets.Count)];
+
+        List<GameObject> enemyObjects = new List<GameObject>();
+        AddChildren(setToUse, enemyObjects);
+
+        foreach (GameObject enemy in enemyObjects)
+        {
+            enemies.Add(enemy.GetComponent<Enemy>());
+        }
+
+        foreach (GameObject enemySet in enemySets)
+        {
+            if (enemySet != setToUse)
+            {
+                Destroy(enemySet);
+            }
+        }
+    }
+
+    private void AddChildren(GameObject obj, List<GameObject> listToGrow)
+    {
+        if (null == obj) 
+        { 
+            return; 
+        }
+
+        foreach (Transform child in obj.transform)
+        {
+            if (child == null) 
+            { 
+                continue;
+            }
+
+            listToGrow.Add(child.gameObject);
+        }
+    }
 
     private void OnEnable()
     {
@@ -32,7 +75,7 @@ public class RoomActivator : MonoBehaviour
             deathCount++;
         }
 
-        if (deathCount >= enemies.Length)
+        if (deathCount >= enemies.Count)
         {
             foreach(Door door in doors)
             {
@@ -49,7 +92,7 @@ public class RoomActivator : MonoBehaviour
             OnRoomEntered?.Invoke();
             active = true;
 
-            if (deathCount < enemies.Length)
+            if (deathCount < enemies.Count)
             {
                 foreach (Door door in doors)
                 {
