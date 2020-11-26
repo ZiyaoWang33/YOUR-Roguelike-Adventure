@@ -11,8 +11,6 @@ public class Gunner : Player
         if (attackTimer <= 0)
         {
             GameObject bullet = Instantiate(this.bullet, shootPoint.position, shootPoint.rotation);
-            bullet.GetComponent<Bullet>().SetAngle(rotator.eulerAngles.z);
-
             attackTimer = stats.attackSpeed;
         }
     }

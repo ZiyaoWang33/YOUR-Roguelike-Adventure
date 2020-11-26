@@ -89,14 +89,20 @@ public class RoomActivator : MonoBehaviour
         if (other.tag == playerTag)
         {
             CameraController.instance.ChangeTarget(transform);
-            OnRoomEntered?.Invoke();
             active = true;
 
             if (deathCount < enemies.Count)
             {
+                OnRoomEntered?.Invoke();
+
                 foreach (Door door in doors)
                 {
                     door.Close();
+                }
+
+                foreach (Enemy enemy in enemies)
+                {
+                    enemy.player = other.GetComponent<Health>();
                 }
             }
         }

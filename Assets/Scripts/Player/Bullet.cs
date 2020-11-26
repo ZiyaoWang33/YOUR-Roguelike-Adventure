@@ -2,11 +2,12 @@
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rb = null;
-    [SerializeField] private float speed = 1;
-    [SerializeField] private int damage = 1;
+    [SerializeField] protected Rigidbody2D rb = null;
+    [SerializeField] protected float speed = 1;
+    [SerializeField] protected int damage = 1;
+    [SerializeField] protected LayerMask ignoreBullets = new LayerMask();
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rb.velocity = transform.right * speed;
     }
@@ -18,14 +19,6 @@ public class Bullet : MonoBehaviour
             health.TakeDamage(damage);
         }
 
-        if (Mathf.Abs(rb.velocity.x) < speed)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void SetAngle(float angle)
-    {
-        transform.eulerAngles = Vector3.forward * angle;
+        Destroy(gameObject);
     }
 }

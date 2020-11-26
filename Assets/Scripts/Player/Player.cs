@@ -2,6 +2,8 @@
 
 public abstract class Player : MonoBehaviour
 {
+    [HideInInspector] public float speedMultiplier = 1;
+
     [SerializeField] protected PlayerStats stats = null;
     [SerializeField] protected PlayerInput input = null;
     [SerializeField] protected Transform rotator = null;
@@ -21,7 +23,7 @@ public abstract class Player : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        transform.position += (Vector3)input.movement * stats.speed * Time.deltaTime;
+        transform.position += (Vector3)input.movement * stats.speed * speedMultiplier * Time.deltaTime;
 
         Vector2 direction = (input.mousePos - rotator.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -31,4 +33,9 @@ public abstract class Player : MonoBehaviour
     }
 
     protected abstract void Attack();
+
+    public Vector3 GetDirection()
+    {
+        return (Vector3)input.movement;
+    }
 }

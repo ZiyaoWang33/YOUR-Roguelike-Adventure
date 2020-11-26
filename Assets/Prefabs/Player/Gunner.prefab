@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c839432ac9c382489e55a6b44eba054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedMultiplier: 1
   stats: {fileID: 11400000, guid: 7225db66f1a6a224b9af6e7eca97798e, type: 2}
   input: {fileID: 9061435152585825492}
   rotator: {fileID: 6451784120501961282}
@@ -179,6 +180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945463629237644843, guid: 09f805698ce1432469927fe68558bc18,
+        type: 3}
+      propertyPath: _health
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5768517460560176509, guid: 09f805698ce1432469927fe68558bc18,
         type: 3}

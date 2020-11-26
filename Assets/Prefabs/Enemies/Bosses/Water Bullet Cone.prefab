@@ -1,0 +1,275 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &686135964574132025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3023954447896583790}
+  m_Layer: 10
+  m_Name: Water Bullet Cone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3023954447896583790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686135964574132025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2351994893501267332}
+  - {fileID: 2949744479736832568}
+  - {fileID: 8783408604486056185}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3780523134909371367
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3023954447896583790}
+    m_Modifications:
+    - target: {fileID: 1501083124696665329, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781158, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_Name
+      value: Water Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996392602069233685, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996392602069233685, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8afb15cef0b5a0a40b09a34d42c7f44d, type: 3}
+--- !u!4 &2351994893501267332 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3780523134909371367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4340190071293840475
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3023954447896583790}
+    m_Modifications:
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.13052624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9914449
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781158, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_Name
+      value: Water Bullet (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8afb15cef0b5a0a40b09a34d42c7f44d, type: 3}
+--- !u!4 &2949744479736832568 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4340190071293840475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7867793706974680730
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3023954447896583790}
+    m_Modifications:
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.13052616
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9914449
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501083125164781158, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+        type: 3}
+      propertyPath: m_Name
+      value: Water Bullet (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8afb15cef0b5a0a40b09a34d42c7f44d, type: 3}
+--- !u!4 &8783408604486056185 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1501083125164781155, guid: 8afb15cef0b5a0a40b09a34d42c7f44d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7867793706974680730}
+  m_PrefabAsset: {fileID: 0}

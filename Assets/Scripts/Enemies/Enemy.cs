@@ -4,16 +4,16 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     [HideInInspector] public event Action OnDeath;
+    [HideInInspector] public Health player = null;
     public Health health = null;
 
     [SerializeField] protected EnemyStats stats = null;
     [SerializeField] protected SpriteRenderer sprite = null;
     [SerializeField] protected int difficultyMultiplier = 1;
 
-    protected RaycastHit2D patrolHit = new RaycastHit2D();
     protected Vector3 direction = Vector3.right;
-    protected Health player = null;
     protected float attackTimer = 0;
+    protected bool inRange = false;
 
     protected virtual void Awake()
     {
@@ -23,16 +23,15 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Update()
     {
         attackTimer -= Time.deltaTime;
+
+        if (attackTimer <= 0 && inRange)
+        {
+            Attack();
+        }
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-        if (Physics2D.BoxCast(transform.position, stats.detectionRange, 0, Vector2.zero, stats.detectionRange.x, stats.targetLayer) && !player)
-        {
-            patrolHit = Physics2D.BoxCast(transform.position, stats.detectionRange, 0, Vector2.zero, stats.detectionRange.x, stats.targetLayer);
-            player = patrolHit.collider.TryGetComponent(out Health health) ? health : player;
-        }
-
         Move();
     }
 
@@ -46,7 +45,7 @@ public abstract class Enemy : MonoBehaviour
         {
             direction = Vector3.zero;
         }
- 
+
         sprite.flipX = direction.x > 0;
         transform.position += direction * stats.speed * Time.deltaTime;
     }
@@ -61,17 +60,21 @@ public abstract class Enemy : MonoBehaviour
     {
         
     }
-    
 
     // Default method for melee enemies; override completely for different cases
-    protected virtual void OnTriggerEnter2D(Collider2D collider)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (player)
+        if (player && other.gameObject.Equals(player.gameObject))
         {
-            if (collider.gameObject.Equals(player.gameObject) && attackTimer <= 0)
-            {
-                Attack();
-            }
+            inRange = true;
+        }
+    }
+
+    protected virtual void OnTriggerExit2D(Collider2D other)
+    {
+        if (player && other.gameObject.Equals(player.gameObject))
+        {
+            inRange = false;
         }
     }
 

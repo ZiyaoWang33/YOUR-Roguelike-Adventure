@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6414188310264313586}
-  - component: {fileID: 6414188310264313589}
   - component: {fileID: 6414188310264313588}
   - component: {fileID: 3228803229726943364}
-  m_Layer: 0
+  - component: {fileID: 6359541178008262574}
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,27 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &6414188310264313589
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6414188310264313591}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 192bcd7625afc9849839590329dff9be, type: 2}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &6414188310264313588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,9 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7f9b86a0804e44791a994339abf2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6414188310264313589}
+  rb: {fileID: 6359541178008262574}
   speed: 25
   damage: 10
+  ignoreBullets:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!61 &3228803229726943364
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -96,6 +78,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.35}
   m_EdgeRadius: 0
+--- !u!50 &6359541178008262574
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414188310264313591}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 192bcd7625afc9849839590329dff9be, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6414188310736082016
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6414188310736082017}
   - component: {fileID: 6414188310736082014}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +167,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -537211713
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -3328242913338228825, guid: 56faa61c0738e9b43b0b5aa082c87bb1,
     type: 3}
