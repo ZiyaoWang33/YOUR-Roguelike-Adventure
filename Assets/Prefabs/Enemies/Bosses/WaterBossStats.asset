@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde9429e0d7acac45a6198f0308c07ba, type: 3}
   m_Name: WaterBossStats
   m_EditorClassIdentifier: 
-  _speed: 0
-  _attackSpeed: 1
+  _speed: 0.5
+  _attackSpeed: 0.5
   _damage: 1

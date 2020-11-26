@@ -6,6 +6,7 @@ public class WaterBullet : Bullet
     [SerializeField] private float explosionRadius = 0;
     [SerializeField] private int explosionDamage = 0;
     [SerializeField] private LayerMask playerLayer = new LayerMask();
+    [SerializeField] private GameObject graphic = null;
 
     private Vector3 originalPos = Vector3.zero;
     private RaycastHit2D explodeHit = new RaycastHit2D();
@@ -18,7 +19,7 @@ public class WaterBullet : Bullet
 
     private void AnimateExplosion()
     {
-
+        graphic.transform.localScale = new Vector2(explosionRadius, explosionRadius);
     }
 
     private void Explode()
