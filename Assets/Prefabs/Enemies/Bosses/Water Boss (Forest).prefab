@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 8301278243660024983}
-  abilityDampener: 0.5
+  abilityDistance: 2
   root: {fileID: 8669873318594768456, guid: 74354186896e50447bae9354c30d1ddc, type: 3}
   bulletPattern: {fileID: 686135964574132025, guid: 90a28f9bab476d14fa943077928181e2,
     type: 3}
@@ -97,7 +97,8 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 321159ac442391c4f84ad143f28c34b8, type: 2}
   sprite: {fileID: 8252636061340876672}
   difficultyMultiplier: 1
-  abilitySpeed: 5
+  abilitySpeed: 7
+  secondAttackSpeed: 0.75
 --- !u!1001 &6567125706526244239
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public event Action OnDamageTaken;
+
     [SerializeField] private int _health = 1;
     public int health { get { return _health; } }
 
@@ -15,6 +18,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         _health -= amount;
+        OnDamageTaken?.Invoke();
 
         if (_health <= 0)
         {

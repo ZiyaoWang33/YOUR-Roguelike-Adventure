@@ -4,7 +4,7 @@ public class WaterBossWoods : MonoBehaviour, IBossElement
 {
     [SerializeField] private Enemy boss = null;
     private Player player = null;
-    [SerializeField][Range(0, 0.5f)] private float abilityDampener = 0;
+    [SerializeField] private float abilityDistance = 0;
     [SerializeField] private GameObject root = null;
     [SerializeField] private GameObject bulletPattern = null;
     [SerializeField] private Transform shootPoint = null;
@@ -12,7 +12,7 @@ public class WaterBossWoods : MonoBehaviour, IBossElement
 
     public void UseAbility()
     {
-        Root newRoot = Instantiate(root, player.transform.position + player.GetDirection() * abilityDampener, Quaternion.identity).GetComponent<Root>();
+        Root newRoot = Instantiate(root, player.transform.position + player.GetDirection() * abilityDistance, Quaternion.identity).GetComponent<Root>();
         newRoot.player = player;
     }
 

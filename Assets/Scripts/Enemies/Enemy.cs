@@ -52,7 +52,6 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Attack()
     {
-        player.TakeDamage(stats.damage * difficultyMultiplier);
         attackTimer = stats.attackSpeed;
     }
 
