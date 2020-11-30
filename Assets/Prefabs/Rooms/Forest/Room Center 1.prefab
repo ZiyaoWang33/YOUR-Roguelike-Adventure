@@ -2489,5 +2489,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room Center 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5528230925365372121, guid: db10b96a4047a524ab8016fad1d9074e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790380527385464800, guid: db10b96a4047a524ab8016fad1d9074e,
+        type: 3}
+      propertyPath: enemyContainer
+      value: 
+      objectReference: {fileID: 7372087350681303784}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db10b96a4047a524ab8016fad1d9074e, type: 3}
+--- !u!1 &7372087350681303784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5528230925365372121, guid: db10b96a4047a524ab8016fad1d9074e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3095893646671158833}
+  m_PrefabAsset: {fileID: 0}

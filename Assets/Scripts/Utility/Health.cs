@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -18,12 +19,14 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         _health -= amount;
-        OnDamageTaken?.Invoke();
+        OnDamageTaken?.Invoke();      
 
         if (_health <= 0)
         {
             Die();
         }
+
+        StartCoroutine(damageBlink(0.05f));
     }
 
     public void Heal(int amount)
@@ -35,5 +38,12 @@ public class Health : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    IEnumerator damageBlink(float time)
+    {
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(time);
+        GetComponentInChildren<SpriteRenderer>().enabled = true;
     }
 }
