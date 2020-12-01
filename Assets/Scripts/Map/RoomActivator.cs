@@ -20,7 +20,14 @@ public class RoomActivator : MonoBehaviour
     {
         List<GameObject> enemySets = new List<GameObject>();
         AddChildren(enemyContainer, enemySets);
-        GameObject setToUse = enemySets[UnityEngine.Random.Range(0, enemySets.Count)];
+
+        // Avoids error caused by starting rooms having no enemies
+        GameObject setToUse = null;
+
+        if (enemyContainer != null)
+        {
+            setToUse = enemySets[UnityEngine.Random.Range(0, enemySets.Count)];
+        }
 
         List<GameObject> enemyObjects = new List<GameObject>();
         AddChildren(setToUse, enemyObjects);

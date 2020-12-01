@@ -8,6 +8,7 @@ public class MapSlot : MonoBehaviour
 
     private Rigidbody2D rb2d;
     [SerializeField] private bool slotted = false;
+    [SerializeField] private int level = 0;     // Manually set in inspector
 
     private void Start()
     {
@@ -19,27 +20,46 @@ public class MapSlot : MonoBehaviour
     {
         if (other.TryGetComponent(out MapEntity enemy))
         {
-            if (slotted)
+            if (MapData.currentLevel == level)
             {
-                // Player can de-slot map monster by re-selecting
-                if (enemy.slotted && enemy.selected)
+                if (slotted)
                 {
-                    slotted = false;
-                    enemy.slotted = false;
-                    monsterElement = null;
+                    // Player can de-slot map monster by re-selecting
+                    if (enemy.slotted && enemy.selected)
+                    {
+                        slotted = false;
+                        enemy.slotted = false;
+                        monsterElement = null;
+                    }
+                    // Player can swap slotted map monsters without having to select the slotted one
+                    else if (!enemy.slotted && !enemy.selected)
+                    {
+                        entity.slotted = false;
+                        entity.ReturnToStart();
+
+                        enemy.slotted = true;
+                        enemy.transform.position = transform.position;
+                        monsterElement = enemy.element;
+                        entity = enemy;
+                    }
+                }
+                else
+                {
+                    // Player can move map monster over slot without it auto-slotting in
+                    if (!enemy.selected)
+                    {
+                        slotted = true;
+                        enemy.slotted = true;
+                        enemy.transform.position = transform.position;
+                        monsterElement = enemy.element;
+                        entity = enemy;
+                    }
                 }
             }
-            else
+            // Trying to slot an enemy into an invalid slot resets the enemy position
+            else if (!enemy.selected)
             {
-                // Player can move map monster over slot without it auto-slotting in
-                if (!enemy.selected)
-                {
-                    slotted = true;
-                    enemy.slotted = true;
-                    monsterElement = enemy.element;
-                    entity = enemy;
-                    enemy.transform.position = transform.position;
-                }
+                enemy.ReturnToStart();
             }
         }
     }

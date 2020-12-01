@@ -6,6 +6,7 @@ public class MapEntity : MonoBehaviour
     public bool selected = false;
     public bool slotted = false;
     public bool locked = false;
+    [HideInInspector] public Vector3 lockedPos = Vector3.zero;
 
     [SerializeField] private Camera cam = null;
     [SerializeField] private Vector3 startPos;
@@ -14,8 +15,17 @@ public class MapEntity : MonoBehaviour
 
     private void Start()
     {
-        distanceFromCam = transform.position.z - cam.transform.position.z;
-        startPos = new Vector3(transform.position.x, transform.position.y, distanceFromCam);
+        distanceFromCam = transform.position.z - cam.transform.position.z - 1;
+
+        if (locked)
+        {
+            // Set sprite to (an explosion?) here
+            startPos = lockedPos;
+        }
+        else
+        {
+            startPos = new Vector3(transform.position.x, transform.position.y, distanceFromCam);
+        }
     }
 
     private void Update()
@@ -25,8 +35,7 @@ public class MapEntity : MonoBehaviour
             // Right-click to return map monster to its initial spot
             if (Input.GetMouseButtonDown(1) && mouseOver)
             {
-                selected = false;
-                transform.position = startPos;
+                ReturnToStart();
             }
 
             if (selected)
@@ -36,12 +45,31 @@ public class MapEntity : MonoBehaviour
         }
     }
 
+    public void ReturnToStart()
+    {
+        selected = false;
+        transform.position = startPos;
+    }
+
+    public void LockEntity()
+    {
+        locked = true;
+        lockedPos = transform.position;
+    }
+
     // Left-click to select/de-select map monster
     private void OnMouseDown()
     {
         selected = !selected;
     }
 
-    private void OnMouseEnter() { mouseOver = true; }
-    private void OnMouseExit() { mouseOver = false; }
+    private void OnMouseEnter()
+    {
+        mouseOver = true;
+    }
+
+    private void OnMouseExit()
+    {
+        mouseOver = false;
+    }
 }

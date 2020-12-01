@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : Singleton<SceneController>
 {
+    public Dictionary<MapSlot, MapEntity> LockedEntities = new Dictionary<MapSlot, MapEntity>();
+
     [SerializeField] private string currentLevel = string.Empty;
     [SerializeField] private GameStateManager gameState = null;
 

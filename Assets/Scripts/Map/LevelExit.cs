@@ -19,6 +19,7 @@ public class LevelExit : SceneTransition
         if (active && Input.GetButtonDown("Use"))
         {
             SceneController.Instance.LoadLevel("MapPhase");
+            MapData.currentLevel++;
         }
     }
 
