@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 public class MapData : MonoBehaviour
 {
-    [HideInInspector] public Dictionary<MapSlot, MapEntity> entities = null;
+    [HideInInspector] public Dictionary<MapSlot, MapEntity> entities = new Dictionary<MapSlot, MapEntity>();
+    [HideInInspector] private Dictionary<MapSlot, MapEntity> lockedEntities = new Dictionary<MapSlot, MapEntity>();
     [SerializeField] public static int currentLevel = 0;
 
     [SerializeField] private MapUI ui = null;
@@ -19,8 +20,7 @@ public class MapData : MonoBehaviour
     // References the global dictionary to know which monsters need to be locked
     private void OnMapEnterEventHandler()
     {
-        entities = SceneController.Instance.LockedEntities;
-        foreach (KeyValuePair<MapSlot, MapEntity> entity in entities)
+        foreach (KeyValuePair<MapSlot, MapEntity> entity in lockedEntities)
         {
             entity.Value.transform.position = entity.Key.transform.position;
             entity.Value.LockEntity();
@@ -52,7 +52,7 @@ public class MapData : MonoBehaviour
     // Data is preserved up until OnUnloadComplete() in SceneController. Don't know a fix, yet.
     private void DebugLogEntities()
     {
-        foreach (KeyValuePair<MapSlot, MapEntity> entity in SceneController.Instance.LockedEntities)
+        foreach (KeyValuePair<MapSlot, MapEntity> entity in lockedEntities)
         {
             Debug.Log(entity.Key + ": " + entity.Value);
         }

@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : Singleton<SceneController>
 {
-    public Dictionary<MapSlot, MapEntity> LockedEntities = new Dictionary<MapSlot, MapEntity>();
+    [HideInInspector] public string previousLevel = string.Empty;
 
     [SerializeField] private string currentLevel = string.Empty;
     [SerializeField] private GameStateManager gameState = null;
 
-    private string previousLevel = string.Empty;
     private List<AsyncOperation> loadOperations = new List<AsyncOperation>();
 
     private void Start()
@@ -87,6 +86,18 @@ public class SceneController : Singleton<SceneController>
     private void OnUnloadComplete(AsyncOperation ao)
     {
         Debug.Log("Unload complete.");
+    }
+
+    public string SwitchLevel(string lvl)
+    {
+        string result = previousLevel;
+
+        previousLevel = currentLevel;
+        gameState.UpdateState(GameStateManager.GameState.RUNNING);
+        currentLevel = lvl;
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(lvl));
+
+        return result;
     }
 
     public void Quit()
