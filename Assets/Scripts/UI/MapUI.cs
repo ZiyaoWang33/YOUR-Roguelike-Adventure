@@ -1,18 +1,16 @@
 ﻿using UnityEngine;
-using System;
 using System.Linq;
 
 public class MapUI : SceneTransition
 {
-    [HideInInspector] public event Action OnMapExit;
-
+    [SerializeField] private MapData data;
     [SerializeField] private GameObject[] deactivate = null;
     private static string[] levels = {"Forest", "Lake", "Volcano", "Desert"};
 
     // For use in an OnClick event on a UI button/component
     public void Exit()
     {
-        OnMapExit?.Invoke();
+        data.LockEntities();
 
         if (MapData.currentLevel == 0)
         {
@@ -50,7 +48,6 @@ public class MapUI : SceneTransition
                     obj.SetActive(false);
                 }
             }
-
         }
     }
 }

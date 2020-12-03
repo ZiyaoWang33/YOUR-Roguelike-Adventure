@@ -13,10 +13,15 @@ public class MapEntity : MonoBehaviour
     [SerializeField] private bool mouseOver = false;
     [SerializeField] private float distanceFromCam; // How far in front of the camera the object is
 
-    private void Start()
+
+    private void Awake()
     {
         distanceFromCam = transform.position.z - cam.transform.position.z - 1;
+        startPos = new Vector3(transform.position.x, transform.position.y, distanceFromCam);
+    }
 
+    private void OnEnable()
+    {
         if (locked)
         {
             // Set sprite to (an explosion?) here
@@ -24,7 +29,7 @@ public class MapEntity : MonoBehaviour
         }
         else
         {
-            startPos = new Vector3(transform.position.x, transform.position.y, distanceFromCam);
+            transform.position = startPos;
         }
     }
 
