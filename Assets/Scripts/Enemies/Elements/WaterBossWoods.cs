@@ -23,7 +23,7 @@ public class WaterBossWoods : MonoBehaviour, IBossElement
             player = boss.player.GetComponent<Player>();
         }
 
-        Vector2 direction = (player.transform.position - rotator.position).normalized;
+        Vector2 direction = ((player.transform.position + player.GetDirection() * Random.Range(0, 2)) - rotator.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rotator.eulerAngles = Vector3.forward * angle;
         Instantiate(bulletPattern, shootPoint.position, shootPoint.rotation);

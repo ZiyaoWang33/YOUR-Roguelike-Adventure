@@ -49,9 +49,6 @@ MonoBehaviour:
   rb: {fileID: 6359541178008262574}
   speed: 25
   damage: 10
-  ignoreBullets:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!61 &3228803229726943364
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -88,9 +85,9 @@ Rigidbody2D:
   m_GameObject: {fileID: 6414188310264313591}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

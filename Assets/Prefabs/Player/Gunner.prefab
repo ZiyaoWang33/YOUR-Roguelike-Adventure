@@ -52,6 +52,27 @@ MonoBehaviour:
   shootPoint: {fileID: 392634728034823633}
   gun: {fileID: 5088383346637455540}
   bullet: {fileID: 6414188310264313591, guid: 83536411e9e219c4785f9feafd44cf8d, type: 3}
+--- !u!50 &4938254376244552233
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3662962845896338032}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: a786251e668b77f4b9141546dfc7794d, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7417607956590864534
 GameObject:
   m_ObjectHideFlags: 0

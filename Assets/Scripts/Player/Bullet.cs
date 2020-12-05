@@ -5,7 +5,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected Rigidbody2D rb = null;
     [SerializeField] protected float speed = 1;
     [SerializeField] protected int damage = 1;
-    [SerializeField] protected LayerMask ignoreBullets = new LayerMask();
 
     protected virtual void Awake()
     {

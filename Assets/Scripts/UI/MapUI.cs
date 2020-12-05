@@ -3,7 +3,7 @@ using System.Linq;
 
 public class MapUI : SceneTransition
 {
-    [SerializeField] private MapData data;
+    [SerializeField] private MapData data = null;
     [SerializeField] private GameObject[] deactivate = null;
     private static string[] levels = {"Forest", "Lake", "Volcano", "Desert"};
 

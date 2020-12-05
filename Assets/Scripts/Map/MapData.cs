@@ -2,9 +2,8 @@
 
 public class MapData : MonoBehaviour
 {
-    [SerializeField] public static int currentLevel = 0;
+    public static int currentLevel = 0;
 
-    [SerializeField] private MapUI ui = null;
     [SerializeField] private MapSlot[] slots = null;
 
     public void LockEntities()
