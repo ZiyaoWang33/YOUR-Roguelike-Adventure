@@ -10,10 +10,13 @@ public class WaterBossWoods : MonoBehaviour, IBossElement
     [SerializeField] private Transform shootPoint = null;
     [SerializeField] private Transform rotator = null;
 
-    public void UseAbility()
+    public void UseAbility(int ability)
     {
-        Root newRoot = Instantiate(root, player.transform.position + player.GetDirection() * abilityDistance, Quaternion.identity).GetComponent<Root>();
-        newRoot.player = player;
+        if (ability == 0)
+        {
+            Root newRoot = Instantiate(root, player.transform.position + player.GetDirection() * abilityDistance, Quaternion.identity).GetComponent<Root>();
+            newRoot.player = player;
+        }
     }
 
     public void Attack()

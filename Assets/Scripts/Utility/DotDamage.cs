@@ -1,25 +1,31 @@
 ﻿using UnityEngine;
 
-public class Poison : MonoBehaviour
+public class DotDamage : MonoBehaviour
 {
-    [HideInInspector] public int damageMultiplier = 1;
-
-    [SerializeField] private int damage = 5;
+    private int damage = 5;
+    private int damageMultiplier = 1;
 
     private Health health = null;
 
     private float damageTimer = 0;
-    [SerializeField] private float damageCooldown = 1;
+    private float damageCooldown = 1;
     private float time = 0;
     private float timer = 0;
 
-    private void Awake()
+    private void Start()
     {
         health = gameObject.GetComponent<Health>();
 
         damageTimer = damageCooldown;
         time = Random.Range(3.0f, 5.0f);
         timer = time;
+    }
+
+    public void SetStats(int damage, int damageMultiplier, float cooldown)
+    {
+        this.damage = damage;
+        this.damageMultiplier = damageMultiplier;
+        damageCooldown = cooldown;
     }
 
     private void Update()

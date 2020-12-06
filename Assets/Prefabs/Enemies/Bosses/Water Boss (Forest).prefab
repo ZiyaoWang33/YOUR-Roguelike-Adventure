@@ -97,8 +97,9 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 321159ac442391c4f84ad143f28c34b8, type: 2}
   sprite: {fileID: 8252636061340876672}
   difficultyMultiplier: 1
-  abilitySpeed: 7
-  secondAttackSpeed: 0.75
+  abilityCooldowns:
+  - 6
+  useInSecondStage: 01
 --- !u!1001 &6567125706526244239
 PrefabInstance:
   m_ObjectHideFlags: 0
