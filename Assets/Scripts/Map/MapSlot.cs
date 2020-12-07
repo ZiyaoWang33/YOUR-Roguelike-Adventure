@@ -30,6 +30,7 @@ public class MapSlot : MonoBehaviour
                         slotted = false;
                         enemy.slotted = false;
                         monsterElement = null;
+                        entity = null;
                     }
                     // Player can swap slotted map monsters without having to select the slotted one
                     else if (!enemy.slotted && !enemy.selected)
@@ -74,6 +75,7 @@ public class MapSlot : MonoBehaviour
                 slotted = false;
                 enemy.slotted = false;
                 monsterElement = null;
+                entity = null;
             }
         }
     }

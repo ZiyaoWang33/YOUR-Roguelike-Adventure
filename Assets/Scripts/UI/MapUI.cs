@@ -7,6 +7,8 @@ public class MapUI : SceneTransition
     [SerializeField] private GameObject[] deactivate = null;
     private static string[] levels = {"Forest", "Lake", "Volcano", "Desert"};
 
+    [HideInInspector] public bool loaded = false;
+
     // For use in an OnClick event on a UI button/component
     public void Exit()
     {
@@ -49,5 +51,6 @@ public class MapUI : SceneTransition
                 }
             }
         }
+        loaded = !loaded;
     }
 }
