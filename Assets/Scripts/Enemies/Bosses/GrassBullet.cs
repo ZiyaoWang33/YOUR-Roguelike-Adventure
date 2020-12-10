@@ -7,7 +7,7 @@ public class GrassBullet : Bullet
     [SerializeField] private float turnSpeed = 0;
 
     private Vector3 originalPos = Vector3.zero;
-
+ 
     protected override void Awake()
     {
         base.Awake();

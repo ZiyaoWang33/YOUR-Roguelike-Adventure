@@ -10,7 +10,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected EnemyStats stats = null;
     [SerializeField] protected SpriteRenderer sprite = null;
     [SerializeField] protected int difficultyMultiplier = 1;
-    [SerializeField] protected int speedMultiplier = 1;
+    
 
     protected Vector3 direction = Vector3.right;
     protected float attackTimer = 0;
@@ -53,7 +53,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Move()
     {
-        transform.position += direction * stats.speed * speedMultiplier * Time.deltaTime;
+        transform.position += direction * stats.speed * Time.deltaTime;
     }
 
     public void SetDirection(Vector3 direction)

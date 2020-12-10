@@ -5,7 +5,7 @@ public class GrassBossWoods : MonoBehaviour, IBossElement
     [SerializeField] private Enemy boss = null;
     private Player player = null;
     [SerializeField] private float abilityDistance = 0;
-    [SerializeField] protected float chargeSpeedMultiplier = 1;
+    [SerializeField] protected int chargeSpeedMultiplier = 1;
     [SerializeField] protected float chargeTime = 1;
     [SerializeField] private GameObject tremor = null;
     [SerializeField] private GameObject bulletPattern = null;
@@ -21,8 +21,8 @@ public class GrassBossWoods : MonoBehaviour, IBossElement
 
         if (chargeTimer > 0)
         {
-            direction = chargeDirection;
-            boss.speedMultiplier = chargeSpeed;
+            boss.SetDirection(chargeDirection);
+            boss.speedMultiplier = chargeSpeedMultiplier;
             Tremor newTremor = Instantiate(tremor, boss.transform.position, Quaternion.identity).GetComponent<Tremor>();
             newTremor.player = player;
         }
@@ -34,7 +34,7 @@ public class GrassBossWoods : MonoBehaviour, IBossElement
         if (ability == 0)
         {
             chargeDirection = ((player.transform.position + player.GetDirection() * Random.Range(0, 2)) - rotator.position).normalized;
-            boss.direction = chargeDirection;
+            boss.SetDirection(chargeDirection);
             boss.speedMultiplier = chargeSpeedMultiplier;
             chargeTimer = chargeTime;
         }
