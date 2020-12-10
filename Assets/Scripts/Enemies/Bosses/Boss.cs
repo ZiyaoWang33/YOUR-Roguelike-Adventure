@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public abstract class Boss : Enemy
 {
+    public float speedMultiplier = 1;
+
     // Change this element based on the environment that the boss is in, attached as a component.
     protected IBossElement element = null;
     [SerializeField] protected float[] abilityCooldowns = null;
@@ -44,6 +46,11 @@ public abstract class Boss : Enemy
     protected virtual void UseAbility(int ability)
     {
         element.UseAbility(ability);
+    }
+
+    protected override void Move()
+    {
+        transform.position += direction * stats.speed * speedMultiplier * Time.deltaTime;
     }
 
     protected override void Attack()
