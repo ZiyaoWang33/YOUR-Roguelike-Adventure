@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Numerics;
+using System;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
@@ -33,10 +34,11 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
+        ChangeDirection();
         Move();
     }
 
-    protected virtual void Move()
+    protected virtual void ChangeDirection()
     {
         if (player)
         {
@@ -48,7 +50,16 @@ public abstract class Enemy : MonoBehaviour
         }
 
         sprite.flipX = direction.x > 0;
+    }
+
+    protected virtual void Move()
+    {
         transform.position += direction * stats.speed * speedMultiplier * Time.deltaTime;
+    }
+
+    public void SetDirection(Vector3 direction)
+    {
+        this.direction = direction;
     }
 
     protected virtual void Attack()
