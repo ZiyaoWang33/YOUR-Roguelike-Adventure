@@ -5,7 +5,7 @@ public class FireBossWoods : MonoBehaviour, IBossElement
 {
     [SerializeField] private Enemy boss = null;
     private Player player = null;
-    [SerializeField] chargeSpeed = 1;
+    [SerializeField] private float chargeSpeedMultiplier = 1;
     [SerializeField] private GameObject missile = null;
 
     public void UseAbility(int ability)
@@ -21,6 +21,6 @@ public class FireBossWoods : MonoBehaviour, IBossElement
 
     public void Attack()
     {
-        
+
     }
 }

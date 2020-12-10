@@ -9,24 +9,25 @@ public class RoomActivator : MonoBehaviour
     [HideInInspector] public bool closedWhenEntered = false;
     public event Action OnRoomEntered;
 
-    [SerializeField] private GameObject enemyContainer = null;
+    [SerializeField] protected GameObject enemyContainer = null;
 
-    private bool active = false;
-    private int deathCount = 0;
+    protected List<GameObject> enemySets = new List<GameObject>();
+    protected bool active = false;
+    protected int deathCount = 0;
 
-    private const string playerTag = "Player";
+    protected const string playerTag = "Player";
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        List<GameObject> enemySets = new List<GameObject>();
         AddChildren(enemyContainer, enemySets);
 
         // Avoids error caused by starting rooms having no enemies
         GameObject setToUse = null;
+        int indexToUse = SetIndexToUse();
 
         if (enemyContainer != null)
         {
-            setToUse = enemySets[UnityEngine.Random.Range(0, enemySets.Count)];
+            setToUse = enemySets[indexToUse];
         }
 
         List<GameObject> enemyObjects = new List<GameObject>();
@@ -46,7 +47,12 @@ public class RoomActivator : MonoBehaviour
         }
     }
 
-    private void AddChildren(GameObject obj, List<GameObject> listToGrow)
+    protected virtual int SetIndexToUse()
+    {
+        return UnityEngine.Random.Range(0, enemySets.Count);
+    }
+
+    protected void AddChildren(GameObject obj, List<GameObject> listToGrow)
     {
         if (null == obj) 
         { 
@@ -64,7 +70,7 @@ public class RoomActivator : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         if (closedWhenEntered)
         {
@@ -115,7 +121,7 @@ public class RoomActivator : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    protected virtual void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == playerTag)
         {
@@ -123,7 +129,7 @@ public class RoomActivator : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         if (closedWhenEntered)
         {
