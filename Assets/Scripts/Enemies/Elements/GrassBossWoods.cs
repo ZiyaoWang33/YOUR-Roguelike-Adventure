@@ -2,10 +2,10 @@
 
 public class GrassBossWoods : MonoBehaviour, IBossElement
 {
-    [SerializeField] private Enemy boss = null;
+    [SerializeField] private Boss boss = null;
     private Player player = null;
     [SerializeField] private float abilityDistance = 0;
-    [SerializeField] protected int chargeSpeedMultiplier = 1;
+    [SerializeField] protected float chargeSpeedMultiplier = 1;
     [SerializeField] protected float chargeTime = 1;
     [SerializeField] private GameObject tremor = null;
     [SerializeField] private GameObject bulletPattern = null;
