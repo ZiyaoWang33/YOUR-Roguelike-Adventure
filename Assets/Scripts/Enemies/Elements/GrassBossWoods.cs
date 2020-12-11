@@ -52,4 +52,9 @@ public class GrassBossWoods : MonoBehaviour, IBossElement
         rotator.eulerAngles = Vector3.forward * angle;
         Instantiate(bulletPattern, shootPoint.position, shootPoint.rotation);
     }
+
+    public string GetElement()
+    {
+        return "woods";
+    }
 }

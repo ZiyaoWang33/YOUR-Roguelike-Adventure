@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 public abstract class Boss : Enemy
 {
-    public float speedMultiplier = 1;
+    [HideInInspector] public float speedMultiplier = 1;
 
     // Change this element based on the environment that the boss is in, attached as a component.
     protected IBossElement element = null;
+    [SerializeField] protected float waitTime = 0; // Ensure that this value is lower than all cooldowns
     [SerializeField] protected float[] abilityCooldowns = null;
     // set value as true or false per each ability used above depending on if it should be used in the second stage
     [SerializeField] protected bool[] useInSecondStage = null;
@@ -23,19 +24,26 @@ public abstract class Boss : Enemy
     protected override void Awake()
     {
         base.Awake();
+
+        attackTimer = waitTime;
         element = gameObject.GetComponent<IBossElement>();
         maxHealth = health.health;
 
         abilityTimers = new float[abilityCooldowns.Length];
         for (int i = 0; i < abilityTimers.Length; i++)
         {
-            abilityTimers[i] = 0;
+            abilityTimers[i] = waitTime;
         }
     }
 
     protected override void Update()
     {
-        base.Update();
+        attackTimer -= Time.deltaTime;
+
+        if (inRange)
+        {
+            Attack();
+        }
 
         for (int i = 0; i < abilityTimers.Length; i++)
         {
@@ -50,12 +58,16 @@ public abstract class Boss : Enemy
 
     protected override void Move()
     {
-        transform.position += direction * stats.speed * speedMultiplier * Time.deltaTime;
+        transform.position += new Vector3(direction.x, direction.y, 0) * stats.speed * speedMultiplier * Time.deltaTime;
     }
 
     protected override void Attack()
     {
-        element.Attack();
+        if (attackTimer < 0)
+        {
+            element.Attack();
+            attackTimer = stats.attackSpeed;
+        }
 
         for (int i = 0; i < abilityTimers.Length; i++)
         {
@@ -70,8 +82,6 @@ public abstract class Boss : Enemy
                 abilityTimers[i] = abilityCooldowns[i];
             }
         }
-
-        attackTimer = stats.attackSpeed;
     }
 
     protected virtual void OnDamageTakenEventHandler()
