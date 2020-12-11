@@ -7,4 +7,5 @@ public interface IBossElement
     If no array is needed, always pass 0 to this function.*/
     void UseAbility(int ability); 
     void Attack();
+    string GetElement();
 }

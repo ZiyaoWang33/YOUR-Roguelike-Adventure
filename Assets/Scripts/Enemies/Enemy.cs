@@ -6,11 +6,10 @@ public abstract class Enemy : MonoBehaviour
     [HideInInspector] public event Action OnDeath;
     [HideInInspector] public Health player = null;
     public Health health = null;
+    public EnemyStats stats = null;
 
-    [SerializeField] protected EnemyStats stats = null;
     [SerializeField] protected SpriteRenderer sprite = null;
     [SerializeField] protected int difficultyMultiplier = 1;
-    
 
     protected Vector3 direction = Vector3.right;
     protected float attackTimer = 0;
@@ -53,7 +52,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Move()
     {
-        transform.position += direction * stats.speed * Time.deltaTime;
+        transform.position += new Vector3(direction.x, direction.y, 0) * stats.speed * Time.deltaTime;
     }
 
     public void SetDirection(Vector3 direction)

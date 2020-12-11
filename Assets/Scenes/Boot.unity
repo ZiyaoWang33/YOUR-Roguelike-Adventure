@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188c9bd9fe52b964dbe68997f5e8723d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousLevel: 
   currentLevel: MapPhase
   gameState: {fileID: 1051471544}
 --- !u!4 &1501075886
