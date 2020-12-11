@@ -30,7 +30,7 @@ public class Tremor : MonoBehaviour
             if (player.speedMultiplier >= 1)
             {
                 player.speedMultiplier -= slowingEffect;
-                slowTimer = 1;
+                slowTimer = 3;
             }
         }
     }

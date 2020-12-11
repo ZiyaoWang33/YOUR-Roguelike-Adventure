@@ -14,8 +14,8 @@ public class GrassBullet : Bullet
         originalPos = transform.position;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        transform.Rotate(Vector3.up * (turnSpeed * Time.deltaTime));
+        //transform.Rotate(Vector3.up * (turnSpeed * Time.deltaTime));
     }
 }
