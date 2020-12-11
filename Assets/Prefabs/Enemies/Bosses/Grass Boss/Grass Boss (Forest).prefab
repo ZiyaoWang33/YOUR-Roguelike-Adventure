@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 8233875886031379701}
   abilityDistance: 0
-  chargeSpeedMultiplier: 4
-  chargeTime: 1
+  chargeSpeedMultiplier: 15
+  chargeDuration: 2.5
   tremor: {fileID: 1874957708666086868, guid: 71de889d7891e0448bb8840618bedc0c, type: 3}
   bulletPattern: {fileID: 1135965632643337207, guid: 68b66bd581b626845aa6d50d2e2ca038,
     type: 3}
@@ -39,9 +39,11 @@ MonoBehaviour:
   sprite: {fileID: 4167703248752897504}
   difficultyMultiplier: 1
   speedMultiplier: 1
+  waitTime: 3
   abilityCooldowns:
   - 10
   useInSecondStage: 01
+  keepDirection: 0
 --- !u!1 &3621385932019889459
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,22 +226,22 @@ PrefabInstance:
     - target: {fileID: 5992442252041992257, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.8297734
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 5992442252041992257, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Size.y
-      value: 2.3324594
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5992442252041992257, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.08124137
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5992442252041992257, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.20689821
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 689533c32ea93a34682a8940ad65fe8a, type: 3}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GrassBossStats
   m_EditorClassIdentifier: 
   _speed: 1
-  _attackSpeed: 1
-  _damage: 1
+  _attackSpeed: 0.5
+  _damage: 20
