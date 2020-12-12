@@ -16,6 +16,7 @@ MonoBehaviour:
   abilityDistance: 0
   chargeSpeedMultiplier: 15
   chargeDuration: 2.5
+  chargeCooldown: 10
   tremor: {fileID: 1874957708666086868, guid: 71de889d7891e0448bb8840618bedc0c, type: 3}
   bulletPattern: {fileID: 1135965632643337207, guid: 68b66bd581b626845aa6d50d2e2ca038,
     type: 3}
@@ -42,7 +43,7 @@ MonoBehaviour:
   waitTime: 3
   abilityCooldowns:
   - 10
-  useInSecondStage: 01
+  useInSecondStage: 00
   keepDirection: 0
 --- !u!1 &3621385932019889459
 GameObject:

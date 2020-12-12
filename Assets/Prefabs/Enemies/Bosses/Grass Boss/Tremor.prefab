@@ -75,6 +75,7 @@ MonoBehaviour:
   damage: 1
   lifetime: 1
   slowingEffect: 0.75
+  slowTime: 3
 --- !u!1 &8979258810676765104
 GameObject:
   m_ObjectHideFlags: 0

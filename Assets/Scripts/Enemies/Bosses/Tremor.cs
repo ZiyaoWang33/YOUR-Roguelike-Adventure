@@ -11,8 +11,9 @@ public class Tremor : MonoBehaviour
 
     private Health playerHealth = null;
 
-    private void Awake()
+    public void SetUp(Player player)
     {
+        this.player = player;
         playerHealth = player.gameObject.GetComponent<Health>();
     }
 

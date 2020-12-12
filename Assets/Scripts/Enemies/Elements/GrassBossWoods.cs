@@ -4,9 +4,9 @@ public class GrassBossWoods : MonoBehaviour, IBossElement
 {
     [SerializeField] private GrassBoss boss = null;
     private Player player = null;
-    [SerializeField] private float abilityDistance = 0;
-    [SerializeField] protected float chargeSpeedMultiplier = 1;
-    [SerializeField] protected float chargeDuration = 1;
+    [SerializeField] private float chargeSpeedMultiplier = 1;
+    [SerializeField] private float chargeDuration = 1;
+    [SerializeField] private float chargeCooldown = 0;
     [SerializeField] private GameObject tremor = null;
     [SerializeField] private GameObject bulletPattern = null;
     [SerializeField] private Transform shootPoint = null;
@@ -14,12 +14,6 @@ public class GrassBossWoods : MonoBehaviour, IBossElement
 
     protected Vector3 chargeDirection = Vector3.zero;
     protected float chargeTimer = 0;
-    private float chargeCooldown = 0;
-
-    private void Awake()
-    {
-        chargeCooldown = boss.stats.attackSpeed;
-    }
 
     private void Update()
     {
@@ -29,7 +23,7 @@ public class GrassBossWoods : MonoBehaviour, IBossElement
         {
             if (chargeTimer >= chargeCooldown - chargeDuration)
             {
-                Instantiate(tremor, boss.transform.position, Quaternion.identity).GetComponent<Tremor>().player = player;
+                Instantiate(tremor, boss.transform.position, Quaternion.identity).GetComponent<Tremor>().SetUp(player);
             }
             else
             {
@@ -37,12 +31,6 @@ public class GrassBossWoods : MonoBehaviour, IBossElement
                 boss.keepDirection = false;
             }
         }
-        else
-        {
-            boss.speedMultiplier = 1;
-            boss.SetDirection((player.transform.position - transform.position).normalized);
-        }
-     
     }
 
     public void UseAbility(int ability)
@@ -53,7 +41,7 @@ public class GrassBossWoods : MonoBehaviour, IBossElement
             boss.SetDirection(chargeDirection);
             boss.keepDirection = true;
             boss.speedMultiplier = chargeSpeedMultiplier;
-            chargeTimer = chargeDuration;
+            chargeTimer = chargeCooldown;
         }
     }
 
