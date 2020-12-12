@@ -29,8 +29,7 @@ public class GrassBossWoods : MonoBehaviour, IBossElement
         {
             if (chargeTimer >= chargeCooldown - chargeDuration)
             {
-                Tremor newTremor = Instantiate(tremor, boss.transform.position, Quaternion.identity).GetComponent<Tremor>();
-                newTremor.player = player;
+                Instantiate(tremor, boss.transform.position, Quaternion.identity).GetComponent<Tremor>().player = player;
             }
             else
             {
