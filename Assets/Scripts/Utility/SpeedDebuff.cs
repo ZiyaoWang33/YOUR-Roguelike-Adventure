@@ -3,13 +3,11 @@
 public class SpeedDebuff : MonoBehaviour
 {
     private Player player = null;
-    private float slowingEffect = 0;
     private float slowTimer = 0;
     
     public void SetUp(Player player, float slowingEffect, float slowTime)
     {
         this.player = player;
-        this.slowingEffect = slowingEffect;
         slowTimer = slowTime;
 
         player.speedMultiplier -= slowingEffect;
@@ -21,6 +19,7 @@ public class SpeedDebuff : MonoBehaviour
 
         if (slowTimer <= 0)
         {
+            player.speedMultiplier = 1;
             Destroy(this);
         }
     }
