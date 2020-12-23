@@ -9,6 +9,8 @@ public class RoomActivator : MonoBehaviour
     [HideInInspector] public bool closedWhenEntered = false;
     public event Action OnRoomEntered;
 
+    [SerializeField] private LevelExit exit = null;
+
     [SerializeField] protected GameObject enemyContainer = null;
 
     protected List<GameObject> enemySets = new List<GameObject>();
@@ -93,6 +95,11 @@ public class RoomActivator : MonoBehaviour
             foreach(Door door in doors)
             {
                 door.Open();
+            }
+
+            if (exit)
+            {
+                exit.active = true;
             }
         }
     }

@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9c819d407949845865558a29a96e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
 --- !u!1 &1466718194810825862
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +309,7 @@ MonoBehaviour:
   doors: []
   enemies: []
   closedWhenEntered: 0
+  exit: {fileID: 7825502201777319734}
   enemyContainer: {fileID: 546531614703094706}
 --- !u!1001 &1873105537116728010
 PrefabInstance:
