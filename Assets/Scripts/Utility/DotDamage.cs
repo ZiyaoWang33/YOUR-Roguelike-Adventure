@@ -9,23 +9,17 @@ public class DotDamage : MonoBehaviour
 
     private float damageTimer = 0;
     private float damageCooldown = 1;
-    private float time = 0;
     private float timer = 0;
 
-    private void Start()
-    {
-        health = gameObject.GetComponent<Health>();
-
-        damageTimer = damageCooldown;
-        time = Random.Range(3.0f, 5.0f);
-        timer = time;
-    }
-
-    public void SetStats(int damage, int damageMultiplier, float cooldown)
+    public void SetStats(int damage, int damageMultiplier, float cooldown, float lifetime)
     {
         this.damage = damage;
         this.damageMultiplier = damageMultiplier;
         damageCooldown = cooldown;
+        timer = lifetime;
+
+        health = gameObject.GetComponent<Health>();
+        damageTimer = damageCooldown;
     }
 
     private void Update()

@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Health health))
         {

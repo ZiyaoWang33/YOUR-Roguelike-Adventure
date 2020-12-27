@@ -31,7 +31,8 @@ public class FireBossWoods : MonoBehaviour, IBossElement
         {
             if (chargeTimer >= chargeCooldown - chargeDuration)
             {
-                Instantiate(fire, transform.position - chargeDirection * transform.localScale.x, Quaternion.identity);
+                float angle = 90 - Mathf.Atan2(chargeDirection.y, chargeDirection.x) * Mathf.Rad2Deg;
+                Instantiate(fire, transform.position, Quaternion.Euler(Vector3.forward * angle));
             }
             else
             {
@@ -55,7 +56,7 @@ public class FireBossWoods : MonoBehaviour, IBossElement
                 
                 break;
             case 1:
-                Instantiate(spitfire, transform.position + (Vector3)direction * spitfire.transform.localScale.x, shootPoint.rotation);
+                Instantiate(spitfire, transform.position + (Vector3)direction * transform.localScale.x, shootPoint.rotation);
                 break;
         }
     }

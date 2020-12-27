@@ -44,14 +44,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 5967244776718922105}
   col: {fileID: 1627023542751271518}
-  fire: {fileID: 7335805051722097632, guid: 5a6852f429bec6747ae39bd5a20a348a, type: 3}
+  fire: {fileID: 4592884275485528985, guid: 13bfb9026a630f84c94e7662f2c774b2, type: 3}
   chargeSpeedMultiplier: 10
-  chargeDuration: 2.5
+  chargeDuration: 1
   missile: {fileID: 5903636118595652179, guid: bfb86422ad4dd4e42ab58281d7258af5, type: 3}
-  missileSpread: 2.5
+  missileSpread: 1.5
   shootPoint: {fileID: 4847482461185780010}
   rotator: {fileID: 6920785668270976458}
-  spitfire: {fileID: 8118574832133181010, guid: 5d7754a9e35048a499304581d441fca6,
+  spitfire: {fileID: 5076510325643271858, guid: 5d7754a9e35048a499304581d441fca6,
     type: 3}
 --- !u!114 &5967244776718922105
 MonoBehaviour:
@@ -73,8 +73,8 @@ MonoBehaviour:
   speedMultiplier: 1
   waitTime: 3
   abilityCooldowns:
-  - 2.5
-  - 5
+  - 1.5
+  - 4
   useInSecondStage: 0001
   keepDirection: 0
 --- !u!1 &8086268277267294786

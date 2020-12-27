@@ -6,6 +6,6 @@ public class ForestCreep : Enemy
     {
         base.Attack();
 
-        player.gameObject.AddComponent<DotDamage>().SetStats(1, difficultyMultiplier, 1f);
+        player.gameObject.AddComponent<DotDamage>().SetStats(1, difficultyMultiplier, 1f, Random.Range(3f, 4f));
     }
 }

@@ -34,12 +34,9 @@ MonoBehaviour:
   rb: {fileID: 1555585130471690047}
   speed: 2
   damage: 1
-  ignoreBullets:
-    serializedVersion: 2
-    m_Bits: 1024
   explode: 0
   maxDistance: 5
-  explosionRadius: 5
+  explosionRadius: 2
   explosionDamage: 1
   playerLayer:
     serializedVersion: 2
