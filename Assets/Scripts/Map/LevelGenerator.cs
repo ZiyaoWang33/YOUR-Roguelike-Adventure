@@ -14,7 +14,7 @@ public class LevelGenerator : MonoBehaviour
     public enum Direction { up, right, down, left};
     [HideInInspector] public Direction selectedDirection;
 
-    public int distanceToEnd = 5;
+    public int distanceToEnd = 4;
     public float xOffset = 26f, yOffset = 10f; // x: room length, y: room height
 
     [SerializeField] private GameObject endRoom;

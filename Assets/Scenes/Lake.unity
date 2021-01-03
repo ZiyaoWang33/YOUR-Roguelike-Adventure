@@ -456,45 +456,44 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   rooms:
-    singleUp: {fileID: 8684104826815653554, guid: 76b96bf12fdeaa945b6c1150951f3a03,
+    singleUp: {fileID: 3725856922879495728, guid: 92ac0bb30015e4743a8675495dd86616,
       type: 3}
-    singleDown: {fileID: 9147065994495856394, guid: ab7de68114830974c9a170820482e529,
+    singleDown: {fileID: 4947543633412190034, guid: 070f1bcd86f16c7439586ae3393911e9,
       type: 3}
-    singleRight: {fileID: 2909299661529076915, guid: 22604f0abebba6347806ffa327d7a72e,
+    singleRight: {fileID: 7460367063375786398, guid: 6357f34368f81144aa52f8104c3f57d0,
       type: 3}
-    singleLeft: {fileID: 8554270482612697851, guid: 68d7ec04ff410924aa40b75b91cd0e75,
+    singleLeft: {fileID: 4395899013888304967, guid: a3635b2c7d8342641baddcbdd51899b7,
       type: 3}
-    doubleUpDown: {fileID: 8332897274916870977, guid: e029269e879d2e4468182fba8531cbd6,
+    doubleUpDown: {fileID: 5170997702010048129, guid: bfa2c37eb86fea94f9abb1aa8d6f7f8e,
       type: 3}
-    doubleLeftRight: {fileID: 7491039817136284281, guid: cb44b2e17d2442f4c9b3037aa5606d11,
+    doubleLeftRight: {fileID: 8944645076941697445, guid: 0cc66b9011ca19447b7e19c5ad938c40,
       type: 3}
-    doubleUpRight: {fileID: 1355879629206463563, guid: 50946943d10f04e49acb08a0b8c89ad5,
+    doubleUpRight: {fileID: 314671498638411154, guid: 4167c4753830087478153fd6d0072668,
       type: 3}
-    doubleDownRight: {fileID: 8229038407508168652, guid: 949d78a006ff0a748a61489a50f39d34,
+    doubleDownRight: {fileID: 5879460939921202938, guid: 5ebf7253d7e2b7541bcb8fad468f4555,
       type: 3}
-    doubleDownLeft: {fileID: 7435028293945475862, guid: bc93c7efffa75ac43b34b74735c835ef,
+    doubleDownLeft: {fileID: 8311331103887826486, guid: ca06746e8f478df4da7f32b3d0b81023,
       type: 3}
-    doubleLeftUp: {fileID: 8617839251202881961, guid: 28afd33f88a9afd47a8bc964c82cc9fb,
+    doubleLeftUp: {fileID: 791537553152349742, guid: 4638ffae4c4c5974b9d485b2ac6f73a8,
       type: 3}
-    tripleUpRightDown: {fileID: 7209932563820413692, guid: dbd36d0b22ed92b4c9e2fb56a0395581,
+    tripleUpRightDown: {fileID: 7545224461149629078, guid: ed51f110a255a2344b0551db0083fb39,
       type: 3}
-    tripleRightDownLeft: {fileID: 7053798339579021333, guid: 765c3b248552a8c46b3e82a84d7a99a3,
+    tripleRightDownLeft: {fileID: 8677220177841208070, guid: 49dd755969bc986429e496349b5d4ab1,
       type: 3}
-    tripleDownLeftUp: {fileID: 1237416247446245308, guid: 885bf00fa16de374595150c7b28c0b30,
+    tripleDownLeftUp: {fileID: 3801693812002985417, guid: 04012d7aa16399d4888bd1c6563fc56d,
       type: 3}
-    tripleLeftUpRight: {fileID: 4607417461810084179, guid: aea44b8aea9e2424cbd52444cf676546,
+    tripleLeftUpRight: {fileID: 6916495752654781379, guid: 6bb2fa9f9c838794b8c05edd52711f7a,
       type: 3}
-    fourway: {fileID: 5758257102633598943, guid: 49cbb6200f159db4aa52faaef746eeb3,
+    fourway: {fileID: 1868038297435295078, guid: 9b75ee4af83d7a042bdf374483eb245b,
       type: 3}
-  centerStart: {fileID: 4003412402224110035, guid: db10b96a4047a524ab8016fad1d9074e,
+  centerStart: {fileID: 5965756658916559391, guid: 983c387a1a910d8488b6103e1e309ba2,
     type: 3}
-  centerEnd: {fileID: 6469310296967605244, guid: 6d3942fa37c74a24f9aa707e041a07c9,
+  centerEnd: {fileID: 4003108882151772261, guid: d50e5e174853405469fbcbfc253baff7,
     type: 3}
   potentialCenters:
-  - {fileID: 2123491754992666594, guid: 451d2081c7ff71d40b17984565079c41, type: 3}
-  - {fileID: 613412198083691987, guid: c552beabc7fd0b84b9459ac027f58805, type: 3}
+  - {fileID: 462865047463682178, guid: e7c166ea8eb9baf47bb73d358531fdea, type: 3}
   selectedDirection: 0
-  distanceToEnd: 5
+  distanceToEnd: 4
   xOffset: 26
   yOffset: 10
   endRoom: {fileID: 0}

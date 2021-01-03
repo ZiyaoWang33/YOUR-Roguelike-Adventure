@@ -123,7 +123,7 @@ PrefabInstance:
     - target: {fileID: 372914204171082588, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Name
-      value: Fire Boss Woods
+      value: Fire Boss (Forest)
       objectReference: {fileID: 0}
     - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
