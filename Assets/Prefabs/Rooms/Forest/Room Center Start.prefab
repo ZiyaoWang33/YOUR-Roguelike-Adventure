@@ -1179,6 +1179,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8505682542594874940, guid: 4b306170d91711d449853975d1c27dee,
         type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505682542594874940, guid: 4b306170d91711d449853975d1c27dee,
+        type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[0].X
       value: -130000000
       objectReference: {fileID: 0}
@@ -8678,6 +8683,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 52656b838281147439a0f1e855b22eb3,
         type: 3}
+    - target: {fileID: 8505682542594874946, guid: 4b306170d91711d449853975d1c27dee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8505682543293532165, guid: 4b306170d91711d449853975d1c27dee,
         type: 3}
       propertyPath: m_Name
