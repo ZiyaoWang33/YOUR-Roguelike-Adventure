@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using System;
 
 public abstract class Player : MonoBehaviour
 {
+    public static event Action<Player> OnPlayerEnter;
+    public event Action OnPlayerExit;
+
     [HideInInspector] public float speedMultiplier = 1;
 
     [SerializeField] protected PlayerStats stats = null;
@@ -10,6 +14,11 @@ public abstract class Player : MonoBehaviour
     [SerializeField] protected SpriteRenderer character = null;
 
     protected float attackTimer = 0;
+
+    protected virtual void Awake()
+    {
+        OnPlayerEnter?.Invoke(this);
+    }
 
     protected virtual void Update()
     {
@@ -36,6 +45,11 @@ public abstract class Player : MonoBehaviour
 
     public Vector3 GetDirection()
     {
-        return (Vector3)input.movement;
+        return input.movement;
+    }
+
+    protected virtual void OnDisable()
+    {
+        OnPlayerExit?.Invoke();
     }
 }

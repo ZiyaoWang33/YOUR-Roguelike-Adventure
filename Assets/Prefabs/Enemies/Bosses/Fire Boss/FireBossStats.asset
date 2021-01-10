@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FireBossStats
   m_EditorClassIdentifier: 
   _speed: 2
-  _attackSpeed: 10
+  _attackSpeed: 7
   _damage: 50

@@ -5,7 +5,7 @@ public class MapUI : SceneTransition
 {
     [SerializeField] private MapData data = null;
     [SerializeField] private GameObject[] deactivate = null;
-    private static string[] levels = {"Forest", "Lake", "Volcano", "Desert"};
+    private static string[] levels = {"Forest", "Lake", "Volcano", "Desert", "Menu"};
 
     [HideInInspector] public bool loaded = false;
 
