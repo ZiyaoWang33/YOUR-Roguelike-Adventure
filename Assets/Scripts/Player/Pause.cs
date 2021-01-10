@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Pause : MonoBehaviour, IMenuButton
+public class Pause : GameplayUIElement, IMenuButton
 {
     [SerializeField] private GameStateManager gameState = null;
     [SerializeField] private GameObject pauseMenu = null;

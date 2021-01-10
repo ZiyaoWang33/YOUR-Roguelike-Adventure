@@ -1,25 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : GameplayUIElement
 {
     [SerializeField] private Slider slider = null;
-    [SerializeField] private GameObject image = null;
 
     private Health health = null;
 
-    private void Awake()
+    protected override void OnPlayerEnterEventHandler(Player player)
     {
-        Player.OnPlayerEnter += OnPlayerEnterEventHandler;
-    }
+        base.OnPlayerEnterEventHandler(player);
 
-    private void OnPlayerEnterEventHandler(Player player)
-    {
-        image.SetActive(true);
-
-        health = player.GetComponent<Health>();
+        health = player.gameObject.GetComponent<Health>();
         health.OnDamageTaken += OnDamageTakenEventHandler;
-        player.OnPlayerExit += OnPlayerExitEventHandler;
 
         slider.maxValue = health.health;
         slider.value = slider.maxValue;
@@ -30,15 +23,10 @@ public class HealthBar : MonoBehaviour
         slider.value = health.health;
     }
 
-    private void OnPlayerExitEventHandler()
+    protected override void OnDestroy()
     {
-        image.SetActive(false);
-    }
+        base.OnDestroy();
 
-    private void OnDestroy()
-    {
-        Player.OnPlayerEnter -= OnPlayerEnterEventHandler;
         health.OnDamageTaken -= OnDamageTakenEventHandler;
-        health.gameObject.GetComponent<Player>().OnPlayerExit -= OnPlayerExitEventHandler;
     }
 }
