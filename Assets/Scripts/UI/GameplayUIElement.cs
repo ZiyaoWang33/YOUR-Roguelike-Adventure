@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿using UnityEngine;
+using UnityEngine;
 
 public abstract class GameplayUIElement : MonoBehaviour
 {
@@ -23,26 +22,11 @@ public abstract class GameplayUIElement : MonoBehaviour
     protected virtual void OnPlayerExitEventHandler()
     {
         element.SetActive(false);
-=======
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class GameplayUIElement : MonoBehaviour
-{
-    protected virtual void OnPlayerEnterEventHandler(Player player)
-    {
-       
->>>>>>> 087a702e945d5ddf0d47656acf8dfbefec300f77
     }
 
     protected virtual void OnDestroy()
     {
-<<<<<<< HEAD
         Player.OnPlayerEnter -= OnPlayerEnterEventHandler;
         player.OnPlayerExit -= OnPlayerExitEventHandler;
-=======
-
->>>>>>> 087a702e945d5ddf0d47656acf8dfbefec300f77
     }
 }
