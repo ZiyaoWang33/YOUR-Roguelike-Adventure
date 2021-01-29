@@ -27,6 +27,10 @@ public abstract class GameplayUIElement : MonoBehaviour
     protected virtual void OnDestroy()
     {
         Player.OnPlayerEnter -= OnPlayerEnterEventHandler;
-        player.OnPlayerExit -= OnPlayerExitEventHandler;
+
+        if (player)
+        {
+            player.OnPlayerExit -= OnPlayerExitEventHandler;
+        }
     }
 }

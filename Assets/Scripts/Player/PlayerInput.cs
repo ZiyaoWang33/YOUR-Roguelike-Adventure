@@ -11,9 +11,9 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        movement.x = Mathf.SmoothStep(movement.x, Input.GetAxisRaw("Horizontal"), smoothRate);
-        movement.y = Mathf.SmoothStep(movement.x, Input.GetAxisRaw("Vertical"), smoothRate);
+        movement.x = InputManager.Instance.GetAxis("Horizontal");
+        movement.y = InputManager.Instance.GetAxis("Vertical");
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        attack = Input.GetMouseButton(0);
+        attack = InputManager.Instance.GetButton("Shoot");
     }
 }

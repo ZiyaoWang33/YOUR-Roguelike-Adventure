@@ -27,6 +27,9 @@ public class HealthBar : GameplayUIElement
     {
         base.OnDestroy();
 
-        health.OnDamageTaken -= OnDamageTakenEventHandler;
+        if (health)
+        {
+            health.OnDamageTaken -= OnDamageTakenEventHandler;
+        }
     }
 }
