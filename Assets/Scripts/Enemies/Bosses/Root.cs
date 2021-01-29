@@ -6,7 +6,7 @@ public class Root : MonoBehaviour
 
     [SerializeField][Range(0, 1)] private float slowingEffect = 0;
 
-    private  void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.Equals(player.gameObject) && player.speedMultiplier >= 1)
         {
