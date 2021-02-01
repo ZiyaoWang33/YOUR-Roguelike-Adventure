@@ -15,12 +15,7 @@ public class SteamLaser : MonoBehaviour
 
     void Update()
     {
-        int collidedBullets = 0;
-        foreach (GameObject bullet in bullets)
-        {
-            collidedBullets += bullet == null ? 1 : 0;
-        }
-        if (collidedBullets == bullets.Length)
+        if (transform.childCount == 0)
         {
             Destroy(gameObject);
         }

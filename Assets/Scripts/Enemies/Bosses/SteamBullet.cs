@@ -3,7 +3,9 @@
 public class SteamBullet : Bullet
 {
     [HideInInspector] public float sizeMultiplier = 1;
-    
+
+    private const string playerTag = "Player";
+
     protected override void Awake()
     {
         base.Awake();
@@ -13,7 +15,7 @@ public class SteamBullet : Bullet
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(playerTag))
         {
             collision.gameObject.AddComponent<SlowingEffect>().SetStats(Random.Range(0f, 0.3f), Random.Range(1f, 2f));
         }

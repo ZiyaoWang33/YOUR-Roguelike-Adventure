@@ -98,6 +98,7 @@ MonoBehaviour:
   sprite: {fileID: 8252636061340876672}
   difficultyMultiplier: 1
   speedMultiplier: 1
+  waitTime: 0
   abilityCooldowns:
   - 6
   useInSecondStage: 01

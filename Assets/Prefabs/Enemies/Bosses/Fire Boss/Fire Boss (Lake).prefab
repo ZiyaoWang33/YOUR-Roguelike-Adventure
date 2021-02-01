@@ -21,7 +21,7 @@ MonoBehaviour:
   waitTime: 3
   abilityCooldowns:
   - 1
-  useInSecondStage: 0001
+  useInSecondStage: 00
   keepDirection: 0
 --- !u!114 &4699250433965056268
 MonoBehaviour:
@@ -97,7 +97,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7081900190286867936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3305111022787552559}

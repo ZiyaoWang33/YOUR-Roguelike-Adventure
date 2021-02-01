@@ -1,21 +1,36 @@
 ﻿using UnityEngine;
 
-public class WaterBossWoods : MonoBehaviour, IBossElement
+public class WaterBossLake : MonoBehaviour, IBossElement
 {
     [SerializeField] private Enemy boss = null;
     private Player player = null;
-    [SerializeField] private float abilityDistance = 0;
-    [SerializeField] private GameObject root = null;
+    [SerializeField] private GameObject explosion = null; 
     [SerializeField] private GameObject bulletPattern = null;
     [SerializeField] private Transform shootPoint = null;
     [SerializeField] private Transform rotator = null;
+    [SerializeField] private int shotSpeed = 1;
+
+    private bool usedCloning = false;
+    [HideInInspector] public bool isClone = false;
+
+    protected void OnDestroy()
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
+    }
 
     public void UseAbility(int ability)
     {
         if (ability == 0)
         {
-            Root newRoot = Instantiate(root, player.transform.position + player.GetDirection() * abilityDistance, Quaternion.identity).GetComponent<Root>();
-            newRoot.player = player;
+            if (!isClone && !usedCloning)
+            {
+                usedCloning = true;
+
+                WaterBossLake clone = Instantiate(gameObject, transform.position + (player.transform.position - transform.position) / 2, transform.rotation).GetComponent<WaterBossLake>();
+                clone.isClone = true;
+                clone.gameObject.SetActive(true);
+                clone.gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
+            }
         }
     }
 
@@ -30,11 +45,12 @@ public class WaterBossWoods : MonoBehaviour, IBossElement
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rotator.eulerAngles = Vector3.forward * angle;
         WaterBulletCone bullets = Instantiate(bulletPattern, shootPoint.position, shootPoint.rotation).GetComponent<WaterBulletCone>();
-        bullets.mode = "explode";
+        bullets.mode = "spread";
+        bullets.speed = shotSpeed;
     }
 
     public string GetElement()
     {
-        return "woods";
+        return "lake";
     }
 }
