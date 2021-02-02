@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  damageCooldown: 0.5
-  lifetime: 3.5
+  damageCooldown: 1.5
+  lifetime: 7
   damageMultiplier: 1
   dotLifetime: 3
 --- !u!61 &-6540549568198801491
