@@ -26,9 +26,21 @@ public class MapData : MonoBehaviour
         currentElement = slots[currentLevel].monsterElement;
     }
 
+    public void SetElement(string element, PlaytestController test)
+    {
+        if (test)
+            currentElement = element;
+    }
+
+    public void SetLevel(int level, PlaytestController test)
+    {
+        if (test)
+            currentLevel = level;
+    }
+
     private void CheckSlotBeforeProceeding()
     {   
-        if (ui.loaded)
+        if (ui && ui.loaded)
             ui.gameObject.SetActive(slots[currentLevel].entity);
     }
 }
