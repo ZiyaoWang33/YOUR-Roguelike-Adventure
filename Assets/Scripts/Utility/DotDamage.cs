@@ -29,6 +29,7 @@ public class DotDamage : MonoBehaviour
 
         if (damageTimer <= 0)
         {
+            print(true);
             health.TakeDamage(damage * damageMultiplier);
             damageTimer = damageCooldown;
         }

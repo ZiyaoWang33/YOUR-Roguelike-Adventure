@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Enemy Stats", menuName = "Enemy Stats", order = 3)]
+[CreateAssetMenu(fileName = "New Enemy Stats", menuName = "Enemy Stats", order = 2)]
 public class EnemyStats : ScriptableObject
 {
     [SerializeField] private float _speed = 1;

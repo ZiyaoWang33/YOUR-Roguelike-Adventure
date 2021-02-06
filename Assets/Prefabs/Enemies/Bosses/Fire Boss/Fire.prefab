@@ -127,11 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc4256d279b6754e9944f0920ef7e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  damageCooldown: 1.5
-  lifetime: 7
+  stats: {fileID: 11400000, guid: 291b0183864add84da4275f292572295, type: 2}
   damageMultiplier: 1
-  dotLifetime: 3
 --- !u!61 &-6540549568198801491
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -2439,9 +2439,9 @@ MonoBehaviour:
   mapData: {fileID: 976195579}
   levelToLoad: Lake
   levelNumber: 4
-  enemyToSpawn: {fileID: 3251334710690850103, guid: ee080ac058afa6b498d7a716a98fb610,
+  enemyToSpawn: {fileID: 3865011232810054127, guid: 352e552b969c79d4db99fec342af62e8,
     type: 3}
-  spawnWait: 5
+  spawnWait: 2
   chosenElement: Fire
 --- !u!4 &1314949441
 Transform:

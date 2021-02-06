@@ -2,18 +2,38 @@
 
 public class Fire : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
-    [SerializeField] private float damageCooldown = 0;
-    [SerializeField] private float lifetime = 0;
+    [SerializeField] private FireStats stats = null;
     [SerializeField] private int damageMultiplier = 1;
-    [SerializeField] private float dotLifetime = 0;
 
     private GameObject player = null;
     private Health playerHealth = null;
     private bool damageActive = false;
     private float damageTimer = 0;
+    private float lifetime = 0;
 
     private const string playerTag = "Player";
+
+    private void Awake()
+    {
+        lifetime = stats.lifetime;
+    }
+
+    private void AddDotDamage()
+    {
+        if (player.TryGetComponent(out DotDamage _))
+        {
+            foreach (DotDamage dotdamage in player.GetComponents<DotDamage>())
+            {
+                Destroy(dotdamage);
+            }
+        }
+        player.AddComponent<DotDamage>().SetStats(stats.damage, damageMultiplier, stats.damageCooldown, stats.dotLifetime);
+    }
+
+    private void OnDamageTakenEventHandler()
+    {
+        damageTimer = stats.damageCooldown;
+    }
 
     private void Update()
     {
@@ -22,18 +42,17 @@ public class Fire : MonoBehaviour
 
         if (damageActive && damageTimer <= 0)
         {
-            playerHealth.TakeDamage(damage);
-            damageTimer = damageCooldown;
+            playerHealth.TakeDamage(stats.damage);
+            damageTimer = stats.damageCooldown;
         }
 
         if (lifetime <= 0)
         {
             if (player && damageActive)
-            {
-                player.AddComponent<DotDamage>().SetStats(damage, damageMultiplier, damageCooldown, dotLifetime);
-            }
+                AddDotDamage();
 
-            Destroy(gameObject);
+            if (transform.parent.gameObject)
+                Destroy(transform.parent.gameObject);
         }
     }
 
@@ -43,6 +62,7 @@ public class Fire : MonoBehaviour
         {
             player = collision.gameObject;
             playerHealth = player.GetComponent<Health>();
+            playerHealth.OnDamageTaken += OnDamageTakenEventHandler;
         }
 
         if (player)
@@ -56,7 +76,13 @@ public class Fire : MonoBehaviour
         if (player)
         {
             damageActive = false;
-            player.AddComponent<DotDamage>().SetStats(damage, damageMultiplier, damageCooldown, dotLifetime);
+            AddDotDamage();
         } 
+    }
+
+    private void OnDestroy()
+    {
+        if (player)
+            playerHealth.OnDamageTaken -= OnDamageTakenEventHandler;
     }
 }
