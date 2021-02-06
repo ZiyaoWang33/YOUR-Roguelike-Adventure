@@ -12,19 +12,21 @@ public abstract class Player : MonoBehaviour
     [SerializeField] protected PlayerInput input = null;
     [SerializeField] protected Transform rotator = null;
     [SerializeField] protected SpriteRenderer character = null;
+    [SerializeField] protected AudioSource sfx = null;
 
     protected float attackTimer = 0;
 
     protected virtual void Awake()
     {
         OnPlayerEnter?.Invoke(this);
+        AudioController.Instance.ChangeSFXTrack(sfx);
     }
 
     protected virtual void Update()
     {
         if (input.attack)
         {
-            Attack();
+            TryAttack();
         }
 
         attackTimer -= Time.deltaTime;
@@ -42,6 +44,16 @@ public abstract class Player : MonoBehaviour
     }
 
     protected abstract void Attack();
+
+    protected virtual void TryAttack()
+    {
+        if (attackTimer <= 0)
+        {
+            sfx.PlayOneShot(sfx.clip);
+            attackTimer = stats.attackSpeed;
+            Attack();
+        }
+    }
 
     public Vector3 GetDirection()
     {

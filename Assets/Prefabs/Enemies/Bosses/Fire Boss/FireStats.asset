@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FireStats
   m_EditorClassIdentifier: 
   _damage: 1
-  _damageCooldown: 1
+  _damageCooldown: 2.5
   _lifetime: 7
   _dotLifetime: 3

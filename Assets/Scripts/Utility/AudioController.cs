@@ -19,4 +19,14 @@ public class AudioController : Singleton<AudioController>
     {
         sfx.volume = volume;
     }
+
+    public void ChangeMusicTrack(AudioSource track)
+    {
+        music = track;
+    }
+
+    public void ChangeSFXTrack(AudioSource track)
+    {
+        sfx = track;
+    }
 }

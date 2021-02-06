@@ -8,11 +8,7 @@ public class Gunner : Player
 
     protected override void Attack()
     {
-        if (attackTimer <= 0)
-        {
-            GameObject bullet = Instantiate(this.bullet, shootPoint.position, shootPoint.rotation);
-            attackTimer = stats.attackSpeed;
-        }
+        Instantiate(bullet, shootPoint.position, shootPoint.rotation);
     }
 
     protected override void FixedUpdate()
