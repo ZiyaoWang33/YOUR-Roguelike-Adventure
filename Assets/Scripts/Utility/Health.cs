@@ -8,13 +8,8 @@ public class Health : MonoBehaviour
 
     [SerializeField] private int _health = 1;
     public int health { get { return _health; } }
-
-    private int maxHealth = 1;
-
-    private void Awake()
-    {
-        maxHealth = _health;
-    }
+    [SerializeField] private int _maxHealth = 1; // Serializable for convenience, should always be set to the same value as _health in the inspector.
+    public int maxHealth { get { return _maxHealth; } }
 
     public void TakeDamage(int amount)
     {
