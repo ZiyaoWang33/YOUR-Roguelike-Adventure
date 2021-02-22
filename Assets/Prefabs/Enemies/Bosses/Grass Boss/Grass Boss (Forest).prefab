@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 8233875886031379701}
-  abilityDistance: 0
   chargeSpeedMultiplier: 15
   chargeDuration: 2.5
   chargeCooldown: 10
@@ -126,17 +125,17 @@ PrefabInstance:
     - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.27083087
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
@@ -146,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.08783698
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
@@ -158,11 +157,16 @@ PrefabInstance:
       propertyPath: _health
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 2914585620834667700, guid: 689533c32ea93a34682a8940ad65fe8a,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3000627495760822799, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -7945901444079236628, guid: 02027016afbc5d544ab92ba819bc8094,
+      objectReference: {fileID: 21300000, guid: 2daf29a18f3c0cf4e9a29d3e676eba3e,
         type: 3}
     - target: {fileID: 3000627495760822799, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}

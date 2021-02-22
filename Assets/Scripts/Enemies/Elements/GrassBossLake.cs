@@ -15,12 +15,6 @@ public class GrassBossLake : MonoBehaviour, IBossElement
     [SerializeField] private float whipRotationSpeed = 0;
 
     private float slowingEffect = 0.5f;
-    private int maxHealth = 0;
-
-    private void Awake()
-    {
-        maxHealth = boss.health.health;
-    }
 
     public void UseAbility(int ability)
     {
@@ -31,7 +25,7 @@ public class GrassBossLake : MonoBehaviour, IBossElement
         }
         else if (ability == 1)
         {
-            if (boss.health.health <= maxHealth / 4)
+            if (boss.health.health <= boss.health.maxHealth / 4)
             {
                 Vector2 direction = ((player.transform.position + player.GetDirection() * Random.Range(0, 2)) - rotator.position).normalized;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -41,6 +35,7 @@ public class GrassBossLake : MonoBehaviour, IBossElement
                 newWhip.origin = gameObject;
                 newWhip.rotationSpeed = whipRotationSpeed;
                 newWhip.lifeTime = whipLifeTime;
+                newWhip.healing = true;
             }
         }
     }

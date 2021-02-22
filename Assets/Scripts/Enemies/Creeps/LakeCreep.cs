@@ -7,13 +7,14 @@ public class LakeCreep : Enemy
     [SerializeField] private GameObject bulletPattern = null;
     [SerializeField] private Transform shootPoint = null;
     [SerializeField] private Transform rotator = null;
+    [SerializeField] private float attackCooldown = 0;
 
     protected override void Awake()
     {
         base.Awake();
 
         inRange = true;
-        attackTimer = 1f;
+        attackTimer = attackCooldown;
     }
 
     protected override void Attack()
@@ -29,5 +30,7 @@ public class LakeCreep : Enemy
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rotator.eulerAngles = Vector3.forward * angle;
         Instantiate(bulletPattern, shootPoint.position, shootPoint.rotation);
+
+        attackTimer = attackCooldown;
     }
 }

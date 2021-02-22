@@ -36,7 +36,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 2241214339707042204}
-  col: {fileID: 1020084861169995398}
   steamLaser: {fileID: 3345658240080970716, guid: 0ee52b19369a0f947812e738b00256c9,
     type: 3}
   shootPoint: {fileID: 1049403098939204047}
@@ -123,17 +122,17 @@ PrefabInstance:
     - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.10811472
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
@@ -143,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.009827912
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
@@ -155,11 +154,16 @@ PrefabInstance:
       propertyPath: _health
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 2914585620834667700, guid: 689533c32ea93a34682a8940ad65fe8a,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3000627495760822799, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -860468679390908754, guid: 02027016afbc5d544ab92ba819bc8094,
+      objectReference: {fileID: 21300000, guid: 436ca5eb256dc3d4c8fe3f99c771153b,
         type: 3}
     - target: {fileID: 3000627495760822799, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
@@ -242,12 +246,6 @@ GameObject:
 --- !u!4 &6935095748933431174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5192012757860291053, guid: 689533c32ea93a34682a8940ad65fe8a,
-    type: 3}
-  m_PrefabInstance: {fileID: 2896892971992530539}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1020084861169995398 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
     type: 3}
   m_PrefabInstance: {fileID: 2896892971992530539}
   m_PrefabAsset: {fileID: 0}

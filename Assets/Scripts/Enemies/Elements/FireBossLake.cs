@@ -3,21 +3,14 @@
 public class FireBossLake : MonoBehaviour, IBossElement
 {
     [SerializeField] private FireBoss boss = null;
-    [SerializeField] private Collider2D col = null;
     private Player player = null;
     [SerializeField] private GameObject steamLaser = null;
     [SerializeField] private Transform shootPoint = null;
     [SerializeField] private Transform rotator = null;
 
     [SerializeField] private float maxBulletSize = 5;
-    private float maxHealth = 0;
     private float shootTimer = 5;
     private float shootCooldown = 2;
-
-    private void Awake()
-    {
-        maxHealth = GetComponent<Health>().health;
-    }
 
     private void Update()
     {
@@ -43,8 +36,7 @@ public class FireBossLake : MonoBehaviour, IBossElement
     {
         if (shootTimer > 0)
         {
-            float currentHealth = GetComponent<Health>().health;
-            float healthPercent = currentHealth / maxHealth;
+            float healthPercent = (float) boss.health.health / boss.health.maxHealth;
             float sizeMultiplier = (maxBulletSize - 1) * (1 - healthPercent) + 1;
             steamLaser.GetComponent<SteamLaser>().sizeMultiplier = sizeMultiplier;
 

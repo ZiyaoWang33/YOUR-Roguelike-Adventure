@@ -10,10 +10,16 @@ public class WoodBranchWhip : MonoBehaviour
     [HideInInspector] public GameObject origin = null;
     [HideInInspector] public float rotationSpeed = 0;
     [HideInInspector] public float lifeTime = 0;
+    [HideInInspector] public float sizeMultiplier = 1f;
+    [HideInInspector] public bool healing = false;
 
     private void Awake()
     {
-
+        foreach (Transform child in transform)
+        {
+            child.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            child.GetComponentInChildren<BoxCollider2D>().enabled = false;
+        }
     }
 
     private void Update()
@@ -37,13 +43,17 @@ public class WoodBranchWhip : MonoBehaviour
     }
 
     private void InitializeSegments()
-    {
+    {    
+        transform.localScale = new Vector3(transform.localScale.x * sizeMultiplier, transform.localScale.y * sizeMultiplier, transform.localScale.z);
+
         foreach (Transform child in transform)
         {
             WoodBranch branch = child.gameObject.GetComponent<WoodBranch>();
             branch.origin = origin;
-            branch.healing = true;
+            branch.healing = healing;
             branch.poison = true;
+            child.GetComponentInChildren<SpriteRenderer>().enabled = true;
+            child.GetComponentInChildren<BoxCollider2D>().enabled = true;
         }
         segmentsInitialized = true;
     }

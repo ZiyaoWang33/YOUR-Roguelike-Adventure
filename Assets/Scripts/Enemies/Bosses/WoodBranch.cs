@@ -32,7 +32,7 @@ public class WoodBranch : MonoBehaviour
 
         if (poison)
         {
-            player.AddComponent<DotDamage>().SetStats(1, damageMultiplier, 1f, Random.Range(3f, 4f));
+            player.AddComponent<DotDamage>().SetStats(1, damageMultiplier, 1f, Random.Range(3f, 5f));
         }
 
         if (slowing)

@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4389806394986260843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6430747332718344692}
+  m_Layer: 0
+  m_Name: Rotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6430747332718344692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4389806394986260843}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4074376421213479224}
+  m_Father: {fileID: 1447073159639156268}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5129725848547320903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4074376421213479224}
+  m_Layer: 0
+  m_Name: Shoot Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4074376421213479224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129725848547320903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.536, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6430747332718344692}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-8985032928374475535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,6 +78,12 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 776cba0debb4d384f8478c5df6666b91, type: 2}
   sprite: {fileID: 8483914768981972430}
   difficultyMultiplier: 1
+  whip: {fileID: 7709396802700767279, guid: 9d1efd2299d1b364b9a5735d0501afa4, type: 3}
+  shootPoint: {fileID: 4074376421213479224}
+  rotator: {fileID: 6430747332718344692}
+  whipLifeTime: 1
+  whipRotationSpeed: 3
+  attackCooldown: 5
 --- !u!1001 &6636253369252206529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29,16 +96,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest Creep
       objectReference: {fileID: 0}
+    - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2914585620834667700, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: _health
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914585620834667700, guid: 689533c32ea93a34682a8940ad65fe8a,
+        type: 3}
+      propertyPath: _maxHealth
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3000627495760822799, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5875395181630150645, guid: 02027016afbc5d544ab92ba819bc8094,
+      objectReference: {fileID: 21300000, guid: 52673c84960c3774cb94635f8b674c5e,
         type: 3}
     - target: {fileID: 5192012757860291053, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
@@ -100,6 +182,12 @@ PrefabInstance:
 --- !u!1 &6427883760440888477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 372914204171082588, guid: 689533c32ea93a34682a8940ad65fe8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6636253369252206529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1447073159639156268 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5192012757860291053, guid: 689533c32ea93a34682a8940ad65fe8a,
     type: 3}
   m_PrefabInstance: {fileID: 6636253369252206529}
   m_PrefabAsset: {fileID: 0}
