@@ -193,6 +193,8 @@ MonoBehaviour:
     type: 3}
   potentialCenters:
   - {fileID: 8782434681677428052, guid: d45b18da4d5760743b80de71b056437c, type: 3}
+  - {fileID: 8818078147534373459, guid: 0ca96cadabc6134468ee459d11a6cbeb, type: 3}
+  - {fileID: 8161373309576944181, guid: 17281f6656a266d4e82ba9fac7225815, type: 3}
   selectedDirection: 0
   distanceToEnd: 4
   xOffset: 26
@@ -244,7 +246,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.16078432, g: 0.22352941, b: 0.16078432, a: 0}
+  m_BackGroundColor: {r: 0.3764706, g: 0.043137256, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
