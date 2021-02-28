@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room D
       objectReference: {fileID: 0}
+    - target: {fileID: 8284467621529475115, guid: e9da692ccabfdf54b97a00ffdd19030d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Solid Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 8284467622907874832, guid: e9da692ccabfdf54b97a00ffdd19030d,
         type: 3}
       propertyPath: m_IsActive

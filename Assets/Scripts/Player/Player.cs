@@ -16,6 +16,8 @@ public abstract class Player : MonoBehaviour
 
     protected float attackTimer = 0;
 
+    private const string collisionTag = "Solid Terrain";
+
     protected virtual void Awake()
     {
         OnPlayerEnter?.Invoke(this);
@@ -41,6 +43,22 @@ public abstract class Player : MonoBehaviour
         rotator.eulerAngles = Vector3.forward * angle;
 
         character.flipX = angle > 90 || angle < -90;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(collisionTag))
+        {
+            GetComponent<Rigidbody2D>().mass = 100; // Set to large enough mass to resist any collisions
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(collisionTag))
+        {
+            GetComponent<Rigidbody2D>().mass = 1; // Reset to default player mass
+        }
     }
 
     protected abstract void Attack();

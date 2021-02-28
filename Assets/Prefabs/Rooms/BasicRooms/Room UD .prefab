@@ -1545,6 +1545,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Room UD '
       objectReference: {fileID: 0}
+    - target: {fileID: 8313645101005266637, guid: 6b22c545ddb0dc14f8ecb340f0d5e759,
+        type: 3}
+      propertyPath: m_TagString
+      value: Solid Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b22c545ddb0dc14f8ecb340f0d5e759, type: 3}
 --- !u!114 &6309096294287327052 stripped
