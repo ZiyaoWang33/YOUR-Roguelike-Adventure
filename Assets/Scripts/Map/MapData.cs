@@ -39,7 +39,7 @@ public class MapData : MonoBehaviour
     }
 
     private void CheckSlotBeforeProceeding()
-    {   
+    {
         if (ui && ui.loaded)
             ui.gameObject.SetActive(slots[currentLevel].entity);
     }

@@ -632,6 +632,11 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 6412366830668318513}
+    - target: {fileID: 7790380527385464800, guid: db10b96a4047a524ab8016fad1d9074e,
+        type: 3}
+      propertyPath: exit
+      value: 
+      objectReference: {fileID: 7825502201777319734}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db10b96a4047a524ab8016fad1d9074e, type: 3}
 --- !u!4 &7048657788548583004 stripped

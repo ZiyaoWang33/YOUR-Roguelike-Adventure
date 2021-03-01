@@ -55,8 +55,8 @@ public class MapUI : SceneTransition
                     obj.SetActive(false);
                 }
             }
+            loaded = !loaded;
+            unloaded = false;
         }
-        loaded = !loaded;
-        unloaded = false;
     }
 }
