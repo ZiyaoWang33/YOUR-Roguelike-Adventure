@@ -1057,6 +1057,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5628380974279421354, guid: 4b306170d91711d449853975d1c27dee,
+        type: 3}
+      propertyPath: openWhenEnemiesCleared
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8505682542594874940, guid: 4b306170d91711d449853975d1c27dee,
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.size

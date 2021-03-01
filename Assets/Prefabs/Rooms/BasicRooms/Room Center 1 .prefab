@@ -82,5 +82,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Room Center 1 '
       objectReference: {fileID: 0}
+    - target: {fileID: 6517853438760204272, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
+        type: 3}
+      propertyPath: enemiesToAdd.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517853438760204272, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
+        type: 3}
+      propertyPath: amountToRemove
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517853438760204272, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
+        type: 3}
+      propertyPath: enemiesToAdd.Array.data[0]
+      value: 
+      objectReference: {fileID: 5570741676641989361, guid: 0bc6290b15b5fb74e9b840d12acc3702,
+        type: 3}
+    - target: {fileID: 6517853438760204272, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
+        type: 3}
+      propertyPath: enemiesToAdd.Array.data[1]
+      value: 
+      objectReference: {fileID: 5570741676641989361, guid: 0bc6290b15b5fb74e9b840d12acc3702,
+        type: 3}
+    - target: {fileID: 6517853438760204272, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
+        type: 3}
+      propertyPath: enemiesToAdd.Array.data[2]
+      value: 
+      objectReference: {fileID: 5570741676641989361, guid: 0bc6290b15b5fb74e9b840d12acc3702,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7, type: 3}

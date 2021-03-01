@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9c819d407949845865558a29a96e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
 --- !u!61 &5269348515647402101
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -235,6 +236,11 @@ PrefabInstance:
       propertyPath: enemyContainer
       value: 
       objectReference: {fileID: 3368380012670349949}
+    - target: {fileID: 6517853438760204272, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
+        type: 3}
+      propertyPath: exit
+      value: 
+      objectReference: {fileID: 7129385568823007261}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7, type: 3}
 --- !u!4 &7898863758989978327 stripped
