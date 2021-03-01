@@ -4,6 +4,6 @@ public class Start : SceneTransition, IMenuButton
 {
     public void OnClick()
     {
-        SceneController.Instance.LoadLevel("MapPhase");
+        SceneController.Instance.LoadLevel("Intro");
     }
 }
