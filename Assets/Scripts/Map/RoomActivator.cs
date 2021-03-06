@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomActivator : MonoBehaviour
@@ -8,6 +9,7 @@ public class RoomActivator : MonoBehaviour
     [HideInInspector] public Door[] doors = null;
     [HideInInspector] public bool closedWhenEntered = false;
     public event Action<Health> OnRoomEntered;
+    public List<RoomActivator> adjacent = new List<RoomActivator>();
 
     [SerializeField] protected LevelExit exit = null;
     [SerializeField] protected Spawner spawner = null;

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
@@ -16,13 +15,16 @@ public class LevelGenerator : MonoBehaviour
 
     public int distanceToEnd = 4;
     public float xOffset = 26f, yOffset = 10f; // x: room length, y: room height
+    private Vector3 zOffset = new Vector3(0, 0, 10f); 
 
     [SerializeField] private GameObject endRoom;
     [SerializeField] private List<GameObject> layoutRoomObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> generatedOutlines = new List<GameObject>();
+    [SerializeField] private Dictionary<Vector3, RoomCenter> roomCenters = new Dictionary<Vector3, RoomCenter>();
 
     void Start()
     {
+        // Create dungeon shape
         Instantiate(layoutRoom, generatorPoint.position, generatorPoint.rotation);
 
         for (int i = 0; i < distanceToEnd; i++)
@@ -45,8 +47,8 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
-        // Create room outlines
-        CreateRoomOutline(Vector3.zero);
+        // Place room frames
+        CreateRoomOutline(Vector3.zero + zOffset);
         foreach (GameObject room in layoutRoomObjects)
         {
             CreateRoomOutline(room.transform.position);
@@ -54,12 +56,13 @@ public class LevelGenerator : MonoBehaviour
         CreateRoomOutline(endRoom.transform.position);
 
 
+        // Place room centers
         foreach (GameObject outline in generatedOutlines)
         {
             Vector3 centerPosition = new Vector3(outline.transform.position.x, outline.transform.position.y, outline.transform.position.z + 1);
             RoomCenter currentCenter = null;
 
-            if (outline.transform.position == Vector3.zero)
+            if (outline.transform.position == Vector3.zero + zOffset)
             {
                 currentCenter = Instantiate(centerStart, centerPosition, transform.rotation);
             }
@@ -73,8 +76,33 @@ public class LevelGenerator : MonoBehaviour
                 currentCenter = Instantiate(potentialCenters[centerSelect], centerPosition, transform.rotation);
             }
 
+            roomCenters.Add(centerPosition, currentCenter);
             currentCenter.theRoom = outline.GetComponent<Room>();
             currentCenter.activator.doors = currentCenter.theRoom.doors;
+        }
+        Debug.Log(roomCenters.Count);
+
+        // Store adjacent information
+        foreach (KeyValuePair<Vector3, RoomCenter> entry in roomCenters)
+        {
+            Vector3 roomPosition = entry.Key;
+            RoomCenter center = entry.Value;
+            RoomActivator activator = center.activator;
+
+            Vector3 above = roomPosition + new Vector3(0f, yOffset, 0f);
+            Vector3 below = roomPosition + new Vector3(0f, -yOffset, 0f);
+            Vector3 left = roomPosition + new Vector3(-xOffset, 0f, 0f);
+            Vector3 right = roomPosition + new Vector3(xOffset, 0f, 0f);
+
+            RoomActivator roomAbove = roomCenters.ContainsKey(above) ? roomCenters[above].activator : null;
+            RoomActivator roomBelow = roomCenters.ContainsKey(below) ? roomCenters[below].activator : null;
+            RoomActivator roomLeft = roomCenters.ContainsKey(left) ? roomCenters[left].activator : null;
+            RoomActivator roomRight = roomCenters.ContainsKey(right) ? roomCenters[right].activator : null;
+
+            activator.adjacent.Add(roomAbove);
+            activator.adjacent.Add(roomBelow);
+            activator.adjacent.Add(roomLeft);
+            activator.adjacent.Add(roomRight);
         }
     }
 

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Volcano.unity
     guid: 3e6dba0a940fbcc458a85df9eba5f431
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 9982173698979e4409c037732b02fba0
   m_configObjects: {}
