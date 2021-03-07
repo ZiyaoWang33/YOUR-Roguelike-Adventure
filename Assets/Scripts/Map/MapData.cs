@@ -2,7 +2,7 @@
 
 public class MapData : MonoBehaviour
 {
-    public static int currentLevel = 0; // Remember to set to 0 after changing for testing
+    public static int currentLevel = 2; // Remember to set to 0 after changing for testing
     public static string currentElement = string.Empty;
 
     [SerializeField] private MapUI ui = null;

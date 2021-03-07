@@ -80,29 +80,22 @@ public class LevelGenerator : MonoBehaviour
             currentCenter.theRoom = outline.GetComponent<Room>();
             currentCenter.activator.doors = currentCenter.theRoom.doors;
         }
-        Debug.Log(roomCenters.Count);
 
         // Store adjacent information
         foreach (KeyValuePair<Vector3, RoomCenter> entry in roomCenters)
         {
             Vector3 roomPosition = entry.Key;
-            RoomCenter center = entry.Value;
-            RoomActivator activator = center.activator;
+            RoomActivator activator = entry.Value.activator;
 
             Vector3 above = roomPosition + new Vector3(0f, yOffset, 0f);
             Vector3 below = roomPosition + new Vector3(0f, -yOffset, 0f);
             Vector3 left = roomPosition + new Vector3(-xOffset, 0f, 0f);
             Vector3 right = roomPosition + new Vector3(xOffset, 0f, 0f);
 
-            RoomActivator roomAbove = roomCenters.ContainsKey(above) ? roomCenters[above].activator : null;
-            RoomActivator roomBelow = roomCenters.ContainsKey(below) ? roomCenters[below].activator : null;
-            RoomActivator roomLeft = roomCenters.ContainsKey(left) ? roomCenters[left].activator : null;
-            RoomActivator roomRight = roomCenters.ContainsKey(right) ? roomCenters[right].activator : null;
-
-            activator.adjacent.Add(roomAbove);
-            activator.adjacent.Add(roomBelow);
-            activator.adjacent.Add(roomLeft);
-            activator.adjacent.Add(roomRight);
+            activator.adjacent.Add(roomCenters.ContainsKey(above) ? roomCenters[above].activator : null);
+            activator.adjacent.Add(roomCenters.ContainsKey(below) ? roomCenters[below].activator : null);
+            activator.adjacent.Add(roomCenters.ContainsKey(left) ? roomCenters[left].activator : null);
+            activator.adjacent.Add(roomCenters.ContainsKey(right) ? roomCenters[right].activator : null);
         }
     }
 
