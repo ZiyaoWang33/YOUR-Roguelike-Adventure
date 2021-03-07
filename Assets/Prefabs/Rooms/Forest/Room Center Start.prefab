@@ -69,144 +69,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aa9f6216471d8a4a9e45a35a516ee74, type: 3}
---- !u!1001 &1688094759829418512
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 5651388457665704481}
-    m_Modifications:
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6427883760440888477, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_Name
-      value: Forest Creep (6)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6aa9f6216471d8a4a9e45a35a516ee74, type: 3}
---- !u!1001 &1967265274620416865
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1963713333751220651}
-    m_Modifications:
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.5000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6427883760440888477, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_Name
-      value: Forest Creep (5)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6aa9f6216471d8a4a9e45a35a516ee74, type: 3}
 --- !u!1001 &2522418955901963621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -897,75 +759,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aa9f6216471d8a4a9e45a35a516ee74, type: 3}
---- !u!1001 &8376555227619337312
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 5651388457665704481}
-    m_Modifications:
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.4900002
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447073159639156268, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6427883760440888477, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
-        type: 3}
-      propertyPath: m_Name
-      value: Forest Creep (5)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6aa9f6216471d8a4a9e45a35a516ee74, type: 3}
 --- !u!1001 &8568672402332636080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1052,6 +845,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4753035658614515655, guid: 4b306170d91711d449853975d1c27dee,
+        type: 3}
+      propertyPath: enemyToAdd
+      value: 
+      objectReference: {fileID: 6427883760440888477, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
+        type: 3}
     - target: {fileID: 5044061174122294315, guid: 4b306170d91711d449853975d1c27dee,
         type: 3}
       propertyPath: m_IsActive

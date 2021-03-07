@@ -137,7 +137,7 @@ MonoBehaviour:
   activator: {fileID: 6517853438760204272}
   enemyToAdd: {fileID: 2003833619118053220, guid: 0bc6290b15b5fb74e9b840d12acc3702,
     type: 3}
-  amountToChange: 3
+  amountToChange: 2
 --- !u!1 &4174926175206003287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,6 +2399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doors: []
   closedWhenEntered: 0
+  adjacent: []
   exit: {fileID: 0}
   spawner: {fileID: 1012250769627425710}
 --- !u!1 &8849806671372426441

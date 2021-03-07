@@ -1,24 +1,13 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemySpawner : Spawner
 {
     [SerializeField] protected GameObject enemyToAdd = null;
     [SerializeField] protected int amountToChange = 0;
 
-    protected override void OnPerformanceChangeEventHandler(PlayerPerformanceManager.Performance previous, PlayerPerformanceManager.Performance current)
-    {
-        previousEnemyChange = previous;
-        print(current);
-
-        if (current == PlayerPerformanceManager.Performance.GOOD)
-        {
-            AddEnemies(amountToChange);
-        }
-        else if (current == PlayerPerformanceManager.Performance.BAD)
-        {
-            RemoveEnemies(amountToChange);
-        }
-    }
+    protected List<RoomActivator> possibleRooms = null;
+    protected PlayerPerformanceManager.Performance current = PlayerPerformanceManager.Performance.NEUTRAL;
 
     protected void AddEnemies(int amount)
     {
@@ -42,18 +31,26 @@ public class EnemySpawner : Spawner
         }
     }
 
-    protected override void OnAnyRoomCompleteEventHandler(RoomActivator room)
+    protected override void OnAnyRoomEnteredEventHandler(RoomActivator room)
     {
-        if (room != activator)
+        if (activator.Equals(room) && possibleRooms != null && possibleRooms.Contains(room))
         {
-            if (previousEnemyChange == PlayerPerformanceManager.Performance.GOOD)
-            {
-                RemoveEnemies(amountToChange);
-            }
-            else if (previousEnemyChange == PlayerPerformanceManager.Performance.BAD)
+            if (current.Equals(PlayerPerformanceManager.Performance.GOOD))
             {
                 AddEnemies(amountToChange);
             }
+            else if (current.Equals(PlayerPerformanceManager.Performance.BAD))
+            {
+                RemoveEnemies(amountToChange);
+            }
         }
+    }
+
+    protected override void OnPerformanceChangeEventHandler(PlayerPerformanceManager.Performance previous, PlayerPerformanceManager.Performance current, RoomActivator room)
+    {
+        Debug.Log("Last Performance: " + previous.ToString());
+        Debug.Log("Current Performance: " + current.ToString());
+        possibleRooms = room.adjacent;
+        this.current = current;
     }
 }

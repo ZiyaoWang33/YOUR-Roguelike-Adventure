@@ -66,7 +66,7 @@ public class SceneController : Singleton<SceneController>
 
         if (ao == null)
         {
-            Debug.LogError("Unable to load " + lvl);
+            Debug.LogError("Unable to unload " + lvl);
             return;
         }
     }
@@ -78,7 +78,7 @@ public class SceneController : Singleton<SceneController>
 
         if (ao == null)
         {
-            Debug.LogError("Unable to load " + previousLevel);
+            Debug.LogError("Unable to unload " + previousLevel);
             return;
         }
     }

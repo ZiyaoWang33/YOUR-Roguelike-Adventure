@@ -11,12 +11,12 @@ public class BossSpawner : Spawner
         return indexes[MapData.currentElement];
     }
 
-    protected override void OnAnyRoomCompleteEventHandler(RoomActivator room)
+    protected override void OnAnyRoomEnteredEventHandler(RoomActivator room)
     {
         return;
     }
 
-    protected override void OnPerformanceChangeEventHandler(PlayerPerformanceManager.Performance previous, PlayerPerformanceManager.Performance current)
+    protected override void OnPerformanceChangeEventHandler(PlayerPerformanceManager.Performance previous, PlayerPerformanceManager.Performance current, RoomActivator room)
     {
         return;
     }

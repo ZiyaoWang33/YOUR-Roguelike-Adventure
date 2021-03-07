@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoomActivator : MonoBehaviour
 {
     public static event Action<RoomActivator> OnAnyRoomComplete;
+    public static event Action<RoomActivator> OnAnyRoomEntered;
 
     [HideInInspector] public Door[] doors = null;
     [HideInInspector] public bool closedWhenEntered = false;
@@ -53,6 +54,7 @@ public class RoomActivator : MonoBehaviour
                     door.Close();
                 }
 
+                OnAnyRoomEntered?.Invoke(this);
                 OnRoomEntered?.Invoke(other.GetComponent<Health>());
             }
         }

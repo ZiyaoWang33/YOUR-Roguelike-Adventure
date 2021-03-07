@@ -72,7 +72,7 @@ public abstract class Spawner : MonoBehaviour
     protected virtual void OnEnable()
     {
         activator.OnRoomEntered += OnRoomEnteredEventHandler;
-        RoomActivator.OnAnyRoomComplete += OnAnyRoomCompleteEventHandler;
+        RoomActivator.OnAnyRoomEntered += OnAnyRoomEnteredEventHandler;
         PlayerPerformanceManager.OnPerformanceChange += OnPerformanceChangeEventHandler;
 
         foreach (GameObject enemy in enemyObjs)
@@ -111,14 +111,14 @@ public abstract class Spawner : MonoBehaviour
         }
     }
 
-    protected abstract void OnPerformanceChangeEventHandler(PlayerPerformanceManager.Performance previous, PlayerPerformanceManager.Performance current);
+    protected abstract void OnPerformanceChangeEventHandler(PlayerPerformanceManager.Performance previous, PlayerPerformanceManager.Performance current, RoomActivator room);
 
-    protected abstract void OnAnyRoomCompleteEventHandler(RoomActivator room);
+    protected abstract void OnAnyRoomEnteredEventHandler(RoomActivator room);
 
     protected virtual void OnDisable()
     {
         activator.OnRoomEntered -= OnRoomEnteredEventHandler;
-        RoomActivator.OnAnyRoomComplete -= OnAnyRoomCompleteEventHandler;
+        RoomActivator.OnAnyRoomEntered -= OnAnyRoomEnteredEventHandler;
         PlayerPerformanceManager.OnPerformanceChange -= OnPerformanceChangeEventHandler;
 
         foreach (GameObject enemy in enemyObjs)

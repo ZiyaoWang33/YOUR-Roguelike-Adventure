@@ -3,18 +3,17 @@ using System;
 
 public class PlayerPerformanceManager : MonoBehaviour
 {
-    public static event Action<Performance, Performance> OnPerformanceChange; // previous, current
+    public static event Action<Performance, Performance, RoomActivator> OnPerformanceChange; // previous, current
+    public static event Action<Performance> OnFinalPerformancChange;
     public enum Performance { GOOD, NEUTRAL, BAD };
 
-    [SerializeField] private float timeThreshold = 0;
     [SerializeField] private int damageThreshold = 0;
 
     private Performance current = Performance.NEUTRAL;
-    private float timeToComplete = 0;
     private int healthLost = 0;
     private int currentHealth = 0;
     private Health health = null;
-    private bool startTimer = false;
+    private bool addLostHealth = false;
 
     private void OnEnable()
     {
@@ -24,28 +23,23 @@ public class PlayerPerformanceManager : MonoBehaviour
 
     private void OnPlayerEnterEventHandler(Player player)
     {
-        player.OnPlayerExit += OnPlayerExitEventHandler;
-
         health = player.GetComponent<Health>();
         currentHealth = health.health;
         health.OnDamageTaken += OnDamageTakenEventHandler;
-
-        startTimer = true;
-    }
-
-    private void OnPlayerExitEventHandler()
-    {
-        startTimer = false;
     }
 
     private void OnAnyRoomCompleteEventHandler(RoomActivator room)
     {
         Performance previous = current;
-        if (timeToComplete > timeThreshold && healthLost > damageThreshold)
+        if (currentHealth < damageThreshold)
+        {
+            current = Performance.NEUTRAL;
+        }
+        else if (healthLost > damageThreshold)
         {
             current = Performance.BAD;
         }    
-        else if (timeToComplete < timeThreshold && healthLost == 0)
+        else if (healthLost == 0)
         {
             current = Performance.GOOD;
         }
@@ -54,21 +48,22 @@ public class PlayerPerformanceManager : MonoBehaviour
             current = Performance.NEUTRAL;
         }
 
-        OnPerformanceChange?.Invoke(previous, current);
+        addLostHealth = false;
+        OnPerformanceChange?.Invoke(previous, current, room);
     }
 
     private void OnDamageTakenEventHandler()
     {
-        healthLost = currentHealth - health.health;
-        currentHealth = health.health;
-    }
-
-    private void Update()
-    {
-        if (startTimer)
+        if (addLostHealth)
         {
-            timeToComplete += Time.deltaTime;
+            healthLost = healthLost + (currentHealth - health.health);
         }
+        else
+        {
+            healthLost = currentHealth - health.health;
+            addLostHealth = true;
+        }
+        currentHealth = health.health;
     }
 
     private void OnDisable()
