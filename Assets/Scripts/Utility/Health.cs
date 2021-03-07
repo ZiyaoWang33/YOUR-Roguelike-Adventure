@@ -11,9 +11,11 @@ public class Health : MonoBehaviour
     [SerializeField] private int _maxHealth = 1; // Serializable for convenience, should always be set to the same value as _health in the inspector.
     public int maxHealth { get { return _maxHealth; } }
 
+    public float damageMultiplier = 1;
+
     public void TakeDamage(int amount)
     {
-        _health -= amount;
+        _health -= (int)Math.Round(amount * damageMultiplier, MidpointRounding.AwayFromZero);
         OnDamageTaken?.Invoke();      
 
         if (_health <= 0)

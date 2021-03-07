@@ -5,7 +5,16 @@ public class VolcanoCreep : Enemy
     protected override void Attack()
     {
         base.Attack();
+        player.TakeDamage(stats.damage);
 
-        // Add burned debuff: player takes more dmg, stacks up to 5 times
+        WeakenDefense debuff = player.GetComponent<WeakenDefense>();
+        if (debuff)
+        {
+            debuff.StackEffect();
+        }
+        else
+        {
+            player.gameObject.AddComponent<WeakenDefense>().SetStats(0.25f, 5, 3);
+        }
     }
 }
