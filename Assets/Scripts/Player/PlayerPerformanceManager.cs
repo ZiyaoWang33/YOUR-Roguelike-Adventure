@@ -8,6 +8,7 @@ public class PlayerPerformanceManager : MonoBehaviour
     public enum Performance { GOOD, NEUTRAL, BAD };
 
     [SerializeField] private int damageThreshold = 0;
+    [SerializeField] private int healthGoal = 0;
 
     private Performance current = Performance.NEUTRAL;
     private int healthLost = 0;
@@ -31,9 +32,11 @@ public class PlayerPerformanceManager : MonoBehaviour
     private void OnAnyRoomCompleteEventHandler(RoomActivator room)
     {
         Performance previous = current;
-        if (currentHealth < damageThreshold)
+        Performance final = Performance.NEUTRAL;
+        if (currentHealth < healthGoal)
         {
             current = Performance.NEUTRAL;
+            final = Performance.BAD;
         }
         else if (healthLost > damageThreshold)
         {
@@ -50,6 +53,12 @@ public class PlayerPerformanceManager : MonoBehaviour
 
         addLostHealth = false;
         OnPerformanceChange?.Invoke(previous, current, room);
+
+        if (currentHealth == health.maxHealth)
+        {
+            final = Performance.GOOD;
+        }
+        OnFinalPerformancChange?.Invoke(final);
     }
 
     private void OnDamageTakenEventHandler()

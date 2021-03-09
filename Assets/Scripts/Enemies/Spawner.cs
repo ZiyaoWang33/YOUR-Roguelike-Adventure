@@ -13,7 +13,6 @@ public abstract class Spawner : MonoBehaviour
 
     protected int deathCount = 0;
     protected bool active = false;
-    protected PlayerPerformanceManager.Performance previousEnemyChange = PlayerPerformanceManager.Performance.NEUTRAL;
 
     protected virtual void Awake()
     {
@@ -35,6 +34,7 @@ public abstract class Spawner : MonoBehaviour
         foreach (GameObject enemy in enemyObjects)
         {
             enemyObjs.Add(enemy);
+            enemies.Add(enemy, enemy.GetComponent<Enemy>());
         }
 
         foreach (GameObject enemySet in enemySets)
@@ -72,12 +72,9 @@ public abstract class Spawner : MonoBehaviour
     protected virtual void OnEnable()
     {
         activator.OnRoomEntered += OnRoomEnteredEventHandler;
-        RoomActivator.OnAnyRoomEntered += OnAnyRoomEnteredEventHandler;
-        PlayerPerformanceManager.OnPerformanceChange += OnPerformanceChangeEventHandler;
 
         foreach (GameObject enemy in enemyObjs)
         {
-            enemies.Add(enemy, enemy.GetComponent<Enemy>());
             enemies[enemy].OnDeath += OnEnemyDeathEventHandler;
         }
     }
@@ -111,15 +108,9 @@ public abstract class Spawner : MonoBehaviour
         }
     }
 
-    protected abstract void OnPerformanceChangeEventHandler(PlayerPerformanceManager.Performance previous, PlayerPerformanceManager.Performance current, RoomActivator room);
-
-    protected abstract void OnAnyRoomEnteredEventHandler(RoomActivator room);
-
     protected virtual void OnDisable()
     {
         activator.OnRoomEntered -= OnRoomEnteredEventHandler;
-        RoomActivator.OnAnyRoomEntered -= OnAnyRoomEnteredEventHandler;
-        PlayerPerformanceManager.OnPerformanceChange -= OnPerformanceChangeEventHandler;
 
         foreach (GameObject enemy in enemyObjs)
         {

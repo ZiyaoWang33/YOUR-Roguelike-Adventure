@@ -851,6 +851,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6427883760440888477, guid: 6aa9f6216471d8a4a9e45a35a516ee74,
         type: 3}
+    - target: {fileID: 4753035658614515655, guid: 4b306170d91711d449853975d1c27dee,
+        type: 3}
+      propertyPath: eliteToAdd
+      value: 
+      objectReference: {fileID: 6525728201994373160, guid: 069afe09ab05fcd4190f86862e6b2549,
+        type: 3}
     - target: {fileID: 5044061174122294315, guid: 4b306170d91711d449853975d1c27dee,
         type: 3}
       propertyPath: m_IsActive

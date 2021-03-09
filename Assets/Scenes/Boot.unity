@@ -689,8 +689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1660423796cd53448f180de51163be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeThreshold: 15
   damageThreshold: 25
+  healthGoal: 50
 --- !u!4 &1212980043
 Transform:
   m_ObjectHideFlags: 0
