@@ -8,9 +8,10 @@ public class SlowingEffect : MonoBehaviour
 
     private float timer = 0;
 
-    public void SetStats(float slowingEffect, float lifetime)
+    public void SetStats(float slowingEffect, float lifetime, float effectCap = 0.5f)
     {
         timer = lifetime;
+        slowingCap = effectCap;
 
         player = gameObject.GetComponent<Player>();
         player.speedMultiplier -= (player.speedMultiplier > 1 - slowingCap) ? slowingEffect : 0;

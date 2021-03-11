@@ -187,7 +187,7 @@ MonoBehaviour:
       type: 3}
     fourway: {fileID: 8313645101005266637, guid: 6b22c545ddb0dc14f8ecb340f0d5e759,
       type: 3}
-  centerStart: {fileID: 136821738607763907, guid: 731e3a3a5775a8d4fa5d3d8eded9aca7,
+  centerStart: {fileID: 4971498834033739013, guid: 3415306954bdce74d850970e635df3be,
     type: 3}
   centerEnd: {fileID: 6163212531225628535, guid: 45f6fd191064c5b4899b27a280d30cab,
     type: 3}

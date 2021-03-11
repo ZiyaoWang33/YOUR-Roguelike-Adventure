@@ -86,16 +86,19 @@ public class LevelGenerator : MonoBehaviour
         {
             Vector3 roomPosition = entry.Key;
             RoomActivator activator = entry.Value.activator;
+      
+            List<Vector3> adjacents = new List<Vector3>()
+            {
+                roomPosition + new Vector3(0f, yOffset, 0f),
+                roomPosition + new Vector3(0f, -yOffset, 0f),
+                roomPosition + new Vector3(-xOffset, 0f, 0f),
+                roomPosition + new Vector3(xOffset, 0f, 0f)
+            };
 
-            Vector3 above = roomPosition + new Vector3(0f, yOffset, 0f);
-            Vector3 below = roomPosition + new Vector3(0f, -yOffset, 0f);
-            Vector3 left = roomPosition + new Vector3(-xOffset, 0f, 0f);
-            Vector3 right = roomPosition + new Vector3(xOffset, 0f, 0f);
-
-            activator.adjacent.Add(roomCenters.ContainsKey(above) ? roomCenters[above].activator : null);
-            activator.adjacent.Add(roomCenters.ContainsKey(below) ? roomCenters[below].activator : null);
-            activator.adjacent.Add(roomCenters.ContainsKey(left) ? roomCenters[left].activator : null);
-            activator.adjacent.Add(roomCenters.ContainsKey(right) ? roomCenters[right].activator : null);
+            foreach (Vector3 roomPos in adjacents)
+            {
+                activator.adjacent.Add(roomCenters.ContainsKey(roomPos) ? roomCenters[roomPos].activator : null);
+            }
         }
     }
 
