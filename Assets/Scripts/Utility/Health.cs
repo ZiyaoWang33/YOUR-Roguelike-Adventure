@@ -12,10 +12,11 @@ public class Health : MonoBehaviour
     public int maxHealth { get { return _maxHealth; } }
 
     public float damageMultiplier = 1;
+    public float defense = 0;
 
     public void TakeDamage(int amount)
     {
-        _health -= (int)Math.Round(amount * damageMultiplier, MidpointRounding.AwayFromZero);
+        _health -= (int)Math.Round((amount * damageMultiplier) - defense, MidpointRounding.AwayFromZero);
         OnDamageTaken?.Invoke();      
 
         if (_health <= 0)

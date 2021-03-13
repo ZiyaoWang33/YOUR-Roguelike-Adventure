@@ -6,12 +6,20 @@ public class WoodBranch : MonoBehaviour
     [SerializeField] private int damageMultiplier = 1;
     [SerializeField] private int healingAmount = 10;
 
-    [HideInInspector] public GameObject origin = null;
-    [HideInInspector] public bool healing = false;
-    [HideInInspector] public bool poison = false;
-    [HideInInspector] public bool slowing = false;
+    private GameObject origin = null;
+    private bool healing = false;
+    private bool poison = false;
+    private bool slowing = false;
 
     private const string playerTag = "Player";
+
+    public void SetStats(GameObject _origin, bool _healing = false, bool _poison = false, bool _slowing = false)
+    {
+        origin = _origin;
+        healing = _healing;
+        poison = _poison;
+        slowing = _slowing;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

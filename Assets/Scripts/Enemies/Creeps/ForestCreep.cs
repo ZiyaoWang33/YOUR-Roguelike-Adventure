@@ -33,10 +33,7 @@ public class ForestCreep : Enemy
         rotator.eulerAngles = Vector3.forward * angle;
 
         WoodBranchWhip newWhip = Instantiate(whip, shootPoint.position, shootPoint.rotation).GetComponent<WoodBranchWhip>();
-        newWhip.origin = gameObject;
-        newWhip.rotationSpeed = whipRotationSpeed;
-        newWhip.lifeTime = whipLifeTime;
-        newWhip.sizeMultiplier = 0.5f;
+        newWhip.SetStats(gameObject, whipRotationSpeed, whipLifeTime, 0.5f);
 
         attackTimer = Random.Range(attackCooldown / 2, attackCooldown);
     }

@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: -1564491567886046738}
+  whip: {fileID: 7709396802700767279, guid: 9d1efd2299d1b364b9a5735d0501afa4, type: 3}
+  seed: {fileID: 3142216121176738638, guid: e768c1b5ce25cc74a8b06f003e8869a8, type: 3}
   shootPoint: {fileID: 4405084921499401699}
   rotator: {fileID: 5991062288542311807}
+  whipLifeTime: 0.75
+  whipRotationSpeed: 5
+  seedLifeTime: 5
+  seeds: 3
 --- !u!114 &-1564491567886046738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,8 +40,10 @@ MonoBehaviour:
   difficultyMultiplier: 1
   speedMultiplier: 1
   waitTime: 0
-  abilityCooldowns: []
-  useInSecondStage: 
+  abilityCooldowns:
+  - 3
+  - 10
+  useInSecondStage: 0001
   keepDirection: 0
 --- !u!1 &1738053578083979395
 GameObject:
@@ -61,7 +69,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738053578083979395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5991062288542311807}

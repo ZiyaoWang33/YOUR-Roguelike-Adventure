@@ -32,10 +32,7 @@ public class GrassBossLake : MonoBehaviour, IBossElement
                 rotator.eulerAngles = Vector3.forward * angle;
 
                 WoodBranchWhip newWhip = Instantiate(whip, shootPoint.position, shootPoint.rotation).GetComponent<WoodBranchWhip>();
-                newWhip.origin = gameObject;
-                newWhip.rotationSpeed = whipRotationSpeed;
-                newWhip.lifeTime = whipLifeTime;
-                newWhip.healing = true;
+                newWhip.SetStats(gameObject, whipRotationSpeed, whipLifeTime, 1, true);
             }
         }
     }
@@ -56,6 +53,8 @@ public class GrassBossLake : MonoBehaviour, IBossElement
                 for (int y = 2; y < roomHeight - 1; y++)
                 {
                     Root newRoot = Instantiate(root, transform.position + new Vector3(x - roomLength / 2, y - roomHeight / 2, -1), Quaternion.identity).GetComponent<Root>();
+                    newRoot.player = player;
+                    newRoot.permanent = true;
                 }
             }
             player.speedMultiplier -= slowingEffect;
