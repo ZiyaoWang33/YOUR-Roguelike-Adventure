@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class SeedBullet : Bullet
+public class LavaRock : Bullet
 {
     private GameObject origin = null;
     private float flightTime = 0;
@@ -11,6 +11,8 @@ public class SeedBullet : Bullet
 
     private const string playerTag = "Player";
     private const string wallTag = "Solid Terrain";
+
+    private const int mass = 1000000;
 
     public void SetStats(GameObject _origin, float _flightTime)
     {
@@ -24,8 +26,14 @@ public class SeedBullet : Bullet
 
         if (flightTime <= 0)
         {
+            Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+
             active = true;
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
+            rb.mass = mass;
+            rb.angularVelocity = 0;
+            transform.Find("Graphic").gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            StartCoroutine(delayedDeath());
         }
 
         if (origin == null)
@@ -34,21 +42,15 @@ public class SeedBullet : Bullet
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!active && collision.CompareTag(wallTag))
+        if (!active && collision.gameObject.CompareTag(wallTag))
         {
             flightTime = 0;
         }
         else if (active && collision.gameObject.CompareTag(playerTag))
         {
-            GameObject player = collision.gameObject;
-
-            player.GetComponent<Health>().TakeDamage(damage);
-            player.AddComponent<SlowingEffect>().SetStats(1, lifeTime, 1);
-            origin.GetComponent<Health>().Heal(damage);
-
-            StartCoroutine(delayedDeath());
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
         }
     }
 

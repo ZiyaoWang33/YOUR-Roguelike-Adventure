@@ -80,8 +80,10 @@ MonoBehaviour:
   difficultyMultiplier: 1
   speedMultiplier: 1
   waitTime: 0
-  abilityCooldowns: []
-  useInSecondStage: 
+  abilityCooldowns:
+  - 1
+  - 5
+  useInSecondStage: 0000
   keepDirection: 0
 --- !u!114 &2670035902282737534
 MonoBehaviour:
@@ -96,6 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: -5258340120190743709}
+  fire: {fileID: 4592884275485528985, guid: 13bfb9026a630f84c94e7662f2c774b2, type: 3}
+  chargeSpeedMultiplier: 10
+  chargeDuration: 1
+  rock: {fileID: 4595570659089343716, guid: ee8db441d46bec7499a518c76dccb6d1, type: 3}
+  rocks: 5
+  bulletPattern: {fileID: 4001405255560073674, guid: 9df4ba56381807040b84c54dd07a3a94,
+    type: 3}
   shootPoint: {fileID: 51307072734400921}
   rotator: {fileID: 3743688513262796901}
 --- !u!1001 &7000792210943292652

@@ -35,18 +35,20 @@ public class WaterBossVolcano : MonoBehaviour, IBossElement
 
     public void UseAbility(int ability)
     {
-        if (ability == 0)
+        switch (ability)
         {
-            Transform shield = transform.Find("Shield");
-            shield.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            boss.health.defense = defenseBoost;
-        }
-        else if (ability == 1)
-        {
-            if (enableSteamState && !steamState && timer <= 0 && Random.Range(0, 1f) >= (1 - abilityChance))
-            {
-                StartCoroutine(EnterSteamState());
-            }
+            case 0:
+                Transform shield = transform.Find("Shield");
+                shield.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                boss.health.defense = defenseBoost;
+                break;
+
+            case 1:
+                if (enableSteamState && !steamState && timer <= 0 && Random.Range(0, 1f) >= (1 - abilityChance))
+                {
+                    StartCoroutine(EnterSteamState());
+                }
+                break;
         }
     }
 

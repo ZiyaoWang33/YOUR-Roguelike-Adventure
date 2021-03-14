@@ -34,7 +34,7 @@ public class FireBossLake : MonoBehaviour, IBossElement
 
     public void UseAbility(int ability)
     {
-        if (shootTimer > 0)
+        if (ability == 0 && shootTimer > 0)
         {
             float healthPercent = (float) boss.health.health / boss.health.maxHealth;
             float sizeMultiplier = (maxBulletSize - 1) * (1 - healthPercent) + 1;

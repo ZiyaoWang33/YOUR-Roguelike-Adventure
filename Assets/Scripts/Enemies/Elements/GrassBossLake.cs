@@ -18,22 +18,24 @@ public class GrassBossLake : MonoBehaviour, IBossElement
 
     public void UseAbility(int ability)
     {
-        if (ability == 0)
+        switch (ability)
         {
-            GrassWaterCreepSet summonedCreeps = Instantiate(summon, transform.position, transform.rotation).GetComponent<GrassWaterCreepSet>();
-            summonedCreeps.player = player;
-        }
-        else if (ability == 1)
-        {
-            if (boss.health.health <= boss.health.maxHealth / 4)
-            {
-                Vector2 direction = ((player.transform.position + player.GetDirection() * Random.Range(0, 2)) - rotator.position).normalized;
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                rotator.eulerAngles = Vector3.forward * angle;
+            case 0:
+                GrassWaterCreepSet summonedCreeps = Instantiate(summon, transform.position, transform.rotation).GetComponent<GrassWaterCreepSet>();
+                summonedCreeps.player = player;
+                break;
 
-                WoodBranchWhip newWhip = Instantiate(whip, shootPoint.position, shootPoint.rotation).GetComponent<WoodBranchWhip>();
-                newWhip.SetStats(gameObject, whipRotationSpeed, whipLifeTime, 1, true);
-            }
+            case 1:
+                if (boss.health.health <= boss.health.maxHealth / 4)
+                {
+                    Vector2 direction = ((player.transform.position + player.GetDirection() * Random.Range(0, 2)) - rotator.position).normalized;
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                    rotator.eulerAngles = Vector3.forward * angle;
+
+                    WoodBranchWhip newWhip = Instantiate(whip, shootPoint.position, shootPoint.rotation).GetComponent<WoodBranchWhip>();
+                    newWhip.SetStats(gameObject, whipRotationSpeed, whipLifeTime, 1, true);
+                }
+                break;
         }
     }
 
