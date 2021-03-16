@@ -12,7 +12,6 @@ public abstract class Spawner : MonoBehaviour
     [SerializeField] protected RoomActivator activator = null;
 
     protected int deathCount = 0;
-    protected bool active = false;
 
     protected virtual void Awake()
     {
@@ -81,30 +80,22 @@ public abstract class Spawner : MonoBehaviour
 
     protected void OnEnemyDeathEventHandler()
     {
-        if (active)
-        {
-            deathCount++;
-        }
+        deathCount++;
 
         if (deathCount >= enemies.Count)
         {
             OnAllEnemiesKilled?.Invoke();
-            active = false;
+            gameObject.SetActive(false);
         }
     }
 
     protected void OnRoomEnteredEventHandler(Health player)
     {
-        if (deathCount < enemies.Count)
+        foreach (GameObject enemy in enemyObjs)
         {
-            active = true;
-
-            foreach (GameObject enemy in enemyObjs)
-            {
-                enemies[enemy].player = player;
-                enemy.SetActive(true);
-                enemies[enemy].AnimateSpawn();
-            }
+            enemies[enemy].player = player;
+            enemy.SetActive(true);
+            enemies[enemy].AnimateSpawn();
         }
     }
 

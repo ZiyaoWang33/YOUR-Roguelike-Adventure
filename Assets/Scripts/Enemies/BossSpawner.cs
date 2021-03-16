@@ -25,8 +25,6 @@ public class BossSpawner : Spawner
             enemyObjs.Remove(enemy);
             enemies.Remove(enemy);
         }
-        print(enemyObjs.Count);
-        print(enemyObjs[0].gameObject.name);
     }
 
     protected override void OnEnable()
@@ -48,6 +46,7 @@ public class BossSpawner : Spawner
         enemies.Remove(currentBoss);
         enemyObjs.Add(nextBoss.gameObject);
         enemies.Add(nextBoss.gameObject, nextBoss);
+        Debug.Log("Final Performance: " + final.ToString());
     }
 
     protected override void OnDisable()

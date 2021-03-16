@@ -7,12 +7,15 @@ public class PlayerPerformanceManager : MonoBehaviour
     public static event Action<Performance> OnFinalPerformancChange;
     public enum Performance { GOOD, NEUTRAL, BAD };
 
-    [SerializeField] private int damageThreshold = 0;
+    [SerializeField] private int damageThreshold = 0; 
     [SerializeField] private int healthGoal = 0;
+    // Health metrics described as the ratio of current health to the previous current health
 
     private Performance current = Performance.NEUTRAL;
     private int healthLost = 0;
+    private float percentLoss = 0;
     private int currentHealth = 0;
+    private int previousCurrentHealth = 0;
     private Health health = null;
     private bool addLostHealth = false;
 
@@ -25,27 +28,21 @@ public class PlayerPerformanceManager : MonoBehaviour
     private void OnPlayerEnterEventHandler(Player player)
     {
         health = player.GetComponent<Health>();
-        currentHealth = health.health;
+        currentHealth = health.maxHealth;
         health.OnDamageTaken += OnDamageTakenEventHandler;
     }
 
     private void OnAnyRoomCompleteEventHandler(RoomActivator room)
     {
         Performance previous = current;
-        Performance final = Performance.NEUTRAL;
-        if (currentHealth < healthGoal)
-        {
-            current = Performance.NEUTRAL;
-            final = Performance.BAD;
-        }
-        else if (healthLost > damageThreshold)
+        if (percentLoss >= damageThreshold)
         {
             current = Performance.BAD;
-        }    
-        else if (healthLost == 0)
+        }
+        else if (percentLoss <= healthGoal)
         {
             current = Performance.GOOD;
-        }
+        }    
         else
         {
             current = Performance.NEUTRAL;
@@ -54,9 +51,14 @@ public class PlayerPerformanceManager : MonoBehaviour
         addLostHealth = false;
         OnPerformanceChange?.Invoke(previous, current, room);
 
-        if (currentHealth == health.maxHealth)
+        Performance final = Performance.NEUTRAL;
+        if (currentHealth >= damageThreshold)
         {
             final = Performance.GOOD;
+        }
+        else if (currentHealth <= healthGoal)
+        {
+            final = Performance.BAD;
         }
         OnFinalPerformancChange?.Invoke(final);
     }
@@ -66,10 +68,12 @@ public class PlayerPerformanceManager : MonoBehaviour
         if (addLostHealth)
         {
             healthLost = healthLost + (currentHealth - health.health);
+            percentLoss = healthLost / previousCurrentHealth;
         }
         else
         {
             healthLost = currentHealth - health.health;
+            previousCurrentHealth = health.health;
             addLostHealth = true;
         }
         currentHealth = health.health;
