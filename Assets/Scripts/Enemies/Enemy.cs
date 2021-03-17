@@ -3,7 +3,6 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [HideInInspector] public event Action OnDeath;
     [HideInInspector] public Health player = null;
     public Health health = null;
     public EnemyStats stats = null;
@@ -85,10 +84,5 @@ public abstract class Enemy : MonoBehaviour
         {
             inRange = false;
         }
-    }
-
-    protected virtual void OnDestroy()
-    {
-        OnDeath?.Invoke();
     }
 }

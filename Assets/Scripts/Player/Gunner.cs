@@ -8,7 +8,7 @@ public class Gunner : Player
 
     protected override void Attack()
     {
-        Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+        Instantiate(bullet, shootPoint.position, shootPoint.rotation).GetComponent<Bullet>().SetDamage(damageMultipier);
     }
 
     protected override void FixedUpdate()

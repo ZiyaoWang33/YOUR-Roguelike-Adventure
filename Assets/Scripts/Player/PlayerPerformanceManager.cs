@@ -68,7 +68,7 @@ public class PlayerPerformanceManager : MonoBehaviour
         if (addLostHealth)
         {
             healthLost = healthLost + (currentHealth - health.health);
-            percentLoss = healthLost / previousCurrentHealth;
+            percentLoss = healthLost / previousCurrentHealth * 100;
         }
         else
         {

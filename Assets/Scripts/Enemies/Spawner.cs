@@ -74,7 +74,7 @@ public abstract class Spawner : MonoBehaviour
 
         foreach (GameObject enemy in enemyObjs)
         {
-            enemies[enemy].OnDeath += OnEnemyDeathEventHandler;
+            enemies[enemy].health.OnDeath += OnEnemyDeathEventHandler;
         }
     }
 
@@ -105,7 +105,7 @@ public abstract class Spawner : MonoBehaviour
 
         foreach (GameObject enemy in enemyObjs)
         {
-            enemies[enemy].OnDeath -= OnEnemyDeathEventHandler;
+            enemies[enemy].health.OnDeath -= OnEnemyDeathEventHandler;
         }
     }
 }

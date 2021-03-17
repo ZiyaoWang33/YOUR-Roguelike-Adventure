@@ -16,10 +16,10 @@ public abstract class GameplayUIElement : MonoBehaviour
         element.SetActive(true);
 
         this.player = player;
-        player.OnPlayerExit += OnPlayerExitEventHandler;
+        player.OnPlayerExit += OnPlayerDeathEventHandler;
     }
 
-    protected virtual void OnPlayerExitEventHandler()
+    protected virtual void OnPlayerDeathEventHandler()
     {
         element.SetActive(false);
     }
@@ -30,7 +30,7 @@ public abstract class GameplayUIElement : MonoBehaviour
 
         if (player)
         {
-            player.OnPlayerExit -= OnPlayerExitEventHandler;
+            player.OnPlayerExit -= OnPlayerDeathEventHandler;
         }
     }
 }

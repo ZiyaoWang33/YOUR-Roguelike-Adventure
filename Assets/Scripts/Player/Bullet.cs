@@ -11,6 +11,11 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
+    public void SetDamage(float damageMultiplier)
+    {
+        damage *= (int)damageMultiplier;
+    }
+
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Health health))

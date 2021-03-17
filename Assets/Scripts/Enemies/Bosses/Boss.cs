@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
+using System;
 
 public abstract class Boss : Enemy
 {
+    public static event Action<int> OnAnyBossDefeated;
+
     [HideInInspector] public float speedMultiplier = 1;
 
     // Change this element based on the environment that the boss is in, attached as a component.
@@ -19,6 +21,7 @@ public abstract class Boss : Enemy
     protected virtual void OnEnable()
     {
         health.OnDamageTaken += OnDamageTakenEventHandler;
+        health.OnDeath += OnDeathEventHandler;
     }
 
     protected override void Awake()
@@ -91,9 +94,15 @@ public abstract class Boss : Enemy
             secondStage = true;
         }
     }
+    private void OnDeathEventHandler()
+    {
+        OnAnyBossDefeated?.Invoke(MapData.currentLevel);
+    }
+
 
     protected virtual void OnDisable()
     {
         health.OnDamageTaken -= OnDamageTakenEventHandler;
+        health.OnDeath -= OnDeathEventHandler;
     }
 }

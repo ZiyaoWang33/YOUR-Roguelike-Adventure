@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class MapData : MonoBehaviour
 {
+    public static  Dictionary<string, int> indexes = new Dictionary<string, int>() { { "fire", 0 }, { "water", 1 }, { "wood", 2 } };
     public static int currentLevel = 0; // Remember to set to 0 after changing for testing
     public static string currentElement = string.Empty;
 

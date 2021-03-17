@@ -7,6 +7,7 @@ public abstract class Player : MonoBehaviour
     public event Action OnPlayerExit;
 
     [HideInInspector] public float speedMultiplier = 1;
+    [HideInInspector] public float damageMultipier = 1;
 
     [SerializeField] protected PlayerStats stats = null;
     [SerializeField] protected PlayerInput input = null;

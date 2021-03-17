@@ -21,7 +21,7 @@ public class FireBossVolcano : MonoBehaviour, IBossElement
 
     private void Awake()
     {
-        boss.OnDeath += RemoveDebuff;
+        boss.health.OnDeath += RemoveDebuff;
         chargeCooldown = boss.stats.attackSpeed;
     }
 

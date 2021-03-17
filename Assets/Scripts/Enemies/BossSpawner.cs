@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+// Ensure that the Boss sets in the container object should follow the order of MapData's index dictionary.
 public class BossSpawner : Spawner
 {
-    // Provides that the Boss sets in the container object should follow this order.
-    private Dictionary<string, int> indexes = new Dictionary<string, int>() { { "fire", 0 }, { "water", 1 }, { "wood", 2 } };
-
     // Set up each boss set in the room prefab so that: 1) each element is in a set, 2) each set has 3 difficult variants in order from easiest to hardest.
     private Dictionary<PlayerPerformanceManager.Performance, Enemy> bossChanges = null;
 
@@ -35,7 +33,7 @@ public class BossSpawner : Spawner
 
     protected override int SetIndexToUse(int end)
     {
-        return indexes[MapData.currentElement];
+        return MapData.indexes[MapData.currentElement];
     }
 
     protected void OnFinalPerformanceChangeEventHandler(PlayerPerformanceManager.Performance final)

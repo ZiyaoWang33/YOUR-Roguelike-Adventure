@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public event Action OnDamageTaken;
+    public event Action OnDeath;
 
     [SerializeField] private int _health = 1;
     public int health { get { return _health; } }
@@ -24,6 +25,7 @@ public class Health : MonoBehaviour
 
         if (_health <= 0)
         {
+            OnDeath?.Invoke();
             Die();
         }
 

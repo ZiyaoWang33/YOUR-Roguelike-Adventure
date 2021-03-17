@@ -27,8 +27,8 @@ public class EnemySpawner : Spawner
                 transform.position + new Vector3(Random.Range(-1f, 1f) * transform.localScale.x / 2, Random.Range(-1f, 1f) * transform.localScale.y / 2), Quaternion.identity);
             enemy.SetActive(false);
             enemyObjs.Add(enemy);
-            this.enemies.Add(enemy, enemy.GetComponent<Enemy>());
-            this.enemies[enemy].OnDeath += OnEnemyDeathEventHandler;
+            enemies.Add(enemy, enemy.GetComponent<Enemy>());
+            enemies[enemy].health.OnDeath += OnEnemyDeathEventHandler;
         }
     }
 

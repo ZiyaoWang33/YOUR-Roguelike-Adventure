@@ -5,10 +5,10 @@ public class GameOver : GameplayUIElement
     protected override void OnPlayerEnterEventHandler(Player player)
     {
         this.player = player;
-        player.OnPlayerExit += OnPlayerExitEventHandler;
+        player.GetComponent<Health>().OnDeath += OnPlayerDeathEventHandler;
     }
 
-    protected override void OnPlayerExitEventHandler()
+    protected override void OnPlayerDeathEventHandler()
     {
         element.SetActive(true);
     }
