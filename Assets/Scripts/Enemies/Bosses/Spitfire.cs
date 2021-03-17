@@ -7,5 +7,10 @@ public class Spitfire : MonoBehaviour
     private void FixedUpdate()
     {
         transform.Rotate(Vector3.forward * rotateAmount * Time.deltaTime);
+
+        if (transform.childCount == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

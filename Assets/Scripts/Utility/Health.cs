@@ -11,20 +11,26 @@ public class Health : MonoBehaviour
     [SerializeField] private int _maxHealth = 1; // Serializable for convenience, should always be set to the same value as _health in the inspector.
     public int maxHealth { get { return _maxHealth; } }
 
+    [SerializeField] private Immunity immunity = null;
+
     public float damageMultiplier = 1;
     public float defense = 0;
 
-    public void TakeDamage(int amount)
-    {
+    public void TakeDamage(int amount, bool dot = false)
+    {        
         _health -= (int)Math.Round((amount * damageMultiplier) - defense, MidpointRounding.AwayFromZero);
-        OnDamageTaken?.Invoke();      
+        OnDamageTaken?.Invoke();
+        StartCoroutine(DamageBlink(0.05f));
 
         if (_health <= 0)
         {
             Die();
         }
 
-        StartCoroutine(damageBlink(0.05f));
+        if (immunity && !dot)
+        {
+            immunity.EnablePlayerImmunity();
+        }
     }
 
     public void Heal(int amount)
@@ -38,10 +44,10 @@ public class Health : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator damageBlink(float time)
+    IEnumerator DamageBlink(float time)
     {
         GetComponentInChildren<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(time);
         GetComponentInChildren<SpriteRenderer>().enabled = true;
-    }
+    }   
 }

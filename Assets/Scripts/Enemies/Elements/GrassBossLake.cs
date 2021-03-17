@@ -11,17 +11,25 @@ public class GrassBossLake : MonoBehaviour, IBossElement
     [SerializeField] private Transform shootPoint = null;
     [SerializeField] private Transform rotator = null;
 
+    [SerializeField] private float attackCooldown = 1;
     [SerializeField] private float whipLifeTime = 0;
     [SerializeField] private float whipRotationSpeed = 0;
 
+    private float timer = 0;
+
     private float slowingEffect = 0.5f;
+
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+    }
 
     public void UseAbility(int ability)
     {
         switch (ability)
         {
             case 0:
-                GrassWaterCreepSet summonedCreeps = Instantiate(summon, transform.position, transform.rotation).GetComponent<GrassWaterCreepSet>();
+                GrassWaterCreepSet summonedCreeps = Instantiate(summon, shootPoint.position, transform.rotation).GetComponent<GrassWaterCreepSet>();
                 summonedCreeps.player = player;
                 break;
 
@@ -61,11 +69,16 @@ public class GrassBossLake : MonoBehaviour, IBossElement
             }
             player.speedMultiplier -= slowingEffect;
         }
-        
-        Vector2 direction = ((player.transform.position + player.GetDirection() * Random.Range(0, 2)) - rotator.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rotator.eulerAngles = Vector3.forward * angle;
-        Instantiate(bulletPattern, shootPoint.position, shootPoint.rotation);
+
+        if (timer <= 0)
+        {
+            Vector2 direction = ((player.transform.position + player.GetDirection() * Random.Range(0, 2)) - rotator.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            rotator.eulerAngles = Vector3.forward * angle;
+            Instantiate(bulletPattern, shootPoint.position, shootPoint.rotation);
+
+            timer = attackCooldown;
+        }
     }
 
     public string GetElement()

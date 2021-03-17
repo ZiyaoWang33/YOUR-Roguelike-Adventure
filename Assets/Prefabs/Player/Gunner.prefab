@@ -199,10 +199,6 @@ MonoBehaviour:
   rotator: {fileID: 6451784120501961282}
   character: {fileID: 9092641566491341360}
   sfx: {fileID: 4395336550128378464}
-  checkAbove: {fileID: 1300613067068034921}
-  checkBelow: {fileID: 4493382216549042542}
-  checkLeft: {fileID: 6669469048896629765}
-  checkRight: {fileID: 8104110645294388230}
   shootPoint: {fileID: 392634728034823633}
   gun: {fileID: 5088383346637455540}
   bullet: {fileID: 6414188310264313591, guid: 83536411e9e219c4785f9feafd44cf8d, type: 3}
@@ -345,6 +341,11 @@ PrefabInstance:
       propertyPath: _maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3945463629237644843, guid: 09f805698ce1432469927fe68558bc18,
+        type: 3}
+      propertyPath: immuneTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5768517460560176509, guid: 09f805698ce1432469927fe68558bc18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -475,30 +476,6 @@ SpriteRenderer:
 --- !u!4 &6451784120501961282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8552287623630751403, guid: 09f805698ce1432469927fe68558bc18,
-    type: 3}
-  m_PrefabInstance: {fileID: 3397547217009870057}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1300613067068034921 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4407396212218514304, guid: 09f805698ce1432469927fe68558bc18,
-    type: 3}
-  m_PrefabInstance: {fileID: 3397547217009870057}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4493382216549042542 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1260216662964768135, guid: 09f805698ce1432469927fe68558bc18,
-    type: 3}
-  m_PrefabInstance: {fileID: 3397547217009870057}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6669469048896629765 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8333970424393083116, guid: 09f805698ce1432469927fe68558bc18,
-    type: 3}
-  m_PrefabInstance: {fileID: 3397547217009870057}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8104110645294388230 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6868295648551522543, guid: 09f805698ce1432469927fe68558bc18,
     type: 3}
   m_PrefabInstance: {fileID: 3397547217009870057}
   m_PrefabAsset: {fileID: 0}

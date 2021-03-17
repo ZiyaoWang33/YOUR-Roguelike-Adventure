@@ -10,7 +10,16 @@ public class LavaTrap : Trap
     protected override void EnterEffect()
     {
         player.GetComponent<Health>().TakeDamage(damage);
-        player.AddComponent<DotDamage>().SetStats(damage, difficultyMultiplier, cooldown, forever);
+
+        DotDamage debuff = player.GetComponent<DotDamage>();
+        if (debuff)
+        {
+            debuff.Reapply();
+        }
+        else
+        {
+            player.AddComponent<DotDamage>().SetStats(damage, difficultyMultiplier, cooldown, forever);
+        }
     }
 
     protected override void ExitEffect()

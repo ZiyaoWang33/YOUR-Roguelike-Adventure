@@ -196,7 +196,7 @@ MonoBehaviour:
   - {fileID: 8818078147534373459, guid: 0ca96cadabc6134468ee459d11a6cbeb, type: 3}
   - {fileID: 8161373309576944181, guid: 17281f6656a266d4e82ba9fac7225815, type: 3}
   selectedDirection: 0
-  distanceToEnd: 4
+  distanceToEnd: 5
   xOffset: 26
   yOffset: 10
   endRoom: {fileID: 0}

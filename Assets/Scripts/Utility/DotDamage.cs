@@ -10,13 +10,15 @@ public class DotDamage : MonoBehaviour
     private float damageTimer = 0;
     private float damageCooldown = 1;
     private float timer = 0;
+    private float baseTimer = 1;
 
     public void SetStats(int damage, int damageMultiplier, float cooldown, float lifetime)
     {
         this.damage = damage;
         this.damageMultiplier = damageMultiplier;
         damageCooldown = cooldown;
-        timer = lifetime;
+        baseTimer = lifetime;
+        timer = baseTimer;
 
         health = gameObject.GetComponent<Health>();
         damageTimer = damageCooldown;
@@ -29,7 +31,7 @@ public class DotDamage : MonoBehaviour
 
         if (damageTimer <= 0)
         {
-            health.TakeDamage(damage * damageMultiplier);
+            health.TakeDamage(damage * damageMultiplier, true);
             damageTimer = damageCooldown;
         }
 
@@ -37,5 +39,10 @@ public class DotDamage : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    public void Reapply()
+    {
+        timer = baseTimer;
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3152264377443804573}
   - component: {fileID: 1916632864019244706}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2761981738254091401}
   - component: {fileID: 449582994858902281}
   - component: {fileID: -6540549568198801491}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

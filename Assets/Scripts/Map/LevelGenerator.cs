@@ -13,7 +13,7 @@ public class LevelGenerator : MonoBehaviour
     public enum Direction { up, right, down, left};
     [HideInInspector] public Direction selectedDirection;
 
-    public int distanceToEnd = 4;
+    public int distanceToEnd = 5;
     public float xOffset = 26f, yOffset = 10f; // x: room length, y: room height
     private Vector3 zOffset = new Vector3(0, 0, 10f); 
 

@@ -493,7 +493,7 @@ MonoBehaviour:
   potentialCenters:
   - {fileID: 462865047463682178, guid: e7c166ea8eb9baf47bb73d358531fdea, type: 3}
   selectedDirection: 0
-  distanceToEnd: 4
+  distanceToEnd: 5
   xOffset: 26
   yOffset: 10
   endRoom: {fileID: 0}

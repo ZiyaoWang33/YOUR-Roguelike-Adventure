@@ -17,6 +17,7 @@ public class FireBossWoods : MonoBehaviour, IBossElement
     Vector3 chargeDirection = Vector3.zero;
     private float chargeTimer = 0;
     private float chargeCooldown = 0;
+    private GameObject flower = null;
 
     private void Awake()
     {
@@ -56,7 +57,10 @@ public class FireBossWoods : MonoBehaviour, IBossElement
                 
                 break;
             case 1:
-                Instantiate(spitfire, transform.position + (Vector3)direction * transform.localScale.x, shootPoint.rotation);
+                if (flower == null)
+                {
+                    flower = Instantiate(spitfire, transform.position + (Vector3)direction * transform.localScale.x, shootPoint.rotation);
+                }
                 break;
         }
     }

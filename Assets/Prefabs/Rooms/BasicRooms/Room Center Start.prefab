@@ -138,6 +138,7 @@ MonoBehaviour:
   enemyToAdd: {fileID: 2003833619118053220, guid: 0bc6290b15b5fb74e9b840d12acc3702,
     type: 3}
   amountToChange: 2
+  eliteToAdd: {fileID: 0}
 --- !u!1 &4174926175206003287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,7 +2339,7 @@ GameObject:
   - component: {fileID: 8419864214775297193}
   - component: {fileID: 7596944550056973885}
   - component: {fileID: 6517853438760204272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Room Activator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

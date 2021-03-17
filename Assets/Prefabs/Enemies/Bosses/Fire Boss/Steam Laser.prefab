@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7923149386594100405}
   - component: {fileID: 5998166296131908106}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Steam Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}

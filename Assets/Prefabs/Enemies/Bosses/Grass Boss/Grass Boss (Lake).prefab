@@ -47,7 +47,7 @@ MonoBehaviour:
   root: {fileID: 8669873318594768456, guid: 74354186896e50447bae9354c30d1ddc, type: 3}
   summon: {fileID: 2016612310638056969, guid: 90a4fe25d6cc2944f8ad5cfe29ef8489, type: 3}
   whip: {fileID: 7709396802700767279, guid: 9d1efd2299d1b364b9a5735d0501afa4, type: 3}
-  bulletPattern: {fileID: 1135965632643337207, guid: 68b66bd581b626845aa6d50d2e2ca038,
+  bulletPattern: {fileID: 8293121125666816085, guid: 5726bcd1779269447a76d5271e30400d,
     type: 3}
   shootPoint: {fileID: 8129154929257433394}
   rotator: {fileID: 5045722255308589853}
