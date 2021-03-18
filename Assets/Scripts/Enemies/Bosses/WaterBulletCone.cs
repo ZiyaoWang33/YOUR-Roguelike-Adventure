@@ -23,7 +23,10 @@ public class WaterBulletCone : MonoBehaviour
         {
             foreach (GameObject bullet in bullets)
             {
-                bullet.GetComponent<Rigidbody2D>().velocity *= speed;
+                if (bullet)
+                {
+                    bullet.GetComponent<Rigidbody2D>().velocity *= speed;
+                }
             }
             SetMode();
         }

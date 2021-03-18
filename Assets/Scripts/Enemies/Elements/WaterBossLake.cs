@@ -11,7 +11,13 @@ public class WaterBossLake : MonoBehaviour, IBossElement
     [SerializeField] private int shotSpeed = 1;
 
     private bool usedCloning = false;
+    private GameObject partner = null;
     [HideInInspector] public bool isClone = false;
+
+    private void Update()
+    {
+        GetComponent<WaterBoss>().lastBossToDefeat = !partner;
+    }
 
     protected void OnDestroy()
     {
@@ -28,8 +34,10 @@ public class WaterBossLake : MonoBehaviour, IBossElement
 
                 WaterBossLake clone = Instantiate(gameObject, transform.position + (player.transform.position - transform.position) / 2, transform.rotation).GetComponent<WaterBossLake>();
                 clone.isClone = true;
-                clone.gameObject.SetActive(true);
-                clone.gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
+                clone.partner = gameObject;
+                partner = clone.gameObject;
+                partner.SetActive(true);
+                partner.GetComponentInChildren<SpriteRenderer>().enabled = true;
             }
         }
     }

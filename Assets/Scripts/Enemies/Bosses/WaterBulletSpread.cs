@@ -27,8 +27,11 @@ public class WaterBulletSpread : MonoBehaviour
     {
         foreach (GameObject bullet in bullets)
         {
-            bullet.GetComponent<Rigidbody2D>().velocity *= bulletSpeed;
-            bullet.GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
+            if (bullet)
+            {
+                bullet.GetComponent<Rigidbody2D>().velocity *= bulletSpeed;
+                bullet.GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
+            }
         }
         bulletVelocityUpdated = true;
     }

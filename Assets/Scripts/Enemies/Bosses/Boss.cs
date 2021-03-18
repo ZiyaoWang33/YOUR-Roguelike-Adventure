@@ -18,6 +18,9 @@ public abstract class Boss : Enemy
     protected int maxHealth = 0;
     protected bool secondStage = false;
 
+    // Curse orb appears after all bosses (clones included) are defeated
+    [HideInInspector] public bool lastBossToDefeat = true; 
+
     protected virtual void OnEnable()
     {
         health.OnDamageTaken += OnDamageTakenEventHandler;
@@ -96,7 +99,8 @@ public abstract class Boss : Enemy
     }
     private void OnDeathEventHandler()
     {
-        OnAnyBossDefeated?.Invoke(MapData.currentLevel);
+        if (lastBossToDefeat)
+            OnAnyBossDefeated?.Invoke(MapData.currentLevel);
     }
 
 

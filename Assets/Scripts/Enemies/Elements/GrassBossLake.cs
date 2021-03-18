@@ -30,7 +30,7 @@ public class GrassBossLake : MonoBehaviour, IBossElement
         {
             case 0:
                 GrassWaterCreepSet summonedCreeps = Instantiate(summon, shootPoint.position, transform.rotation).GetComponent<GrassWaterCreepSet>();
-                summonedCreeps.player = player;
+                summonedCreeps.SetTargets(gameObject, player);
                 break;
 
             case 1:

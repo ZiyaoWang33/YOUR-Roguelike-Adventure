@@ -3,13 +3,25 @@
 public class GrassWaterCreepSet : MonoBehaviour
 {
     private bool active = false;
-    [HideInInspector] public Player player = null;
+    private GameObject origin = null;
+    private Player player = null;
+
+    public void SetTargets(GameObject o, Player p)
+    {
+        origin = o;
+        player = p;
+    }
 
     private void Update()
     {
         if (!active)
         {
             InitializeCreeps();
+        }
+
+        if (origin == null)
+        {
+            Destroy(gameObject);
         }
     }
 
