@@ -13,12 +13,12 @@ public class WoodBranch : MonoBehaviour
 
     private const string playerTag = "Player";
 
-    public void SetStats(GameObject _origin, bool _healing = false, bool _poison = false, bool _slowing = false)
+    public void SetStats(GameObject origin, bool healing = false, bool poison = false, bool slowing = false)
     {
-        origin = _origin;
-        healing = _healing;
-        poison = _poison;
-        slowing = _slowing;
+        this.origin = origin;
+        this.healing = healing;
+        this.poison = poison;
+        this.slowing = slowing;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

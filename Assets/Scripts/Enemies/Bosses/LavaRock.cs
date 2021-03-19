@@ -14,10 +14,10 @@ public class LavaRock : Bullet
 
     private const int mass = 1000000;
 
-    public void SetStats(GameObject _origin, float _flightTime)
+    public void SetStats(GameObject origin, float flightTime)
     {
-        origin = _origin;
-        flightTime = _flightTime;
+        this.origin = origin;
+        this.flightTime = flightTime;
     }
 
     private void Update()

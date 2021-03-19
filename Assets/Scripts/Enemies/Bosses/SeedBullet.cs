@@ -12,10 +12,10 @@ public class SeedBullet : Bullet
     private const string playerTag = "Player";
     private const string wallTag = "Solid Terrain";
 
-    public void SetStats(GameObject _origin, float _flightTime)
+    public void SetStats(GameObject origin, float flightTime)
     {
-        origin = _origin;
-        flightTime = _flightTime;
+        this.origin = origin;
+        this.flightTime = flightTime;
     }
 
     private void Update()

@@ -13,7 +13,7 @@ public class HealthBar : GameplayUIElement
         base.OnPlayerEnterEventHandler(player);
 
         health = player.gameObject.GetComponent<Health>();
-        health.TakeDamage(currentHealth == 0 ? 0 : health.maxHealth - currentHealth);
+        health.TakeDamage(currentHealth <= 0 ? 0 : health.maxHealth - currentHealth);
         health.OnDamageTaken += OnDamageTakenEventHandler;
 
         slider.maxValue = health.maxHealth;

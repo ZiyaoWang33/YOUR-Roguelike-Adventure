@@ -6,10 +6,10 @@ public class GrassWaterCreepSet : MonoBehaviour
     private GameObject origin = null;
     private Player player = null;
 
-    public void SetTargets(GameObject o, Player p)
+    public void SetTargets(GameObject origin, Player player)
     {
-        origin = o;
-        player = p;
+        this.origin = origin;
+        this.player = player;
     }
 
     private void Update()

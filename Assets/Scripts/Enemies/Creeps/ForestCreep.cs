@@ -23,18 +23,21 @@ public class ForestCreep : Enemy
     {
         base.Attack();
 
-        if (playerObject == null)
+        if (player)
         {
-            playerObject = player.gameObject.GetComponent<Player>();
-        }
+            if (playerObject == null)
+            {
+                playerObject = player.gameObject.GetComponent<Player>();
+            }
 
-        Vector2 direction = ((player.transform.position + playerObject.GetDirection() * Random.Range(0, 2)) - rotator.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rotator.eulerAngles = Vector3.forward * angle;
+            Vector2 direction = ((player.transform.position + playerObject.GetDirection() * Random.Range(0, 2)) - rotator.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            rotator.eulerAngles = Vector3.forward * angle;
 
-        WoodBranchWhip newWhip = Instantiate(whip, shootPoint.position, shootPoint.rotation).GetComponent<WoodBranchWhip>();
-        newWhip.SetStats(gameObject, whipRotationSpeed, whipLifeTime, 0.5f);
+            WoodBranchWhip newWhip = Instantiate(whip, shootPoint.position, shootPoint.rotation).GetComponent<WoodBranchWhip>();
+            newWhip.SetStats(gameObject, whipRotationSpeed, whipLifeTime, 0.5f);
 
-        attackTimer = Random.Range(attackCooldown / 2, attackCooldown);
+            attackTimer = Random.Range(attackCooldown / 2, attackCooldown);
+        }        
     }
 }

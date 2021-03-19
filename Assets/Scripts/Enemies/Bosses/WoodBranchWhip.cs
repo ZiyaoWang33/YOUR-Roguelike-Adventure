@@ -22,13 +22,13 @@ public class WoodBranchWhip : MonoBehaviour
         }
     }
 
-    public void SetStats(GameObject _origin, float _rotationSpeed, float _lifeTime, float _sizeMultiplier = 1f, bool _healing = false)
+    public void SetStats(GameObject origin, float rotationSpeed, float lifeTime, float sizeMultiplier = 1f, bool healing = false)
     {
-        origin = _origin;
-        rotationSpeed = _rotationSpeed;
-        lifeTime = _lifeTime;
-        sizeMultiplier = _sizeMultiplier;
-        healing = _healing;
+        this.origin = origin;
+        this.rotationSpeed = rotationSpeed;
+        this.lifeTime = lifeTime;
+        this.sizeMultiplier = sizeMultiplier;
+        this.healing = healing;
     }
 
     private void Update()
