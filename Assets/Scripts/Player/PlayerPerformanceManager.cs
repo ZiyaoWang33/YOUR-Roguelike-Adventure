@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class PlayerPerformanceManager : MonoBehaviour
 {
-    public static event Action<Performance, Performance, RoomActivator> OnPerformanceChange; // previous, current
+    public static event Action<int> OnPerformanceChange;
     public static event Action<Performance> OnFinalPerformancChange;
     public enum Performance { GOOD, NEUTRAL, BAD };
 
@@ -11,6 +12,11 @@ public class PlayerPerformanceManager : MonoBehaviour
     [SerializeField] private int healthGoal = 0;
     // Health metrics described as the ratio of current health to the previous current health
 
+    private int performanceValue = 0;
+    private static Dictionary<Performance, int> performanceIndex = new Dictionary<Performance, int>
+    {
+        { Performance.BAD, -1 }, { Performance.NEUTRAL, 0 }, {Performance.GOOD, 1 }
+    };
     private Performance current = Performance.NEUTRAL;
     private int healthLost = 0;
     private float percentLoss = 0;
@@ -47,9 +53,12 @@ public class PlayerPerformanceManager : MonoBehaviour
         {
             current = Performance.NEUTRAL;
         }
-
         addLostHealth = false;
-        OnPerformanceChange?.Invoke(previous, current, room);
+
+        performanceValue += performanceIndex[current];
+        OnPerformanceChange?.Invoke(performanceValue);
+        Debug.Log("Last Performance: " + previous.ToString());
+        Debug.Log("Current Performance: " + current.ToString());
 
         Performance final = Performance.NEUTRAL;
         if (currentHealth >= damageThreshold)

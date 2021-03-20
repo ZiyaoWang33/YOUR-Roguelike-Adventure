@@ -2489,6 +2489,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room Center 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3444018288935729840, guid: db10b96a4047a524ab8016fad1d9074e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4003412402224110035, guid: db10b96a4047a524ab8016fad1d9074e,
         type: 3}
       propertyPath: openWhenEnemiesCleared
@@ -2499,6 +2504,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7516288273793541612, guid: db10b96a4047a524ab8016fad1d9074e,
+        type: 3}
+      propertyPath: trapToAdd
+      value: 
+      objectReference: {fileID: 565868649743231630, guid: cc52c0e7b4d7207478e6bed0a2b2d430,
+        type: 3}
     - target: {fileID: 7790380527385464800, guid: db10b96a4047a524ab8016fad1d9074e,
         type: 3}
       propertyPath: enemyContainer

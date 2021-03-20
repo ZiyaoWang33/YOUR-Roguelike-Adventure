@@ -1,17 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
 public class EnemySpawner : Spawner
 {
     [SerializeField] protected GameObject enemyToAdd = null;
     [SerializeField] protected int amountToChange = 0;
     [SerializeField] protected GameObject eliteToAdd = null;
+    [SerializeField] protected Vector2 roomSize = Vector2.zero;
 
-    protected static int performanceValue = 0;
-    protected static Dictionary<PlayerPerformanceManager.Performance, int> performanceIndex = new Dictionary<PlayerPerformanceManager.Performance, int>
-    {
-        { PlayerPerformanceManager.Performance.BAD, -1 }, { PlayerPerformanceManager.Performance.NEUTRAL, 0 }, {PlayerPerformanceManager.Performance.GOOD, 1 }
-    };
+    protected int difficultyStage = 0;
 
     protected override void OnEnable()
     {
@@ -20,13 +16,14 @@ public class EnemySpawner : Spawner
         RoomActivator.OnAnyRoomEntered += OnAnyRoomEnteredEventHandler;
     }
 
-    protected void AddEnemies(int amount, int stage)
+    protected void AddEnemies(int amount)
     {
-        int eliteAmount = stage - 1;
+        int eliteAmount = difficultyStage - 1;
+
         for (int i = 0; i < amount; i++)
         {
             GameObject enemy = Instantiate(i >= amount - eliteAmount ? eliteToAdd : enemyToAdd,
-               transform.position + new Vector3(Random.Range(-1f, 1f) * transform.localScale.x / 2, Random.Range(-1f, 1f) * transform.localScale.y / 2), Quaternion.identity);
+               transform.position + new Vector3(Random.Range(-1f, 1f) * roomSize.x / 2, Random.Range(-1f, 1f) * roomSize.y / 2), Quaternion.identity);
             enemy.SetActive(false);
             enemyObjs.Add(enemy);
             enemies.Add(enemy, enemy.GetComponent<Enemy>());
@@ -48,26 +45,20 @@ public class EnemySpawner : Spawner
     {
         if (activator.Equals(room))
         {
-            if (performanceValue > 0)
+            if (difficultyStage > 0)
             {
-                AddEnemies(amountToChange, performanceValue);
+                AddEnemies(amountToChange);
             }
-            else if (performanceValue < 0)
+            else if (difficultyStage < 0)
             {
                 RemoveEnemies(amountToChange);
             }
         }
     }
 
-    protected void OnPerformanceChangeEventHandler(PlayerPerformanceManager.Performance previous, PlayerPerformanceManager.Performance current, RoomActivator room)
+    protected void OnPerformanceChangeEventHandler(int performanceValue)
     {
-        if (activator.Equals(room))
-        {
-            Debug.Log("Last Performance: " + previous.ToString());
-            Debug.Log("Current Performance: " + current.ToString());
-
-            performanceValue += performanceIndex[current];
-        }
+        difficultyStage = performanceValue;
     }
 
     protected override void OnDisable()
