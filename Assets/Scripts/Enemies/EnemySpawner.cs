@@ -20,7 +20,6 @@ public class EnemySpawner : Spawner
 
     protected void AddEnemies(int amount, int stage)
     {
-        print(stage);
         for (int i = 0; i < amount; i++)
         {
             GameObject enemy = Instantiate(i == amount - 1 && stage > 2 ? eliteToAdd : enemyToAdd,
