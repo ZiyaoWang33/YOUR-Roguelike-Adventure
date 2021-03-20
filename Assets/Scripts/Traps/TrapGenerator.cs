@@ -49,6 +49,11 @@ public class TrapGenerator : MonoBehaviour
                 RemoveTraps();
             }
         }
+
+        foreach (GameObject trap in currentTraps)
+        {
+            trap.SetActive(true);
+        }
     }
 
     private void OnDisable()
