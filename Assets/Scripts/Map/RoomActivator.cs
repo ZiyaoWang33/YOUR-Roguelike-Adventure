@@ -28,10 +28,11 @@ public class RoomActivator : MonoBehaviour
         if (closedWhenEntered)
         {
             roomComplete = true;
+            OnAnyRoomComplete?.Invoke(this);
+
             foreach (Door door in doors)
             {
                 door.Open();
-                OnAnyRoomComplete?.Invoke(this);
             }
 
             if (exit)

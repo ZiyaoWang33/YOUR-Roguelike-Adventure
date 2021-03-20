@@ -82,7 +82,7 @@ public abstract class Spawner : MonoBehaviour
     {
         deathCount++;
 
-        if (deathCount >= enemies.Count)
+        if (deathCount == enemies.Count)
         {
             OnAllEnemiesKilled?.Invoke();
             gameObject.SetActive(false);

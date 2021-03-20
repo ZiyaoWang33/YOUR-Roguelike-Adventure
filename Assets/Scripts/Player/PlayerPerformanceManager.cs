@@ -82,5 +82,7 @@ public class PlayerPerformanceManager : MonoBehaviour
     private void OnDisable()
     {
         Player.OnPlayerEnter -= OnPlayerEnterEventHandler;
+        RoomActivator.OnAnyRoomComplete -= OnAnyRoomCompleteEventHandler;
+        health.OnDamageTaken -= OnDamageTakenEventHandler;
     }
 }
