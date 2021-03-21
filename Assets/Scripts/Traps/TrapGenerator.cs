@@ -20,7 +20,7 @@ public class TrapGenerator : MonoBehaviour
     {
         for (int i = 0; i < amountToAdd; i++)
         {
-            GameObject newTrap = Instantiate(trapToAdd, transform.position + new Vector3(Random.Range(-1f, 1f) * roomSize.x / 2, Random.Range(-1f, 1f) * roomSize.y / 2), Quaternion.identity);
+            GameObject newTrap = Instantiate(trapToAdd, transform.position + new Vector3(Random.Range(-1f, 1f) * roomSize.x / 2, Random.Range(-1f, 1f) * roomSize.y / 2, 1), Quaternion.identity);
             newTrap.SetActive(false);
             currentTraps.Add(newTrap);
         }

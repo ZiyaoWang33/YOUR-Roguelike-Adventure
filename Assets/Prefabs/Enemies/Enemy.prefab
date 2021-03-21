@@ -75,6 +75,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 15
   _maxHealth: 15
+  immunity: {fileID: 0}
+  damageMultiplier: 1
+  defense: 0
 --- !u!50 &-6509505936339284088
 Rigidbody2D:
   serializedVersion: 4

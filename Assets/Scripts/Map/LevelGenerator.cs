@@ -17,10 +17,11 @@ public class LevelGenerator : MonoBehaviour
     public float xOffset = 26f, yOffset = 10f; // x: room length, y: room height
     private Vector3 zOffset = new Vector3(0, 0, 10f); 
 
-    [SerializeField] private GameObject endRoom;
-    [SerializeField] private List<GameObject> layoutRoomObjects = new List<GameObject>();
-    [SerializeField] private List<GameObject> generatedOutlines = new List<GameObject>();
-    [SerializeField] private Dictionary<Vector3, RoomCenter> roomCenters = new Dictionary<Vector3, RoomCenter>();
+    private GameObject endRoom;
+    private RoomCenter endRoomCenter;
+    private List<GameObject> layoutRoomObjects = new List<GameObject>();
+    private List<GameObject> generatedOutlines = new List<GameObject>();
+    private Dictionary<Vector3, RoomCenter> roomCenters = new Dictionary<Vector3, RoomCenter>();
 
     void Start()
     {
@@ -69,6 +70,7 @@ public class LevelGenerator : MonoBehaviour
             else if (outline.transform.position == endRoom.transform.position)
             {
                 currentCenter = Instantiate(centerEnd, centerPosition, transform.rotation);
+                endRoomCenter = currentCenter;
             }
             else
             {
@@ -81,9 +83,9 @@ public class LevelGenerator : MonoBehaviour
             currentCenter.activator.doors = currentCenter.theRoom.doors;
         }
 
-        // Store adjacent information
         foreach (KeyValuePair<Vector3, RoomCenter> entry in roomCenters)
         {
+            // Store adjacent information
             Vector3 roomPosition = entry.Key;
             RoomActivator activator = entry.Value.activator;
       
@@ -99,6 +101,10 @@ public class LevelGenerator : MonoBehaviour
             {
                 activator.adjacent.Add(roomCenters.ContainsKey(roomPos) ? roomCenters[roomPos].activator : null);
             }
+
+            // Store information on normal and boss room(s)
+            Vector3 endPos = endRoomCenter.transform.position;
+            activator.endRoom = roomPosition != endPos ? roomCenters[endPos].activator : null;
         }
     }
 

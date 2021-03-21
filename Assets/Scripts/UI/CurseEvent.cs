@@ -31,11 +31,18 @@ public class CurseEvent : MonoBehaviour
         for (int i = 0; i < debuffChoices.Length; i++)
         {
             debuffChoices[i].GetComponentInChildren<TextMeshProUGUI>().text = orbs[level].curses[i].GetDescription();
-            orbs[level].curses[i].SetPlayer(player);
+            orbs[level].curses[i].SetPlayer(player);          
             debuffChoices[i].onClick.AddListener(orbs[level].curses[i].ChangePlayerStats);
+            debuffChoices[i].onClick.AddListener(OnCurseChosen);
         }
 
         element.SetActive(true);
+    }
+
+    private void OnCurseChosen()
+    {
+        SceneController.Instance.SwitchLevel("MapPhase");
+        MapData.currentLevel++;
     }
 
     private void OnDestroy()

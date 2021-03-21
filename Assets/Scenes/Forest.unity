@@ -255,9 +255,6 @@ MonoBehaviour:
   distanceToEnd: 5
   xOffset: 26
   yOffset: 10
-  endRoom: {fileID: 0}
-  layoutRoomObjects: []
-  generatedOutlines: []
 --- !u!4 &551121443
 Transform:
   m_ObjectHideFlags: 0

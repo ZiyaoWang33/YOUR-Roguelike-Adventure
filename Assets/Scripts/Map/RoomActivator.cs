@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +13,12 @@ public class RoomActivator : MonoBehaviour
     public event Action<Health> OnRoomEntered;
     public List<RoomActivator> adjacent = new List<RoomActivator>();
 
+    // Check and update on normal room clear to unlock boss room
+    private int roomsToClear = 3;
+    public RoomActivator endRoom = null;
+
     [SerializeField] protected LevelExit exit = null;
-    [SerializeField] protected Spawner spawner = null;
+    [SerializeField] protected Spawner spawner = null; 
 
     protected bool roomComplete = false;
     protected const string playerTag = "Player";
@@ -21,7 +26,8 @@ public class RoomActivator : MonoBehaviour
     protected virtual void OnEnable()
     {
         spawner.OnAllEnemiesKilled += OnAllEnemiesKilledEventHandler;
-    }
+        StartCoroutine(LockBossRoom(0.01f));
+    }  
 
     private void OnAllEnemiesKilledEventHandler()
     {
@@ -29,17 +35,21 @@ public class RoomActivator : MonoBehaviour
         {
             roomComplete = true;
             OnAnyRoomComplete?.Invoke(this);
-
-            foreach (Door door in doors)
-            {
-                door.Open();
-            }
+            endRoom?.NormalRoomCleared();
+            OpenDoors();
 
             if (exit)
             {
                 exit.active = true;
             }
         }
+    }
+
+    public void NormalRoomCleared()
+    {
+        roomsToClear -= 1;
+        if (roomsToClear == 0)      
+            OpenDoors();        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,19 +60,38 @@ public class RoomActivator : MonoBehaviour
 
             if (!roomComplete && closedWhenEntered)
             {
-                foreach (Door door in doors)
-                {
-                    door.Close();
-                }
-
+                CloseDoors();
                 OnAnyRoomEntered?.Invoke(this);
                 OnRoomEntered?.Invoke(other.GetComponent<Health>());
             }
         }
     }
-
+ 
     protected virtual void OnDisable()
     {
         spawner.OnAllEnemiesKilled -= OnAllEnemiesKilledEventHandler;
+    }
+
+    private void OpenDoors()
+    {
+        foreach (Door door in doors)
+        {
+            door.Open();
+        }
+    }
+
+    private void CloseDoors()
+    {
+        foreach (Door door in doors)
+        {
+            door.Close();
+        }
+    }
+
+    IEnumerator LockBossRoom(float time)
+    {
+        yield return new WaitForSeconds(time);
+        if (endRoom == null)
+            CloseDoors();
     }
 }
