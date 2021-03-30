@@ -16,4 +16,4 @@ MonoBehaviour:
   _curses:
   - {fileID: 5310725675780236399, guid: 190520c326c53284f963ead5c7510011, type: 3}
   - {fileID: 670484395104005593, guid: fb143623214782f43b85821730558b0e, type: 3}
-  _image: {fileID: 0}
+  _image: {fileID: 7431529995326980795, guid: 1cc570f5e1a1d4349b08d31577ed759f, type: 3}

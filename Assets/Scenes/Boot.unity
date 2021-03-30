@@ -457,9 +457,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: {fileID: 656337207}
   orbs:
-  - {fileID: 11400000, guid: b550a588f89488a43b839253fe10b539, type: 2}
-  - {fileID: 11400000, guid: 66ffef812acfda045ac856eb1152bc8b, type: 2}
   - {fileID: 11400000, guid: 92e78d947e0997d4693dd907532fc2af, type: 2}
+  - {fileID: 11400000, guid: 66ffef812acfda045ac856eb1152bc8b, type: 2}
+  - {fileID: 11400000, guid: b550a588f89488a43b839253fe10b539, type: 2}
   orbImage: {fileID: 784918144}
   orbText: {fileID: 1909225800}
   debuffChoices:

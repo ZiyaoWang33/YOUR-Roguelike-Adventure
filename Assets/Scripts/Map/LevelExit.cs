@@ -23,7 +23,7 @@ public class LevelExit : SceneTransition
             MapData.currentLevel++;
         }
 
-        gameObject.GetComponentInChildren<SpriteRenderer>().enabled = active;
+        // gameObject.GetComponentInChildren<SpriteRenderer>().enabled = active;
     }
 
     private void OnTriggerExit2D(Collider2D other)
