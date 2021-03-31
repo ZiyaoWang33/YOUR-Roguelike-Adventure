@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -11,6 +12,7 @@ public class CurseEvent : MonoBehaviour
     [SerializeField] private Button[] debuffChoices = null;
 
     private Player player = null;
+    private bool ableToChoose = false;
 
     private void Awake()
     {
@@ -26,12 +28,13 @@ public class CurseEvent : MonoBehaviour
     private void OnAnyBossDefeatedEventHandler(int level)
     {
         orbImage.sprite = orbs[level].image;
-        orbText.text = "Cursed" + orbs[level].element + "Orb";
+        orbText.text = "Cursed " + orbs[level].element + " Orb";
+        ableToChoose = true;
 
         for (int i = 0; i < debuffChoices.Length; i++)
         {
             debuffChoices[i].GetComponentInChildren<TextMeshProUGUI>().text = orbs[level].curses[i].GetDescription();
-            orbs[level].curses[i].SetPlayer(player);          
+            orbs[level].curses[i].SetPlayer(player);
             debuffChoices[i].onClick.AddListener(orbs[level].curses[i].ChangePlayerStats);
             debuffChoices[i].onClick.AddListener(OnCurseChosen);
         }
@@ -41,8 +44,14 @@ public class CurseEvent : MonoBehaviour
 
     private void OnCurseChosen()
     {
-        SceneController.Instance.SwitchLevel("MapPhase");
-        MapData.currentLevel++;
+        Debug.Log(gameObject.name + ": " + SceneManager.GetActiveScene().name);
+        // Prevents double activation from occurring on the second level completion
+        if (ableToChoose)
+        {
+            SceneController.Instance.SwitchLevel("MapPhase");
+            MapData.currentLevel++;
+            ableToChoose = false;
+        }        
     }
 
     private void OnDestroy()
