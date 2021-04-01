@@ -19,7 +19,7 @@ public class SpeedDebuff : MonoBehaviour
 
         if (slowTimer <= 0)
         {
-            player.speedMultiplier = 1;
+            player.speedMultiplier = player.baseSpeedMultiplier;
             Destroy(this);
         }
     }

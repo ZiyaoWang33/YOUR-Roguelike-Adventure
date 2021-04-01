@@ -50,6 +50,7 @@ public class CurseEvent : MonoBehaviour
         {
             SceneController.Instance.SwitchLevel("MapPhase");
             MapData.currentLevel++;
+            PersistentPlayerStats.Instance.SavePlayerStats();
             ableToChoose = false;
         }        
     }

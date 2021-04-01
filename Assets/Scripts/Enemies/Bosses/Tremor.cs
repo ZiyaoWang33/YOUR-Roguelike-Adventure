@@ -32,7 +32,7 @@ public class Tremor : MonoBehaviour
         if (other.gameObject.Equals(player.gameObject) && player.speedMultiplier >= 1)
         {
             playerHealth.TakeDamage(damage);
-            player.gameObject.AddComponent<SpeedDebuff>().SetUp(player, slowingEffect, slowTime);
+            player.gameObject.AddComponent<SlowingEffect>().SetStats(slowingEffect, slowTime);
         }
     }
 }

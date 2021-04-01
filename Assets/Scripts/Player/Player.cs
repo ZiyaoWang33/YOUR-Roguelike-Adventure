@@ -6,6 +6,7 @@ public abstract class Player : MonoBehaviour
     public static event Action<Player> OnPlayerEnter;
     public event Action OnPlayerExit;
 
+    [HideInInspector] public float baseSpeedMultiplier = 1;
     [HideInInspector] public float speedMultiplier = 1;
     [HideInInspector] public float damageMultipier = 1;
 
@@ -23,6 +24,8 @@ public abstract class Player : MonoBehaviour
     {
         OnPlayerEnter?.Invoke(this);
         AudioController.Instance.ChangeSFXTrack(sfx);
+        PersistentPlayerStats.Instance.SetPlayerStats(this);
+        speedMultiplier = baseSpeedMultiplier;
     }
 
     protected virtual void Update()

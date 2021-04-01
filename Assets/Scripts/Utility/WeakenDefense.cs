@@ -8,12 +8,14 @@ public class WeakenDefense : MonoBehaviour
     private float bonusDamage = 0;
     private int stackCap = 1;
     private float baseTime = 1;
+    private float baseDamageMultiplier = 1;
 
     public void SetStats(float multiplier, int maxStacks, float lifetime)
     {
         bonusDamage = multiplier;
         stackCap = maxStacks;
         baseTime = lifetime;
+        baseDamageMultiplier = gameObject.GetComponent<Health>().damageMultiplier;
         health = gameObject.GetComponent<Health>();
 
         StackEffect();
@@ -33,7 +35,7 @@ public class WeakenDefense : MonoBehaviour
     public void StackEffect()
     {
         timer = baseTime;
-        if ((health.damageMultiplier - 1) / bonusDamage <= stackCap)
+        if ((health.damageMultiplier - baseDamageMultiplier) / bonusDamage <= stackCap)
         {
             health.damageMultiplier += bonusDamage;
         }

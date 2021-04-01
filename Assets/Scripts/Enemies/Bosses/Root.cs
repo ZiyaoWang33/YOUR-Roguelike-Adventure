@@ -19,7 +19,7 @@ public class Root : MonoBehaviour
     {
         if (!permanent && other.gameObject.Equals(player.gameObject))
         {
-            player.speedMultiplier = 1;
+            player.speedMultiplier = player.baseSpeedMultiplier;
         }
     }
 }
