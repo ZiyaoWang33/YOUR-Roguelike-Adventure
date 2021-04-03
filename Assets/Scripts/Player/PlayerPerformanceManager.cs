@@ -27,7 +27,7 @@ public class PlayerPerformanceManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Player.OnPlayerEnter += OnPlayerEnterEventHandler;
+        Player.OnPlayerEnter += OnPlayerEnterEventHandler;       
         RoomActivator.OnAnyRoomComplete += OnAnyRoomCompleteEventHandler;
     }
 
@@ -36,6 +36,7 @@ public class PlayerPerformanceManager : MonoBehaviour
         health = player.GetComponent<Health>();
         currentHealth = health.maxHealth;
         health.OnDamageTaken += OnDamageTakenEventHandler;
+        ResetPerformance();
     }
 
     private void OnAnyRoomCompleteEventHandler(RoomActivator room)
@@ -86,6 +87,17 @@ public class PlayerPerformanceManager : MonoBehaviour
             addLostHealth = true;
         }
         currentHealth = health.health;
+    }
+
+    private void ResetPerformance()
+    {
+        performanceValue = 0;
+        current = Performance.NEUTRAL;
+        healthLost = 0;
+        percentLoss = 0;
+        previousCurrentHealth = 0;
+        addLostHealth = false;
+        Debug.Log("Successfully Resetted Performance");
     }
 
     private void OnDisable()

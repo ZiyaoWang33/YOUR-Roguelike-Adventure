@@ -2359,6 +2359,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2659832118219000323, guid: cb505eaad9017e446925fd5c60e92f41,
+        type: 3}
+      propertyPath: percentRestore
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2659832118219000323, guid: cb505eaad9017e446925fd5c60e92f41,
+        type: 3}
+      propertyPath: percentMissingRestore
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4347289331640620974, guid: cb505eaad9017e446925fd5c60e92f41,
         type: 3}
       propertyPath: m_IsActive
