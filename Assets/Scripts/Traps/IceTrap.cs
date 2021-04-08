@@ -2,7 +2,10 @@
 
 public class IceTrap : Trap
 {
-    [SerializeField] private float distance = 5;
+    private float distance = 5; // in tiles, not used but could be useful in the future
+    [SerializeField] private float acceleration = 1;
+    [SerializeField] private float slidingTime = 1;
+    [SerializeField] private float speedLimit = 5;
 
     protected override void EnterEffect()
     {
@@ -11,7 +14,7 @@ public class IceTrap : Trap
         {
             Destroy(player.GetComponent<SlidingEffect>());
         }
-        player.AddComponent<SlidingEffect>().SetStats(distance, true);
+        player.AddComponent<SlidingEffect>().SetStats(acceleration, slidingTime, speedLimit, true);
     }
 
     protected override void ExitEffect()

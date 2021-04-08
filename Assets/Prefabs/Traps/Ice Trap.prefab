@@ -16,6 +16,8 @@ MonoBehaviour:
   sprite: {fileID: 2408070952768489636}
   difficultyMultiplier: 1
   distance: 5
+  acceleration: 1.05
+  slidingTime: 1
 --- !u!1001 &6914582781216547957
 PrefabInstance:
   m_ObjectHideFlags: 0
