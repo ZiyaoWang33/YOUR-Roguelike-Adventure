@@ -13,7 +13,7 @@ public class SoundSlider : MonoBehaviour
                 AudioController.Instance.ChangeMasterVolume(slider.value);
                 break;
             case 1:
-                AudioController.Instance.ChangeMusicVolume(slider.value);
+                AudioController.Instance.ChangeMasterVolume(slider.value);
                 break;
             case 2:
                 AudioController.Instance.ChangeSFXVolume(slider.value);

@@ -1,23 +1,33 @@
 ﻿using UnityEngine;
+using System;
 
 public class MusicPlayer : MonoBehaviour
 {
-    [SerializeField] private AudioSource music = null;
+    public static event Action<MusicPlayer> OnAnyMusicEnter;
+
     [SerializeField] private AudioClip intro = null;
     [SerializeField] private AudioClip loop = null;
     [SerializeField] private AudioSource[] transitions = null;
 
     private void Awake()
     {
-        AudioController.Instance.ChangeMusicTrack(music);
+        OnAnyMusicEnter?.Invoke(this);
+    }
+
+    private void OnEnable()
+    {
+        AudioController.Instance.ChangeTrack(intro);
+        AudioController.Instance.SetLoop(false);
+        AudioController.Instance.Play();
     }
 
     private void Update()
     {
-        if (!music.isPlaying)
+        if (!AudioController.Instance.IsPlaying())
         {
-            music.PlayOneShot(loop);
-            music.loop = true;
+            AudioController.Instance.ChangeTrack(loop);
+            AudioController.Instance.SetLoop(true);
+            AudioController.Instance.Play();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Linq;
 
-public class MapUI : SceneTransition
+public class MapUI : MonoBehaviour
 {
     [SerializeField] private MapData data = null;
     [SerializeField] private GameObject[] deactivate = null;
@@ -9,6 +9,11 @@ public class MapUI : SceneTransition
 
     [HideInInspector] public bool unloaded = false;
     [HideInInspector] public bool loaded = false;
+
+    private void OnEnable()
+    {
+        GameStateManager.OnGameStateChange += OnGameStateChangeEventHandler;
+    }
 
     // For use in an OnClick event on a UI button/component
     public void Exit()
@@ -37,12 +42,14 @@ public class MapUI : SceneTransition
         }       
     }
 
-    protected override void OnGameStateChangeEventHandler(GameStateManager.GameState previous, GameStateManager.GameState current)
+    private void OnGameStateChangeEventHandler(GameStateManager.GameState previous, GameStateManager.GameState current)
     {
         if (previous == GameStateManager.GameState.RUNNING && current == GameStateManager.GameState.RUNNING)
         {
             if (levels.Contains(SceneController.Instance.previousLevel))
             {
+                SceneController.Instance.ToggleTransitionActive();
+
                 foreach (GameObject obj in deactivate)
                 {
                     obj.SetActive(true);
@@ -50,13 +57,21 @@ public class MapUI : SceneTransition
             }
             else
             {
+                SceneController.Instance.ToggleTransitionActive();
+
                 foreach (GameObject obj in deactivate)
                 {
                     obj.SetActive(false);
                 }
             }
+
             loaded = !loaded;
             unloaded = false;
         }
+    }
+
+    private void OnDisable()
+    {
+        GameStateManager.OnGameStateChange -= OnGameStateChangeEventHandler;
     }
 }

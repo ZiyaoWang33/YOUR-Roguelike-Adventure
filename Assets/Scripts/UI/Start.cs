@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Start : SceneTransition, IMenuButton
+public class Start : MonoBehaviour, IMenuButton
 {
     public void OnClick()
     {

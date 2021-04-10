@@ -12,6 +12,7 @@ public abstract class Player : MonoBehaviour
 
     [SerializeField] protected PlayerStats stats = null;
     [SerializeField] protected PlayerInput input = null;
+    [SerializeField] protected Rigidbody2D rb = null;
     [SerializeField] protected Transform rotator = null;
     [SerializeField] protected SpriteRenderer character = null;
     [SerializeField] protected AudioSource sfx = null;
@@ -23,7 +24,6 @@ public abstract class Player : MonoBehaviour
     protected virtual void Awake()
     {
         OnPlayerEnter?.Invoke(this);
-        AudioController.Instance.ChangeSFXTrack(sfx);
         PersistentPlayerStats.Instance.SetPlayerStats(this);
         speedMultiplier = baseSpeedMultiplier;
     }
@@ -53,7 +53,7 @@ public abstract class Player : MonoBehaviour
     {
         if (collision.CompareTag(collisionTag))
         {
-            GetComponent<Rigidbody2D>().mass = 100; // Set to large enough mass to resist any collisions
+            rb.mass = 100; // Set to large enough mass to resist any collisions
         }
     }
 
@@ -61,7 +61,7 @@ public abstract class Player : MonoBehaviour
     {
         if (collision.CompareTag(collisionTag))
         {
-            GetComponent<Rigidbody2D>().mass = 1; // Reset to default player mass
+            rb.mass = 1; // Reset to default player mass
         }
     }
 

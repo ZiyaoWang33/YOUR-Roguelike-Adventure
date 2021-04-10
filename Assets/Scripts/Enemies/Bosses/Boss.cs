@@ -3,7 +3,7 @@ using System;
 
 public abstract class Boss : Enemy
 {
-    public static event Action<int> OnAnyBossDefeated;
+    public static event Action<int> OnAnyBossDefeated; // integer indicates the level the boss was defeated on
 
     [HideInInspector] public float speedMultiplier = 1;
 
@@ -97,12 +97,12 @@ public abstract class Boss : Enemy
             secondStage = true;
         }
     }
+
     private void OnDeathEventHandler()
     {
         if (lastBossToDefeat)
             OnAnyBossDefeated?.Invoke(MapData.currentLevel);
     }
-
 
     protected virtual void OnDisable()
     {

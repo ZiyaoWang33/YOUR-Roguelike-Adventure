@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlaytestController : SceneTransition
+public class PlaytestController : MonoBehaviour
 {
     [SerializeField] private MapData mapData = null;
     [SerializeField] private string levelToLoad = string.Empty;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class LevelExit : SceneTransition
+public class LevelExit : MonoBehaviour
 {
     [HideInInspector] public bool active = false;
     private bool inRange = false;

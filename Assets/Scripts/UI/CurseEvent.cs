@@ -6,6 +6,7 @@ using TMPro;
 public class CurseEvent : MonoBehaviour
 {
     [SerializeField] private GameObject element = null;
+    [SerializeField] private GameObject winElement = null;
     [SerializeField] private CursedOrb[] orbs = null; //Ensure orbs are in the elemental order provided by MapData.indexes
     [SerializeField] private Image orbImage = null;
     [SerializeField] private TextMeshProUGUI orbText = null;
@@ -27,6 +28,12 @@ public class CurseEvent : MonoBehaviour
 
     private void OnAnyBossDefeatedEventHandler(int level)
     {
+        if (level == orbs.Length - 1)
+        {
+            winElement.SetActive(true);
+            return;
+        }
+
         orbImage.sprite = orbs[level].image;
         orbText.text = "Cursed " + orbs[level].element + " Orb";
         ableToChoose = true;

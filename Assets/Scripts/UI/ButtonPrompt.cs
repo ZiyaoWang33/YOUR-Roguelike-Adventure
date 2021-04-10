@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ButtonPrompt : SceneTransition
+public class ButtonPrompt : MonoBehaviour
 {
     private void Update()
     {

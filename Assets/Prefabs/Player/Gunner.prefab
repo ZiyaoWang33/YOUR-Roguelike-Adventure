@@ -193,9 +193,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c839432ac9c382489e55a6b44eba054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpeedMultiplier: 1
   speedMultiplier: 1
+  damageMultipier: 1
   stats: {fileID: 11400000, guid: 7225db66f1a6a224b9af6e7eca97798e, type: 2}
   input: {fileID: 9061435152585825492}
+  rb: {fileID: 4938254376244552233}
   rotator: {fileID: 6451784120501961282}
   character: {fileID: 9092641566491341360}
   sfx: {fileID: 4395336550128378464}
