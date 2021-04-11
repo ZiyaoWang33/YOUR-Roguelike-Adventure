@@ -8,7 +8,6 @@ public class PlayerInput : MonoBehaviour
 
     public bool sliding = false; // Player is sliding uncontrollably on ice
 
-    [SerializeField] private float smoothRate = 1;
     [SerializeField] private Camera cam = null;
 
     private void Update()

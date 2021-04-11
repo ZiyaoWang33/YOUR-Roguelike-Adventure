@@ -4,7 +4,8 @@ using System;
 public abstract class Player : MonoBehaviour
 {
     public static event Action<Player> OnPlayerEnter;
-    public event Action OnPlayerExit;
+    public event Action<float> OnAim;
+    public event Action OnPlayerExit, OnAttack;
 
     [HideInInspector] public float baseSpeedMultiplier = 1;
     [HideInInspector] public float speedMultiplier = 1;
@@ -14,8 +15,6 @@ public abstract class Player : MonoBehaviour
     [SerializeField] protected PlayerInput input = null;
     [SerializeField] protected Rigidbody2D rb = null;
     [SerializeField] protected Transform rotator = null;
-    [SerializeField] protected SpriteRenderer character = null;
-    [SerializeField] protected AudioSource sfx = null;
 
     protected float attackTimer = 0;
 
@@ -40,13 +39,39 @@ public abstract class Player : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        transform.position += (Vector3)input.movement * stats.speed * speedMultiplier * Time.deltaTime;
+        Move();
+        Aim();
+    }
 
+    protected virtual void Move()
+    {
+        transform.position += (Vector3)input.movement * stats.speed * speedMultiplier * Time.deltaTime;
+    }
+
+    protected virtual void Aim()
+    {
         Vector2 direction = (input.mousePos - rotator.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rotator.eulerAngles = Vector3.forward * angle;
 
-        character.flipX = angle > 90 || angle < -90;
+        OnAim?.Invoke(angle);
+    }
+
+    protected abstract void Attack();
+
+    protected virtual void TryAttack()
+    {
+        if (attackTimer <= 0)
+        {
+            attackTimer = stats.attackSpeed;
+            Attack();
+            OnAttack?.Invoke();
+        }
+    }
+
+    public Vector3 GetDirection()
+    {
+        return input.movement;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -65,24 +90,7 @@ public abstract class Player : MonoBehaviour
         }
     }
 
-    protected abstract void Attack();
-
-    protected virtual void TryAttack()
-    {
-        if (attackTimer <= 0)
-        {
-            sfx.PlayOneShot(sfx.clip);
-            attackTimer = stats.attackSpeed;
-            Attack();
-        }
-    }
-
-    public Vector3 GetDirection()
-    {
-        return input.movement;
-    }
-
-    protected virtual void OnDisable()
+    protected virtual void OnDestroy()
     {
         OnPlayerExit?.Invoke();
     }

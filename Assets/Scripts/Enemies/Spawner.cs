@@ -95,7 +95,6 @@ public abstract class Spawner : MonoBehaviour
         {
             enemies[enemy].player = player;
             enemy.SetActive(true);
-            enemies[enemy].AnimateSpawn();
         }
     }
 

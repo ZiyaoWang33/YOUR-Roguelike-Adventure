@@ -3,11 +3,13 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    public event Action<float> OnMove;
+    public event Action OnAttack;
+
     [HideInInspector] public Health player = null;
     public Health health = null;
     public EnemyStats stats = null;
 
-    [SerializeField] protected SpriteRenderer sprite = null;
     [SerializeField] protected int difficultyMultiplier = 1;
 
     protected Vector3 direction = Vector3.right;
@@ -46,7 +48,7 @@ public abstract class Enemy : MonoBehaviour
             direction = Vector3.zero;
         }
 
-        sprite.flipX = direction.x > 0;
+        OnMove?.Invoke(direction.x);
     }
 
     protected virtual void Move()
@@ -61,12 +63,8 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Attack()
     {
+        OnAttack?.Invoke();
         attackTimer = stats.attackSpeed;
-    }
-
-    public virtual void AnimateSpawn()
-    {
-        
     }
 
     // Default method for melee enemies; override completely for different cases
