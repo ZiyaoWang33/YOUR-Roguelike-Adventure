@@ -15,9 +15,9 @@ MonoBehaviour:
   player: {fileID: 0}
   sprite: {fileID: 2408070952768489636}
   difficultyMultiplier: 1
-  distance: 5
   acceleration: 1.05
   slidingTime: 1
+  speedLimit: 5
 --- !u!1001 &6914582781216547957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7877921557971618100, guid: 02027016afbc5d544ab92ba819bc8094,
+      objectReference: {fileID: 21300000, guid: 1e1903e43133b214e8ed1eea517e1e08,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a0cf6f07048d3d48a331eb5b58de539, type: 3}

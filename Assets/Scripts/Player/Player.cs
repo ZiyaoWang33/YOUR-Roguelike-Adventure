@@ -74,11 +74,15 @@ public abstract class Player : MonoBehaviour
         return input.movement;
     }
 
+    // Can only set the value of a component variable if accessing directly
+    // Doesn't work: Rigidbody2D rb = GetComponenet<RigidBody2D>(); -> rb.mass = <insert value>
+    // Works: GetComponent<RigidBody2D>().mass = <insert value>
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(collisionTag))
         {
-            rb.mass = 100; // Set to large enough mass to resist any collisions
+            GetComponent<Rigidbody2D>().mass = 100; // Set to large enough mass to resist any collisions
         }
     }
 
@@ -86,7 +90,7 @@ public abstract class Player : MonoBehaviour
     {
         if (collision.CompareTag(collisionTag))
         {
-            rb.mass = 1; // Reset to default player mass
+            GetComponent<Rigidbody2D>().mass = 1; // Reset to default player mass
         }
     }
 

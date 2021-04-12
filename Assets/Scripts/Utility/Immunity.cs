@@ -4,7 +4,8 @@ using UnityEngine;
 public class Immunity : MonoBehaviour
 {
     [SerializeField] private float immuneTime = 0;
-    private bool isImmune = false;
+    [SerializeField] private bool _isImmune = false;
+    public bool isImmune { get { return _isImmune; } }
 
     private const int playerLayer = 9;
     private const int enemyLayer = 0;
@@ -17,7 +18,7 @@ public class Immunity : MonoBehaviour
 
     private void Update()
     {
-        if (isImmune)
+        if (_isImmune)
         {
             StartCoroutine(Blinking(0.05f));
         }
@@ -32,7 +33,7 @@ public class Immunity : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
         Physics2D.IgnoreLayerCollision(playerLayer, bulletLayer, true);
-        isImmune = true;
+        _isImmune = true;
         StartCoroutine(IFrames());
     }
 
@@ -40,7 +41,7 @@ public class Immunity : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
         Physics2D.IgnoreLayerCollision(playerLayer, bulletLayer, false);
-        isImmune = false;
+        _isImmune = false;
     }
 
     IEnumerator IFrames()

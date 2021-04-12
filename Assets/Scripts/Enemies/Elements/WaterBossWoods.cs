@@ -15,7 +15,7 @@ public class WaterBossWoods : MonoBehaviour, IBossElement
         if (ability == 0)
         {
             Root newRoot = Instantiate(root, player.transform.position + player.GetDirection() * abilityDistance, Quaternion.identity).GetComponent<Root>();
-            newRoot.player = player;
+            newRoot.SetUp(player);
         }
     }
 

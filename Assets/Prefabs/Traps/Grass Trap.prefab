@@ -16,6 +16,8 @@ MonoBehaviour:
   sprite: {fileID: 8228954465311899442}
   difficultyMultiplier: 1
   debuffTime: 2
+  generateRoots: 1
+  root: {fileID: 8669873318594768456, guid: 74354186896e50447bae9354c30d1ddc, type: 3}
 --- !u!1001 &913590665378894819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,7 +89,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8414478535512612329, guid: 02027016afbc5d544ab92ba819bc8094,
+      objectReference: {fileID: 21300000, guid: 6433eb7cf1d214842b30a957c3c7805d,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a0cf6f07048d3d48a331eb5b58de539, type: 3}

@@ -63,8 +63,7 @@ public class GrassBossLake : MonoBehaviour, IBossElement
                 for (int y = 2; y < roomHeight - 1; y++)
                 {
                     Root newRoot = Instantiate(root, transform.position + new Vector3(x - roomLength / 2, y - roomHeight / 2, -1), Quaternion.identity).GetComponent<Root>();
-                    newRoot.player = player;
-                    newRoot.permanent = true;
+                    newRoot.SetUp(player, true);
                 }
             }
             player.speedMultiplier -= slowingEffect;

@@ -15,14 +15,19 @@ public class SlowingEffect : MonoBehaviour
         player.speedMultiplier -= (player.speedMultiplier > player.baseSpeedMultiplier * (1 - slowingCap)) ? slowingEffect : 0;
     }
 
+    public void RemoveDebuff()
+    {
+        player.speedMultiplier = player.baseSpeedMultiplier;
+        Destroy(this);
+    }
+
     private void Update()
     {
         timer -= Time.deltaTime;
 
         if (timer <= 0)
         {
-            player.speedMultiplier = player.baseSpeedMultiplier;
-            Destroy(this);
+            RemoveDebuff();
         }
     }
 }

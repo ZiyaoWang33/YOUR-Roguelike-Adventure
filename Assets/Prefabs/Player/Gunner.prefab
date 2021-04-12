@@ -200,8 +200,6 @@ MonoBehaviour:
   input: {fileID: 9061435152585825492}
   rb: {fileID: 4938254376244552233}
   rotator: {fileID: 6451784120501961282}
-  character: {fileID: 9092641566491341360}
-  sfx: {fileID: 4395336550128378464}
   shootPoint: {fileID: 392634728034823633}
   gun: {fileID: 5088383346637455540}
   bullet: {fileID: 6414188310264313591, guid: 83536411e9e219c4785f9feafd44cf8d, type: 3}
@@ -470,12 +468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b622d888c93b9f840ab836d3620725c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &9092641566491341360 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5839214219116377817, guid: 09f805698ce1432469927fe68558bc18,
-    type: 3}
-  m_PrefabInstance: {fileID: 3397547217009870057}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6451784120501961282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8552287623630751403, guid: 09f805698ce1432469927fe68558bc18,

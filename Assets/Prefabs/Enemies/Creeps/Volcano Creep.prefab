@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5683466190986428835
+--- !u!1 &3778159180666705340
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,59 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6956774646132264305}
-  - component: {fileID: 4917855145297012591}
+  - component: {fileID: 4617402605664942602}
   m_Layer: 0
-  m_Name: Attack Range
+  m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6956774646132264305
+--- !u!4 &4617402605664942602
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5683466190986428835}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 3778159180666705340}
+  m_LocalRotation: {x: 0, y: -0, z: 0.9238796, w: -0.38268325}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8673090169706134501}
   m_Father: {fileID: 3595832917536883585}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &4917855145297012591
-CircleCollider2D:
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 225}
+--- !u!1 &7930346942860787727
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5683466190986428835}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.75
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8673090169706134501}
+  m_Layer: 0
+  m_Name: Shoot Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8673090169706134501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7930346942860787727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4617402605664942602}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-8201098212878393889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,8 +76,13 @@ MonoBehaviour:
   player: {fileID: 0}
   health: {fileID: 5880006538188398296}
   stats: {fileID: 11400000, guid: f85b04487e076324680662e759756e6e, type: 2}
-  sprite: {fileID: 5786866224749498467}
   difficultyMultiplier: 1
+  bulletPattern: {fileID: 2446618579868916003, guid: 0f31905d0cad33249ac1cc6f6a400f32,
+    type: 3}
+  shootPoint: {fileID: 8673090169706134501}
+  rotator: {fileID: 4617402605664942602}
+  attackCooldown: 0.8
+  bulletSize: 0.8
 --- !u!1001 &8785197845205373548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,9 +202,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e5da555e3381143bbd0c89e8095f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &5786866224749498467 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3000627495760822799, guid: 689533c32ea93a34682a8940ad65fe8a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8785197845205373548}
-  m_PrefabAsset: {fileID: 0}
