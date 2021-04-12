@@ -3,78 +3,35 @@
 public class MapEntity : MonoBehaviour
 {
     public string element;  // Manually set element in inspector
-    public bool selected = false;
-    public bool slotted = false;
-    public bool locked = false;
-    [HideInInspector] public Vector3 lockedPos = Vector3.zero;
+    private bool locked = false;
 
-    [SerializeField] private Camera cam = null;
-    [SerializeField] private Vector3 startPos;
-    [SerializeField] private bool mouseOver = false;
-    [SerializeField] private float distanceFromCam; // How far in front of the camera the object is
+    [SerializeField] private MapSlot[] slots = null;
+    [SerializeField] private GameObject entityHighlight = null;
 
-
-    private void Awake()
+    public void SlotEntity()
     {
-        distanceFromCam = transform.position.z - cam.transform.position.z - 1;
-        startPos = new Vector3(transform.position.x, transform.position.y, distanceFromCam);
+        entityHighlight.SetActive(true);
+        entityHighlight.transform.position = transform.position;
     }
 
-    private void OnEnable()
+    public void DeslotEntity()
     {
-        if (locked)
-        {
-            // Set sprite to (an explosion?) here
-            startPos = lockedPos;
-        }
-        else
-        {
-            transform.position = startPos;
-        }
-    }
-
-    private void Update()
-    {
-        if (!locked)
-        {
-            // Right-click to return map monster to its initial spot
-            if (Input.GetMouseButtonDown(1) && mouseOver)
-            {
-                ReturnToStart();
-            }
-
-            if (selected)
-            {
-                transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromCam));
-            }
-        }
-    }
-
-    public void ReturnToStart()
-    {
-        selected = false;
-        transform.position = startPos;
+        entityHighlight.SetActive(false);
     }
 
     public void LockEntity()
     {
         locked = true;
-        lockedPos = transform.position;
+        GetComponent<SpriteRenderer>().enabled = true;
+        DeslotEntity();
     }
 
-    // Left-click to select/de-select map monster
     private void OnMouseDown()
     {
-        selected = !selected;
-    }
-
-    private void OnMouseEnter()
-    {
-        mouseOver = true;
-    }
-
-    private void OnMouseExit()
-    {
-        mouseOver = false;
-    }
+        if (!locked)
+        {
+            Debug.Log(gameObject.name + " placed into " + slots[MapData.currentLevel].gameObject.name);
+            slots[MapData.currentLevel].ChooseEntity(this);            
+        }
+    }   
 }

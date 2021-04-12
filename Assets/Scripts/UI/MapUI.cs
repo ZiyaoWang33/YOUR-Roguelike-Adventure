@@ -35,10 +35,6 @@ public class MapUI : MonoBehaviour
             {
                 SceneController.Instance.LoadLevel("Volcano");
             }
-            else if (MapData.currentLevel == 3)
-            {
-                SceneController.Instance.LoadLevel("Desert");
-            }
         }       
     }
 
