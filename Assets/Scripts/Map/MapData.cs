@@ -7,6 +7,7 @@ public class MapData : MonoBehaviour
     public static int currentLevel = 0; // Remember to set to 0 after changing for testing
     public static string currentElement = string.Empty;
 
+    [SerializeField] private GameObject beginButton = null;
     [SerializeField] private MapUI ui = null;
     [SerializeField] private MapSlot[] slots = null; // Should correspond in the inspector to the order of progressing through the levels
 
@@ -43,6 +44,6 @@ public class MapData : MonoBehaviour
     private void CheckSlotBeforeProceeding()
     {
         if (ui && ui.loaded)
-            ui.gameObject.SetActive(slots[currentLevel].entity);
+            beginButton.SetActive(slots[currentLevel].entity);
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class AreaHighLighter : MonoBehaviour
 {
     [SerializeField] private MapSlot[] slots = null;
+    [SerializeField] private int distanceFromCamera = 5;
 
     private void OnEnable()
     {
@@ -13,6 +14,7 @@ public class AreaHighLighter : MonoBehaviour
     IEnumerator NextLevel(float time)
     {
         yield return new WaitForSeconds(time);
-        transform.position = slots[MapData.currentLevel].transform.position;
+        Vector3 slotPos = slots[MapData.currentLevel].transform.position;
+        transform.position = new Vector3(slotPos.x, slotPos.y, slotPos.z + distanceFromCamera);
     }
 }

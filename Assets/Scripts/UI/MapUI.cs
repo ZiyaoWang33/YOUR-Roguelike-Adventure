@@ -5,7 +5,7 @@ public class MapUI : MonoBehaviour
 {
     [SerializeField] private MapData data = null;
     [SerializeField] private GameObject[] deactivate = null;
-    private static string[] levels = {"Forest", "Lake", "Volcano", "Desert", "Intro"};
+    private static string[] levels = {"Forest", "Lake", "Volcano", "Intro"};
 
     [HideInInspector] public bool unloaded = false;
     [HideInInspector] public bool loaded = false;

@@ -7,6 +7,8 @@ public class FireBossVolcano : MonoBehaviour, IBossElement
     [SerializeField] private GameObject fire = null;
     [SerializeField] private float chargeSpeedMultiplier = 1;
     [SerializeField] private float chargeDuration = 0;
+    [SerializeField] private float timeBetweenTicks = 1;
+    [SerializeField] private int damagePerTick = 1;
     [SerializeField] private GameObject rock = null;
     [SerializeField] private int rocks = 0;
     [SerializeField] private GameObject bulletPattern = null;
@@ -75,7 +77,7 @@ public class FireBossVolcano : MonoBehaviour, IBossElement
         if (player == null)
         {
             player = boss.player.GetComponent<Player>();
-            player.gameObject.AddComponent<DotDamage>().SetStats(1, 1, 1, forever);
+            player.gameObject.AddComponent<DotDamage>().SetStats(damagePerTick, 1, timeBetweenTicks, forever);
             return;
         }
 
