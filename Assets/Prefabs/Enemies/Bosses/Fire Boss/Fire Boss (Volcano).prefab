@@ -76,7 +76,6 @@ MonoBehaviour:
   player: {fileID: 0}
   health: {fileID: 5284269661831526488}
   stats: {fileID: 11400000, guid: 155dd86d468f64a469a1d6a2c5f08909, type: 2}
-  sprite: {fileID: 5225180125091378915}
   difficultyMultiplier: 1
   speedMultiplier: 1
   waitTime: 0
@@ -84,6 +83,7 @@ MonoBehaviour:
   - 1
   - 5
   useInSecondStage: 0000
+  lastBossToDefeat: 1
   keepDirection: 0
 --- !u!114 &2670035902282737534
 MonoBehaviour:
@@ -101,6 +101,8 @@ MonoBehaviour:
   fire: {fileID: 4592884275485528985, guid: 13bfb9026a630f84c94e7662f2c774b2, type: 3}
   chargeSpeedMultiplier: 10
   chargeDuration: 1
+  timeBetweenTicks: 1
+  damagePerTick: 1
   rock: {fileID: 4595570659089343716, guid: ee8db441d46bec7499a518c76dccb6d1, type: 3}
   rocks: 5
   bulletPattern: {fileID: 4001405255560073674, guid: 9df4ba56381807040b84c54dd07a3a94,
@@ -122,22 +124,22 @@ PrefabInstance:
     - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.238399
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Size.y
-      value: 2.788798
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 2914585620834667700, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
@@ -153,8 +155,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a6fc62e3860fbe642ae29357dbba856e,
+      objectReference: {fileID: 21300000, guid: 77bc4c293716f894fa153708351fd568,
         type: 3}
+    - target: {fileID: 4745057845104308318, guid: 689533c32ea93a34682a8940ad65fe8a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 3fe47fa9050f6804193b9468671ac123,
+        type: 2}
     - target: {fileID: 5192012757860291053, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -246,9 +254,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e5da555e3381143bbd0c89e8095f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &5225180125091378915 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3000627495760822799, guid: 689533c32ea93a34682a8940ad65fe8a,
-    type: 3}
-  m_PrefabInstance: {fileID: 7000792210943292652}
-  m_PrefabAsset: {fileID: 0}

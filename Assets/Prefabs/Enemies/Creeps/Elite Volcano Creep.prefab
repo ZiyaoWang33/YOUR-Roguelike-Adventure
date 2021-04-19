@@ -18,6 +18,16 @@ PrefabInstance:
       propertyPath: difficultyMultiplier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3081065358094723629, guid: 5f33cffc20b1b964c83e7e3149efa531,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3081065358094723629, guid: 5f33cffc20b1b964c83e7e3149efa531,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3595832917536883585, guid: 5f33cffc20b1b964c83e7e3149efa531,
         type: 3}
       propertyPath: m_LocalPosition.x

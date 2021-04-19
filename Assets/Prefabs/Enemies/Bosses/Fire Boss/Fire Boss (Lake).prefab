@@ -15,13 +15,13 @@ MonoBehaviour:
   player: {fileID: 0}
   health: {fileID: 18406792471999199}
   stats: {fileID: 11400000, guid: 155dd86d468f64a469a1d6a2c5f08909, type: 2}
-  sprite: {fileID: 114712050137611364}
   difficultyMultiplier: 1
   speedMultiplier: 1
   waitTime: 3
   abilityCooldowns:
   - 1
   useInSecondStage: 00
+  lastBossToDefeat: 1
   keepDirection: 0
 --- !u!114 &4699250433965056268
 MonoBehaviour:
@@ -122,22 +122,22 @@ PrefabInstance:
     - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 876985173427284483, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Size.y
-      value: 2.7887983
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
@@ -147,7 +147,7 @@ PrefabInstance:
     - target: {fileID: 2746005042627227885, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.2383986
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 2914585620834667700, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
@@ -163,13 +163,19 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 436ca5eb256dc3d4c8fe3f99c771153b,
+      objectReference: {fileID: 21300000, guid: ac8e26a49a072aa44aa9ba9ad1a02138,
         type: 3}
     - target: {fileID: 3000627495760822799, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4745057845104308318, guid: 689533c32ea93a34682a8940ad65fe8a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: d8a191a1c4bc1004cb94445c59fcb568,
+        type: 2}
     - target: {fileID: 5192012757860291053, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -261,9 +267,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e5da555e3381143bbd0c89e8095f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &114712050137611364 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3000627495760822799, guid: 689533c32ea93a34682a8940ad65fe8a,
-    type: 3}
-  m_PrefabInstance: {fileID: 2896892971992530539}
-  m_PrefabAsset: {fileID: 0}
