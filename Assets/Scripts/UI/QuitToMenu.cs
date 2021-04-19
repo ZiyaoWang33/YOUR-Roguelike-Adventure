@@ -6,5 +6,6 @@ public class QuitToMenu : MonoBehaviour, IMenuButton
     {
         SceneController.Instance.UnloadLevel("MapPhase");
         SceneController.Instance.Quit();
+        SceneController.Instance.SetTransitionActive(true);
     }
 }

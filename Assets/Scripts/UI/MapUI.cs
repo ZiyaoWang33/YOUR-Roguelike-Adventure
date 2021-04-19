@@ -44,7 +44,7 @@ public class MapUI : MonoBehaviour
         {
             if (levels.Contains(SceneController.Instance.previousLevel))
             {
-                SceneController.Instance.ToggleTransitionActive();
+                SceneController.Instance.SetTransitionActive(false);
 
                 foreach (GameObject obj in deactivate)
                 {
@@ -53,7 +53,7 @@ public class MapUI : MonoBehaviour
             }
             else
             {
-                SceneController.Instance.ToggleTransitionActive();
+                SceneController.Instance.SetTransitionActive(true);
 
                 foreach (GameObject obj in deactivate)
                 {

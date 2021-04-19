@@ -25,15 +25,15 @@ public class SceneController : Singleton<SceneController>
         }
     }
 
-    public void ToggleTransitionActive()
+    public void SetTransitionActive(bool enabled)
     {
-        transitionActive = !transitionActive;
+        transitionActive = enabled;
     }
 
     private void Start()
     {
         LoadLevel(currentLevel);
-        ToggleTransitionActive();
+        SetTransitionActive(true);
     }
 
     public void LoadLevel(string lvl)
@@ -116,7 +116,6 @@ public class SceneController : Singleton<SceneController>
     public void Quit()
     {
         LoadLevel("Menu");
-        gameState.UpdateState(GameStateManager.GameState.PREGAME);
     }
 
     private void OnDisable()
