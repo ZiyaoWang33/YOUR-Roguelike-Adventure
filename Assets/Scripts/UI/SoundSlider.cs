@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SoundSlider : MonoBehaviour
 {
-    [SerializeField] private Scrollbar slider = null;
+    [SerializeField] private Slider slider = null;
 
     public void OnValueChanged(int index)
     {
@@ -13,7 +13,7 @@ public class SoundSlider : MonoBehaviour
                 AudioController.Instance.ChangeMasterVolume(slider.value);
                 break;
             case 1:
-                AudioController.Instance.ChangeMasterVolume(slider.value);
+                AudioController.Instance.ChangeMusicVolume(slider.value);
                 break;
             case 2:
                 AudioController.Instance.ChangeSFXVolume(slider.value);
