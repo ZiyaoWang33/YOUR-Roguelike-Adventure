@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc4256d279b6754e9944f0920ef7e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vfx: {fileID: 4832085926116709160, guid: 191aa2a7eb03006419084255a54df2a7, type: 3}
   stats: {fileID: 11400000, guid: 291b0183864add84da4275f292572295, type: 2}
   damageMultiplier: 1
 --- !u!61 &-6540549568198801491

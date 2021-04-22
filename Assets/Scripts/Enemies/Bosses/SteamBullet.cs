@@ -17,7 +17,9 @@ public class SteamBullet : Bullet
         base.OnCollisionEnter2D(collision);
         if (collision.gameObject.CompareTag(playerTag))
         {
-            collision.gameObject.AddComponent<SlowingEffect>().SetStats(Random.Range(0f, 0.3f), Random.Range(1f, 2f));
+            SlowingEffect newDebuff = collision.gameObject.AddComponent<SlowingEffect>();
+            newDebuff.SetInitial(null, Random.Range(1f, 2f));
+            newDebuff.SetStats(Random.Range(0f, 0.3f));
         }
     }
 }

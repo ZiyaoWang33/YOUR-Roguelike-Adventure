@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DotDamage : MonoBehaviour
+public class DotDamage : Debuff
 {
     private int damage = 5;
     private int damageMultiplier = 1;
@@ -9,40 +9,33 @@ public class DotDamage : MonoBehaviour
 
     private float damageTimer = 0;
     private float damageCooldown = 1;
-    private float timer = 0;
     private float baseTimer = 1;
 
-    public void SetStats(int damage, int damageMultiplier, float cooldown, float lifetime)
+    public void SetStats(int damage, int damageMultiplier, float cooldown)
     {
         this.damage = damage;
         this.damageMultiplier = damageMultiplier;
         damageCooldown = cooldown;
         baseTimer = lifetime;
-        timer = baseTimer;
 
         health = gameObject.GetComponent<Health>();
         damageTimer = damageCooldown;
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         damageTimer -= Time.deltaTime;
-        timer -= Time.deltaTime;
 
         if (damageTimer <= 0)
         {
             health.TakeDamage(damage * damageMultiplier, true);
             damageTimer = damageCooldown;
         }
-
-        if (timer <= 0)
-        {
-            Destroy(this);
-        }
     }
 
     public void Reapply()
     {
-        timer = baseTimer;
+        lifetime = baseTimer;
     }
 }

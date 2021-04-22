@@ -2,8 +2,11 @@
 
 public class LavaTrap : Trap
 {
+    [SerializeField] private GameObject fireVFX = null;
     [SerializeField] private int damage = 5;
     [SerializeField] private float cooldown = 1;
+
+    private DotDamage current = null;
 
     private const float forever = 1000000; // Pseudo-eternity
 
@@ -11,19 +14,20 @@ public class LavaTrap : Trap
     {
         player.GetComponent<Health>().TakeDamage(damage);
 
-        DotDamage debuff = player.GetComponent<DotDamage>();
-        if (debuff)
+        if (current)
         {
-            debuff.Reapply();
+            current.Reapply();
         }
         else
         {
-            player.AddComponent<DotDamage>().SetStats(damage, difficultyMultiplier, cooldown, forever);
+            current = player.AddComponent<DotDamage>();
+            current.SetInitial(fireVFX, forever);
+            current.SetStats(damage, difficultyMultiplier, cooldown);
         }
     }
 
     protected override void ExitEffect()
     {
-        Destroy(player.GetComponent<DotDamage>());
+        Destroy(current);
     }
 }

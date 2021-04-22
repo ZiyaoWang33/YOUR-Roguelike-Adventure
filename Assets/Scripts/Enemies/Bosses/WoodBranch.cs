@@ -6,6 +6,7 @@ public class WoodBranch : MonoBehaviour
     [SerializeField] private int damageMultiplier = 1;
     [SerializeField] private int healingAmount = 10;
 
+    private DotDamage currentDot = null;
     private GameObject origin = null;
     private bool healing = false;
     private bool poison = false;
@@ -40,20 +41,23 @@ public class WoodBranch : MonoBehaviour
 
         if (poison)
         {
-            DotDamage debuff = player.GetComponent<DotDamage>();
-            if (debuff)
+            if (currentDot)
             {
-                debuff.Reapply();
+                currentDot.Reapply();
             }
             else
             {
-                player.AddComponent<DotDamage>().SetStats(1, damageMultiplier, 1f, Random.Range(3f, 5f));
+                currentDot = player.AddComponent<DotDamage>();
+                currentDot.SetInitial(null, Random.Range(3f, 5f));
+                currentDot.SetStats(1, damageMultiplier, 1f);
             }
         }
 
         if (slowing)
         {
-            player.AddComponent<SlowingEffect>().SetStats(Random.Range(0f, 0.3f), Random.Range(1f, 2f));
+            SlowingEffect newDebuff = player.AddComponent<SlowingEffect>();
+            newDebuff.SetInitial(null, Random.Range(1f, 2f));
+            newDebuff.SetStats(Random.Range(0f, 0.3f));
         }
     }
 }

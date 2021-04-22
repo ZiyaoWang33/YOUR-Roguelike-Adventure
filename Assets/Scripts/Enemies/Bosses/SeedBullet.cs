@@ -45,7 +45,9 @@ public class SeedBullet : Bullet
             GameObject player = collision.gameObject;
 
             player.GetComponent<Health>().TakeDamage(damage);
-            player.AddComponent<SlowingEffect>().SetStats(1, lifeTime, 1);
+            SlowingEffect newDebuff = player.AddComponent<SlowingEffect>();
+            newDebuff.SetInitial(null, lifeTime);
+            newDebuff.SetStats(1, 1);
             origin.GetComponent<Health>().Heal(damage);
 
             StartCoroutine(delayedDeath());

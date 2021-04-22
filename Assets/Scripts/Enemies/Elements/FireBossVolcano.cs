@@ -77,7 +77,9 @@ public class FireBossVolcano : MonoBehaviour, IBossElement
         if (player == null)
         {
             player = boss.player.GetComponent<Player>();
-            player.gameObject.AddComponent<DotDamage>().SetStats(damagePerTick, 1, timeBetweenTicks, forever);
+            DotDamage newDebuff = player.gameObject.AddComponent<DotDamage>();
+            newDebuff.SetInitial(null, forever);
+            newDebuff.SetStats(damagePerTick, 1, timeBetweenTicks);
             return;
         }
 

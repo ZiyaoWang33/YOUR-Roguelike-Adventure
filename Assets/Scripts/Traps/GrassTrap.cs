@@ -2,8 +2,9 @@
 
 public class GrassTrap : Trap
 {
-    [SerializeField] private float debuffTime = 2;
+    [SerializeField] private float debuffTime = 1;
     [SerializeField] private bool generateRoots = true;
+    [SerializeField] private GameObject slowVFX = null;
     [SerializeField] private GameObject root = null;
 
     private const float slowRatio = 1; // Set to 1 for 100% slow 
@@ -19,12 +20,14 @@ public class GrassTrap : Trap
         }
         else
         {
-            player.AddComponent<SlowingEffect>().SetStats(slowRatio, debuffTime, slowRatio);
+            SlowingEffect newDebuff = player.AddComponent<SlowingEffect>();
+            newDebuff.SetInitial(slowVFX, debuffTime);
+            newDebuff.SetStats(slowRatio, slowRatio);
         }
     }
 
     protected override void ExitEffect()
     {
-
+        return;
     }
 }

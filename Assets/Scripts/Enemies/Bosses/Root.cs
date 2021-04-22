@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Root : MonoBehaviour
 {
+    [SerializeField] private GameObject slowingVFX = null;
     [SerializeField] [Range(0, 1)] private float slowingEffect = 0;
     [SerializeField] [Range(0, 1)] private float slowingCap = 0.5f;
-    private Player player = null;
     private GameObject playerObject = null;
     private bool permanentEffect = false;
 
@@ -16,10 +16,7 @@ public class Root : MonoBehaviour
     {
         this.slowingEffect = slowingEffect > 0 ? slowingEffect : this.slowingEffect;
         slowingCap = slowingEffect < 1 ? slowingCap : 1;
-
-        this.player = player;
         playerObject = player.gameObject;
-
         this.permanentEffect = permanentEffect;
 
         if (lifeTime > 0)
@@ -47,7 +44,8 @@ public class Root : MonoBehaviour
             if (!permanentEffect || (permanentEffect && playerObject.GetComponent<SlowingEffect>() == null))
             {
                 debuff = playerObject.AddComponent<SlowingEffect>();
-                debuff.SetStats(slowingEffect, forever, slowingCap);
+                debuff.SetInitial(slowingVFX, forever);
+                debuff.SetStats(slowingEffect, slowingCap);
             }
         }
     }
@@ -64,7 +62,7 @@ public class Root : MonoBehaviour
         {
             if (slowingEffect < 1 || !playerIsImmune)
             {
-                debuff?.RemoveDebuff();
+                Destroy(debuff);
             }
         }
     }
@@ -72,7 +70,7 @@ public class Root : MonoBehaviour
     IEnumerator WaitThenDestroy(float time)
     {
         yield return new WaitForSeconds(time);
-        debuff?.RemoveDebuff();
+        Destroy(debuff);
         Destroy(gameObject);
     }
 }

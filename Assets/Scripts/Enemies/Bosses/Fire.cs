@@ -2,6 +2,7 @@
 
 public class Fire : MonoBehaviour
 {
+    [SerializeField] private GameObject vfx = null;
     [SerializeField] private FireStats stats = null;
     [SerializeField] private int damageMultiplier = 1;
 
@@ -27,7 +28,9 @@ public class Fire : MonoBehaviour
                 Destroy(dotdamage);
             }
         }
-        player.AddComponent<DotDamage>().SetStats(stats.damage, damageMultiplier, stats.damageCooldown, stats.dotLifetime);
+        DotDamage newDot = player.AddComponent<DotDamage>();
+        newDot.SetInitial(vfx, stats.dotLifetime);
+        newDot.SetStats(stats.damage, damageMultiplier, stats.damageCooldown);
     }
 
     private void OnDamageTakenEventHandler()
