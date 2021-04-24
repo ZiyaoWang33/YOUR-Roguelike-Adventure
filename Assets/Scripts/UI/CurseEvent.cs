@@ -13,17 +13,24 @@ public class CurseEvent : MonoBehaviour
     [SerializeField] private Button[] debuffChoices = null;
 
     private Player player = null;
+    private PlayerPerformanceManager.Performance performance = PlayerPerformanceManager.Performance.NEUTRAL;
     private bool ableToChoose = false;
 
     private void Awake()
     {
         Player.OnPlayerEnter += OnPlayerEnterEventHandler;
+        PlayerPerformanceManager.OnFinalPerformancChange += OnFinalPerformanceChangeEventHandler;
         Boss.OnAnyBossDefeated += OnAnyBossDefeatedEventHandler;
     }
 
     private void OnPlayerEnterEventHandler(Player player)
     {
         this.player = player;
+    }
+
+    private void OnFinalPerformanceChangeEventHandler(PlayerPerformanceManager.Performance performance)
+    {
+        this.performance = performance;
     }
 
     private void OnAnyBossDefeatedEventHandler(int level)
@@ -42,6 +49,7 @@ public class CurseEvent : MonoBehaviour
         {
             debuffChoices[i].GetComponentInChildren<TextMeshProUGUI>().text = orbs[level].curses[i].GetDescription();
             orbs[level].curses[i].SetPlayer(player);
+            orbs[level].curses[i].SetDrawback(performance);
             debuffChoices[i].onClick.AddListener(orbs[level].curses[i].ChangePlayerStats);
             debuffChoices[i].onClick.AddListener(OnCurseChosen);
         }
@@ -65,6 +73,7 @@ public class CurseEvent : MonoBehaviour
     private void OnDestroy()
     {
         Player.OnPlayerEnter -= OnPlayerEnterEventHandler;
+        PlayerPerformanceManager.OnFinalPerformancChange -= OnFinalPerformanceChangeEventHandler;
         Boss.OnAnyBossDefeated -= OnAnyBossDefeatedEventHandler;
     }
 }

@@ -11,5 +11,24 @@ public abstract class Curse : MonoBehaviour
 
     public abstract string GetDescription();
 
+    protected abstract void IncreaseDrawback();
+
+    protected abstract void DecreaseDrawback();
+
+    public virtual void SetDrawback(PlayerPerformanceManager.Performance performance)
+    {
+        switch (performance)
+        {
+            case PlayerPerformanceManager.Performance.BAD:
+                DecreaseDrawback();
+                break;
+            case PlayerPerformanceManager.Performance.NEUTRAL:
+                return;
+            case PlayerPerformanceManager.Performance.GOOD:
+                IncreaseDrawback();
+                break;
+        }
+    }
+
     public abstract void ChangePlayerStats();
 }
