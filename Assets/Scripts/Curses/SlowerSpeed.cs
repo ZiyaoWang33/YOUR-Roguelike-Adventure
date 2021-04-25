@@ -23,7 +23,7 @@ public class SlowerSpeed : Curse
 
     public override void ChangePlayerStats()
     {           
-        player.damageMultipier = damageMultiplier;
+        player.damageMultiplier = damageMultiplier;
         player.baseSpeedMultiplier = speedMultiplier;
         player.speedMultiplier = speedMultiplier;
     }

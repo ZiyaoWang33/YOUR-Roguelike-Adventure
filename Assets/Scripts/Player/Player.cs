@@ -9,7 +9,7 @@ public abstract class Player : MonoBehaviour
 
     [HideInInspector] public float baseSpeedMultiplier = 1;
     [HideInInspector] public float speedMultiplier = 1;
-    [HideInInspector] public float damageMultipier = 1;
+    [HideInInspector] public float damageMultiplier = 1;
 
     [SerializeField] protected PlayerStats stats = null;
     [SerializeField] protected PlayerInput input = null;

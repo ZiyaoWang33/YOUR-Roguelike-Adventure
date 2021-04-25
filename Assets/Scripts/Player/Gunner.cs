@@ -13,7 +13,7 @@ public class Gunner : Player
 
     protected override void Attack()
     {
-        Instantiate(bullet, shootPoint.position, shootPoint.rotation).GetComponent<Bullet>().SetDamage(damageMultipier);
+        Instantiate(bullet, shootPoint.position, shootPoint.rotation).GetComponent<Bullet>().SetDamage(damageMultiplier);
     }
 
     private void OnAimEventHandler(float angle)

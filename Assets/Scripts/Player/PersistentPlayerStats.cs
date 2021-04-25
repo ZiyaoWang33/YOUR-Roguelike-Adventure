@@ -29,22 +29,34 @@ public class PersistentPlayerStats : Singleton<PersistentPlayerStats>
 
         player.baseSpeedMultiplier = baseSpeedMultiplier;
         player.gameObject.GetComponent<Health>().damageMultiplier = hurtMultiplier;
-        player.damageMultipier = damageMultiplier;         
+        player.damageMultiplier = damageMultiplier;
+
+        Debug.Log("Player Stats Set -> " +
+            "Base Speed Multiplier: " + player.baseSpeedMultiplier + ", " +
+            "Damage Taken Multiplier: " + player.gameObject.GetComponent<Health>().damageMultiplier + ", " +
+            "Damage Dealt Multiplier: " + player.damageMultiplier);
     }
 
     public void SavePlayerStats()
     {
         baseSpeedMultiplier = player.baseSpeedMultiplier;
         hurtMultiplier = playerHealth.damageMultiplier;
-        damageMultiplier = player.damageMultipier;
+        damageMultiplier = player.damageMultiplier;
+
+        Debug.Log("Player Stats Saved -> " +
+            "Base Speed Multiplier: " + baseSpeedMultiplier + ", " +
+            "Damage Taken Multiplier: " + hurtMultiplier + ", " + 
+            "Damage Dealt Multiplier: " + damageMultiplier);
     }
 
-    private void ResetPlayerStats()
+    public void ResetPlayerStats()
     {
         MapData.currentLevel = 0;
         maxHealth = defaultMaxHealth;
         baseSpeedMultiplier = defaultBaseSpeedMultiplier;
         hurtMultiplier = defaultHurtMultiplier;
         damageMultiplier = defaultDamageMultiplier;
+
+        Debug.Log("Player Stats Resetted");
     }
 }

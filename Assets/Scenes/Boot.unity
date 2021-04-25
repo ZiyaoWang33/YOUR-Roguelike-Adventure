@@ -3015,6 +3015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ccaa03741230d4cb816a9e8256bae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 582195696}
 --- !u!1 &1782208847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3169,6 +3170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ccaa03741230d4cb816a9e8256bae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 582195696}
 --- !u!1001 &1805579827
 PrefabInstance:
   m_ObjectHideFlags: 0

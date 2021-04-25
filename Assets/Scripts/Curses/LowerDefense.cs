@@ -24,6 +24,6 @@ public class LowerDefense : Curse
     public override void ChangePlayerStats()
     {
         player.GetComponent<Health>().damageMultiplier = hurtMultiplier;
-        player.damageMultipier = damageMultiplier;
+        player.damageMultiplier = damageMultiplier;
     }
 }
