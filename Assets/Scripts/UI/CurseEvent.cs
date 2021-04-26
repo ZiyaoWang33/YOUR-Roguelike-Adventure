@@ -59,15 +59,16 @@ public class CurseEvent : MonoBehaviour
 
     private void OnCurseChosen()
     {
-        Debug.Log(gameObject.name + ": " + SceneManager.GetActiveScene().name);
-        // Prevents double activation from occurring on the second level completion
-        if (ableToChoose)
+        string debugMessage = gameObject.name + ": " + SceneManager.GetActiveScene().name + " Is";
+        if (ableToChoose) // Prevents double activation from occurring on the second level completion
         {
             SceneController.Instance.SwitchLevel("MapPhase");
             MapData.currentLevel++;
             PersistentPlayerStats.Instance.SavePlayerStats();
             ableToChoose = false;
-        }        
+            debugMessage += " No Longer";
+        }
+        Debug.Log(debugMessage + " Active");
     }
 
     private void OnDestroy()
