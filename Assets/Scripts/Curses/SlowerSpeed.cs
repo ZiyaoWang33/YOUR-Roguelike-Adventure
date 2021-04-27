@@ -2,9 +2,8 @@
 
 public class SlowerSpeed : Curse
 {
-    [SerializeField] private float baseSpeedMultiplier = 0.75f;
-    [SerializeField] private float speedIncrement = 0.15f;
-    [SerializeField] private float damageMultiplier = 1.5f;
+    [SerializeField] private float baseSpeedMultiplier = 0.9f;
+    [SerializeField] private float speedIncrement = 0.05f;
 
     private float speedMultiplier;
 
@@ -21,6 +20,7 @@ public class SlowerSpeed : Curse
     protected override void ResetDrawback()
     {
         speedMultiplier = baseSpeedMultiplier;
+        Debug.Log("Speed Curse Reset");
     }
 
     protected override void IncreaseDrawback()
@@ -35,7 +35,7 @@ public class SlowerSpeed : Curse
 
     public override void ChangePlayerStats()
     {           
-        player.damageMultiplier = damageMultiplier;
-        player.speedMultiplier = speedMultiplier;
+        player.baseSpeedMultiplier *= speedMultiplier;
+        base.BuffPlayer();
     }
 }

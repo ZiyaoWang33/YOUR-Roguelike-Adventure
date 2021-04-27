@@ -240,5 +240,4 @@ public class RoomPrefabs
         doubleUpDown, doubleLeftRight, doubleUpRight, doubleDownRight, doubleDownLeft, doubleLeftUp, 
         tripleUpRightDown, tripleRightDownLeft, tripleDownLeftUp, tripleLeftUpRight,
         fourway;
-
 }

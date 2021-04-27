@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
@@ -7,20 +8,35 @@ public class CurseEvent : MonoBehaviour
 {
     [SerializeField] private GameObject element = null;
     [SerializeField] private GameObject winElement = null;
-    [SerializeField] private CursedOrb[] orbs = null; //Ensure orbs are in the elemental order provided by MapData.indexes
+    // Manually enter information in the inspector
+    [SerializeField] private CursedOrb[] orbs = null;
     [SerializeField] private Image orbImage = null;
     [SerializeField] private TextMeshProUGUI orbText = null;
     [SerializeField] private Button[] debuffChoices = null;
 
+    private Dictionary<string, CursedOrb> orbDictionary = null;
     private Player player = null;
     private PlayerPerformanceManager.Performance performance = PlayerPerformanceManager.Performance.NEUTRAL;
     private bool ableToChoose = false;
 
     private void Awake()
     {
+        fillOrbDictionary();
+
         Player.OnPlayerEnter += OnPlayerEnterEventHandler;
         PlayerPerformanceManager.OnFinalPerformancChange += OnFinalPerformanceChangeEventHandler;
         Boss.OnAnyBossDefeated += OnAnyBossDefeatedEventHandler;
+    }
+
+    private void fillOrbDictionary()
+    {
+        // Keys should be the element of the orbs (check inspector)
+        orbDictionary = new Dictionary<string, CursedOrb>()
+        {
+            { "fire", orbs[0] },
+            { "water", orbs[1] },
+            { "wood", orbs[2] }
+        };
     }
 
     private void OnPlayerEnterEventHandler(Player player)
@@ -33,29 +49,33 @@ public class CurseEvent : MonoBehaviour
         this.performance = performance;
     }
 
+    
     private void OnAnyBossDefeatedEventHandler(int level)
     {
+        CursedOrb currentOrb = orbDictionary[MapData.currentElement];
+
         if (level == orbs.Length - 1)
         {
             winElement.SetActive(true);
             return;
         }
 
-        orbImage.sprite = orbs[level].image;
-        orbText.text = "Cursed " + orbs[level].element + " Orb";
+        orbImage.sprite = currentOrb.sprite;
+        orbText.text = "Cursed " + currentOrb.element + " Orb";
         ableToChoose = true;
 
         for (int i = 0; i < debuffChoices.Length; i++)
         {
-            debuffChoices[i].GetComponentInChildren<TextMeshProUGUI>().text = orbs[level].curses[i].GetDescription();
-            orbs[level].curses[i].SetPlayer(player);
-            orbs[level].curses[i].SetDrawback(performance);
-            debuffChoices[i].onClick.AddListener(orbs[level].curses[i].ChangePlayerStats);
+            debuffChoices[i].GetComponentInChildren<TextMeshProUGUI>().text = currentOrb.curses[i].GetDescription();
+            currentOrb.curses[i].SetPlayer(player);
+            currentOrb.curses[i].SetDrawback(performance);
+            debuffChoices[i].onClick.AddListener(currentOrb.curses[i].ChangePlayerStats);
             debuffChoices[i].onClick.AddListener(OnCurseChosen);
         }
 
         element.SetActive(true);
     }
+    
 
     private void OnCurseChosen()
     {
@@ -77,4 +97,12 @@ public class CurseEvent : MonoBehaviour
         PlayerPerformanceManager.OnFinalPerformancChange -= OnFinalPerformanceChangeEventHandler;
         Boss.OnAnyBossDefeated -= OnAnyBossDefeatedEventHandler;
     }
+}
+
+[System.Serializable]
+public class CursedOrb
+{
+    public string element;
+    public Sprite sprite;
+    public Curse[] curses;
 }

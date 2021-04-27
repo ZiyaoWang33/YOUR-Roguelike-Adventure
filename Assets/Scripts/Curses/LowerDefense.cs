@@ -2,9 +2,8 @@
 
 public class LowerDefense : Curse
 {
-    [SerializeField] private float baseHurtMultiplier = 1.75f;
-    [SerializeField] private float hurtIncrement = 0.25f;
-    [SerializeField] private float damageMultiplier = 1.25f;
+    [SerializeField] private float baseHurtMultiplier = 1.15f;
+    [SerializeField] private float hurtIncrement = 0.1f;
 
     private float hurtMultiplier;
 
@@ -13,14 +12,15 @@ public class LowerDefense : Curse
         ResetDrawback();
     }
 
-    protected override void ResetDrawback()
-    {
-        hurtMultiplier = baseHurtMultiplier;
-    }
-
     public override string GetDescription()
     {
         return "Less Defense";
+    }
+
+    protected override void ResetDrawback()
+    {
+        hurtMultiplier = baseHurtMultiplier;
+        Debug.Log("Defense Curse Reset");
     }
 
     protected override void IncreaseDrawback()
@@ -35,7 +35,7 @@ public class LowerDefense : Curse
 
     public override void ChangePlayerStats()
     {
-        player.GetComponent<Health>().damageMultiplier = hurtMultiplier;
-        player.damageMultiplier = damageMultiplier;
+        player.GetComponent<Health>().damageMultiplier *= hurtMultiplier;
+        base.BuffPlayer();
     }
 }
