@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : Singleton<SceneController>
 {
+    public static event Action OnQuit;
+
     [HideInInspector] public string previousLevel = string.Empty;
     public string currentLevel = string.Empty;
     [SerializeField] private GameStateManager gameState = null;
@@ -115,6 +118,7 @@ public class SceneController : Singleton<SceneController>
 
     public void Quit()
     {
+        OnQuit?.Invoke();
         LoadLevel("Menu");
     }
 

@@ -2,12 +2,10 @@
 
 public class PersistentPlayerStats : Singleton<PersistentPlayerStats>
 {
-    [SerializeField] private int defaultMaxHealth = 100;
     [SerializeField] private float defaultBaseSpeedMultiplier = 1;
     [SerializeField] private float defaultHurtMultiplier = 1;
     [SerializeField] private float defaultDamageMultiplier = 1;
 
-    private int maxHealth;
     private float baseSpeedMultiplier;
     private float hurtMultiplier;
     private float damageMultiplier;
@@ -52,11 +50,10 @@ public class PersistentPlayerStats : Singleton<PersistentPlayerStats>
     public void ResetPlayerStats()
     {
         MapData.currentLevel = 0;
-        maxHealth = defaultMaxHealth;
         baseSpeedMultiplier = defaultBaseSpeedMultiplier;
         hurtMultiplier = defaultHurtMultiplier;
         damageMultiplier = defaultDamageMultiplier;
 
-        Debug.Log("Player Stats Resetted");
+        Debug.Log("Player Stats Reset");
     }
 }
