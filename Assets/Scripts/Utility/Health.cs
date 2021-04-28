@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public event Action OnDamageTaken;
+    public event Action OnHeal;
     public event Action OnDeath;
 
     [SerializeField] private int _health = 1;
@@ -37,6 +38,7 @@ public class Health : MonoBehaviour
 
     public void Heal(int amount)
     {
+        OnHeal?.Invoke();
         _health += amount;
         _health = _health > maxHealth ? maxHealth : _health; 
     }

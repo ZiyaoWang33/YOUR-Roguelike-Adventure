@@ -11,6 +11,11 @@ public class Gunner : Player
         OnAim += OnAimEventHandler;
     }
 
+    public void ChangeAmmo(GameObject bullet)
+    {
+        this.bullet = bullet;
+    }
+
     protected override void Attack()
     {
         Instantiate(bullet, shootPoint.position, shootPoint.rotation).GetComponent<Bullet>().SetDamage(damageMultiplier);

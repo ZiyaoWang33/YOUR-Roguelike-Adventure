@@ -2,24 +2,41 @@
 
 public abstract class Curse : MonoBehaviour
 {
-    [SerializeField] private float damageMultiplier = 1.1f;
-    [SerializeField] private float speedMultiplier = 1.2f;
-    // [SerializeField] private LifeSteal lifeSteal = null; placeholder
+    [SerializeField] private float buffDamageMultiplier = 1.1f;
+    [SerializeField] private float buffSpeedMultiplier = 1.2f;
+    [SerializeField] private int healAmount = 10;
 
     protected Player player = null;
+    protected Health health = null;
 
     protected void OnEnable()
     {
         SceneController.OnQuit += ResetDrawback;
+        Player.OnPlayerEnter += SetPlayer;
     }
 
-    public void SetPlayer(Player player)
+    protected void SetPlayer(Player player)
     {
+        if (this.player != null)
+        {
+            OnDisable();
+        }
+
         this.player = player;
-        player.GetComponent<Health>().OnDeath += ResetDrawback;
+        health = player.GetComponent<Health>();
+        health.OnDeath += ResetDrawback;
+        health.OnDeath += ResetBuff;
     }
 
     public abstract string GetDescription();
+
+    protected virtual void ResetBuff()
+    {
+        if (Bullet.OnHit != null)
+        {
+            Bullet.OnHit = null;
+        }
+    }
 
     protected abstract void ResetDrawback();
 
@@ -48,25 +65,34 @@ public abstract class Curse : MonoBehaviour
     {
         string bossElement = MapData.currentElement;
 
+        void LifeSteal(Collision2D collision)
+        {
+            if (collision.gameObject.TryGetComponent(out Enemy _))
+            {
+                health.Heal(healAmount);
+            }
+        }
+
         switch (bossElement)
         {
             case "fire":
-                player.damageMultiplier *= damageMultiplier;
+                player.damageMultiplier *= buffDamageMultiplier;
                 break;
 
             case "water":
-                player.baseSpeedMultiplier *= speedMultiplier;
+                player.baseSpeedMultiplier *= buffSpeedMultiplier;
                 break;
 
             case "wood":
-                // Give player life steal effect
+                Bullet.OnHit = LifeSteal;
                 break;
         }
     }
 
     protected virtual void OnDisable()
     {
-        player.GetComponent<Health>().OnDeath -= ResetDrawback;
+        health.OnDeath -= ResetDrawback;
+        health.OnDeath -= ResetBuff;
         SceneController.OnQuit -= ResetDrawback;
     }
 }

@@ -6,6 +6,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected float speed = 1;
     [SerializeField] protected int damage = 1;
 
+    public delegate void OnHitEffect(Collision2D collision);
+    public static OnHitEffect OnHit = null;
+
     protected virtual void Awake()
     {
         rb.velocity = transform.right * speed;
@@ -21,6 +24,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Health health))
         {
             health.TakeDamage(damage);
+            OnHit?.Invoke(collision);
         }
 
         Destroy(gameObject);

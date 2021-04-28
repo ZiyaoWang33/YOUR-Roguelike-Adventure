@@ -17,13 +17,14 @@ public class HealthBar : GameplayUIElement
         health = player.gameObject.GetComponent<Health>();
         health.TakeDamage(currentHealth <= 0 ? 0 : health.maxHealth - currentHealth);
         health.Heal((int)Math.Round((health.maxHealth - currentHealth) * percentMissingRestore / 100, MidpointRounding.AwayFromZero));
-        health.OnDamageTaken += OnDamageTakenEventHandler;
+        health.OnDamageTaken += OnHealthChangeEventHandler;
+        health.OnHeal += OnHealthChangeEventHandler;
 
         slider.maxValue = health.maxHealth;
         slider.value = health.health;
     }
 
-    private void OnDamageTakenEventHandler()
+    private void OnHealthChangeEventHandler()
     {
         slider.value = health.health;
         currentHealth = health.health;
@@ -35,7 +36,7 @@ public class HealthBar : GameplayUIElement
 
         if (health)
         {
-            health.OnDamageTaken -= OnDamageTakenEventHandler;
+            health.OnDamageTaken -= OnHealthChangeEventHandler;
         }
     }
 }
