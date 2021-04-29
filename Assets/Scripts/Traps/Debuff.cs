@@ -23,7 +23,6 @@ public abstract class Debuff : MonoBehaviour
     {
         if (effectPrefab != null)
         {
-            print(true);
             GameObject newEffect = Instantiate(effectPrefab, player.transform.position, Quaternion.identity);
             newEffect.transform.parent = player.transform;
             vfx = newEffect;

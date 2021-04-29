@@ -11,7 +11,6 @@ public class EnemyMedia : MediaController<Enemy>
     private void OnMove(float direction)
     {
         sprite.flipX = direction > 0;
-        print(sprite.flipX);
     }
 
     private void OnAttack()
