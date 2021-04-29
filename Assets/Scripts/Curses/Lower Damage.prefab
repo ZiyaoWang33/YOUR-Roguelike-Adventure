@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa60039a79b186243a172c6a9b8cb633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamageMultiplier: 1.75
-  damageIncrement: 0.25
-  damageMultiplier: 1.25
+  buffDamageMultiplier: 1.1
+  buffSpeedMultiplier: 1.2
+  healAmount: 10
+  baseDamageMultiplier: 0.85
+  damageIncrement: 0.1

@@ -23,6 +23,7 @@ public class CurseEvent : MonoBehaviour
 
     private Dictionary<string, CursedOrb> orbDictionary = null;
     private Player player = null;
+    private CursedOrb currentOrb = null;
     private PlayerPerformanceManager.Performance performance = PlayerPerformanceManager.Performance.NEUTRAL;
     private bool ableToChoose = false;
 
@@ -59,7 +60,7 @@ public class CurseEvent : MonoBehaviour
     
     private void OnAnyBossDefeatedEventHandler(int level)
     {
-        CursedOrb currentOrb = orbDictionary[MapData.currentElement];
+        currentOrb = orbDictionary[MapData.currentElement];
 
         if (level == orbs.Length - 1)
         {
@@ -88,13 +89,19 @@ public class CurseEvent : MonoBehaviour
         string debugMessage = gameObject.name + ": " + SceneManager.GetActiveScene().name + " Is";
         if (ableToChoose) // Prevents double activation from occurring on the second level completion
         {
+            PersistentPlayerStats.Instance.SavePlayerStats();
             SceneController.Instance.SwitchLevel("MapPhase");
             MapData.currentLevel++;
-            PersistentPlayerStats.Instance.SavePlayerStats();
             ableToChoose = false;
             debugMessage += " No Longer";
         }
         Debug.Log(debugMessage + " Active");
+
+        for (int i = 0; i < debuffChoices.Length; i++)
+        {
+            debuffChoices[i].onClick.RemoveListener(currentOrb.curses[i].ChangePlayerStats);
+            debuffChoices[i].onClick.RemoveListener(OnCurseChosen);
+        }
     }
 
     private void OnDestroy()

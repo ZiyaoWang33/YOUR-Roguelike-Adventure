@@ -87,6 +87,13 @@ public abstract class Curse : MonoBehaviour
                 Bullet.OnHit = LifeSteal;
                 break;
         }
+
+        DebugMessage();
+    }
+
+    protected virtual void DebugMessage()
+    {
+        Debug.Log("Level " + MapData.currentLevel + ": " + gameObject.name + " was chosen.");
     }
 
     protected virtual void OnDisable()
