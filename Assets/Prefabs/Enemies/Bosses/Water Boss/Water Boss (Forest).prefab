@@ -180,6 +180,11 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4440791728609963913, guid: 689533c32ea93a34682a8940ad65fe8a,
+        type: 3}
+      propertyPath: host
+      value: 
+      objectReference: {fileID: 8301278243660024983}
     - target: {fileID: 4745057845104308318, guid: 689533c32ea93a34682a8940ad65fe8a,
         type: 3}
       propertyPath: m_Controller
