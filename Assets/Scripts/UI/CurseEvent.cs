@@ -69,7 +69,8 @@ public class CurseEvent : MonoBehaviour
         }
 
         orbImage.sprite = currentOrb.sprite;
-        orbText.text = "Cursed " + currentOrb.element + " Orb";
+        orbText.text = "<u>Cursed " + currentOrb.element + " Orb</u>";
+        GetBuffDescription();
         ableToChoose = true;
 
         for (int i = 0; i < debuffChoices.Length; i++)
@@ -82,7 +83,27 @@ public class CurseEvent : MonoBehaviour
 
         element.SetActive(true);
     }
-    
+
+
+    private void GetBuffDescription()
+    {
+        orbText.text += "\n";
+
+        switch (MapData.currentElement)
+        {
+            case "fire":
+                orbText.text += "Increased Damage";
+                break;
+
+            case "water":
+                orbText.text += "Increased Speed";
+                break;
+
+            case "wood":
+                orbText.text += "Healing Bullets";
+                break;
+        }
+    }
 
     private void OnCurseChosen()
     {

@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeedMultiplier: 1
   speedMultiplier: 1
-  damageMultipier: 1
+  damageMultiplier: 1
   stats: {fileID: 11400000, guid: 7225db66f1a6a224b9af6e7eca97798e, type: 2}
   input: {fileID: 9061435152585825492}
   rb: {fileID: 4938254376244552233}
@@ -204,6 +204,22 @@ MonoBehaviour:
   shootPoint: {fileID: 392634728034823633}
   gun: {fileID: 5088383346637455540}
   bullet: {fileID: 6414188310264313591, guid: 83536411e9e219c4785f9feafd44cf8d, type: 3}
+--- !u!114 &6523484320551314653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3662962845896338032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a429cc27cb1c5994098fe5c328459016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  host: {fileID: 2672627892575452384}
+  anim: {fileID: 0}
+  sfx: {fileID: 4395336550128378464}
+  sprite: {fileID: 9092641566491341360}
 --- !u!1 &7417607956590864534
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +485,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b622d888c93b9f840ab836d3620725c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &9092641566491341360 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5839214219116377817, guid: 09f805698ce1432469927fe68558bc18,
+    type: 3}
+  m_PrefabInstance: {fileID: 3397547217009870057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6451784120501961282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8552287623630751403, guid: 09f805698ce1432469927fe68558bc18,
