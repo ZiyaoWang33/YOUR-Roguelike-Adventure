@@ -8,7 +8,7 @@ public class QuitToMenu : MonoBehaviour, IMenuButton
     {
         playerStats.ResetPlayerStats();
         SceneController.Instance.UnloadLevel("MapPhase");
-        SceneController.Instance.Quit();
         SceneController.Instance.SetTransitionActive(true);
+        SceneController.Instance.Quit();
     }
 }
