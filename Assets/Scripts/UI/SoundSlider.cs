@@ -4,18 +4,24 @@ using UnityEngine.UI;
 public class SoundSlider : MonoBehaviour
 {
     [SerializeField] private Slider slider = null;
+    [SerializeField] private string channel = string.Empty;
 
-    public void OnValueChanged(int index)
+    private void OnEnable()
     {
-        switch (index)
+        slider.value = AudioController.Instance.GetVolume(channel + "Volume");
+    }
+
+    public void OnValueChanged()
+    {
+        switch (channel)
         {
-            case 0:
+            case "Master":
                 AudioController.Instance.ChangeMasterVolume(slider.value);
                 break;
-            case 1:
+            case "Music":
                 AudioController.Instance.ChangeMusicVolume(slider.value);
                 break;
-            case 2:
+            case "SFX":
                 AudioController.Instance.ChangeSFXVolume(slider.value);
                 break;
         }

@@ -38,6 +38,13 @@ public class AudioController : Singleton<AudioController>
         mixer.SetFloat("SFXVolume", volume);
     }
 
+    public float GetVolume(string channel)
+    {
+        float volume;
+        mixer.GetFloat(channel, out volume);
+        return volume;
+    }
+
     public void ChangeTrack(AudioClip track)
     {
         source.clip = track;
